@@ -58,28 +58,6 @@ class UtilsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider containsAllDataProvider
-     *
-     * @param string $haystack
-     * @param array  $needles
-     * @param bool   $contains
-     */
-    public function testContainsAll($haystack, $needles, $contains)
-    {
-        $expected = Utils::checkIfContainsAll($haystack, $needles);
-        self::assertEquals($contains, $expected);
-    }
-
-    public static function containsAllDataProvider()
-    {
-        return array(
-            array('aab aac aad', array('aab', 'aad'), true),
-            array('aab / ', array('aab', 'aac'), false),
-            array('abcdef ', array('ab', 'ef'), true),
-        );
-    }
-
-    /**
      * @dataProvider indexOfAnyOrLengthDataProvider
      *
      * @param string $haystack

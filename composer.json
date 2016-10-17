@@ -14,7 +14,8 @@
   "homepage": "https://github.com/mimmi20/ua-normalizer",
   "require": {
     "php": ">=5.3.3",
-    "mimmi20/wurfl-constants": "dev-update-1.8"
+    "mimmi20/wurfl-constants": "dev-update-1.8",
+    "danielstjules/stringy": "^2.3"
   },
   "require-dev": {
     "phpunit/phpunit": "^4.8 || ^5.0",

@@ -35,15 +35,17 @@ class WindowsPhone implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
-        if (Utils::checkIfContainsAnyOf($userAgent, array('WPDesktop', 'ZuneWP7'))
-            || Utils::checkIfContainsAll($userAgent, array('Mozilla/5.0 (Windows NT ', ' ARM;', ' Edge/'))
+        $s = \Stringy\create($userAgent);
+
+        if ($s->containsAny(array('WPDesktop', 'ZuneWP7'))
+            || $s->containsAll(array('Mozilla/5.0 (Windows NT ', ' ARM;', ' Edge/'))
         ) {
             $model   = WindowsPhoneHelper::getWindowsPhoneDesktopModel($userAgent);
             $version = WindowsPhoneHelper::getWindowsPhoneDesktopVersion($userAgent);
         } elseif (Utils::checkIfStartsWithAnyOf($userAgent, array('Windows Phone Ad Client', 'WindowsPhoneAdClient'))) {
             $model   = WindowsPhoneHelper::getWindowsPhoneAdClientModel($userAgent);
             $version = WindowsPhoneHelper::getWindowsPhoneVersion($userAgent);
-        } elseif (Utils::checkIfContains($userAgent, 'NativeHost')) {
+        } elseif ($s->contains('NativeHost')) {
             return $userAgent;
         } else {
             $model   = WindowsPhoneHelper::getWindowsPhoneModel($userAgent);

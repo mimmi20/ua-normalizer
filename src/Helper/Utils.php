@@ -27,13 +27,6 @@ use Wurfl\WurflConstants;
 class Utils
 {
     /**
-     * The worst allowed match tolerance
-     *
-     * @var int
-     */
-    const WORST_MATCH = 7;
-
-    /**
      * @var array Collection of mobile browser keywords
      */
     private static $mobileBrowsers = array(
@@ -193,17 +186,6 @@ class Utils
     private static $isRobot;
 
     /**
-     * Resets cached detection variables for performance
-     */
-    public static function reset()
-    {
-        self::$isDesktopBrowser = null;
-        self::$isMobileBrowser  = null;
-        self::$isSmartTv        = null;
-        self::$isRobot          = null;
-    }
-
-    /**
      * Alias of \Wurfl\Handlers\Matcher\RISMatcher::match()
      *
      * @param array  $collection
@@ -216,21 +198,6 @@ class Utils
     public static function risMatch($collection, $needle, $tolerance)
     {
         return RISMatcher::getInstance()->match($collection, $needle, $tolerance);
-    }
-
-    /**
-     * Returns the character position (index) of the $target in $string, starting from a given index.
-     * If target is not found, returns length of user agent.
-     *
-     * @param string $haystack      Haystack to be searched in
-     * @param string $needle        Target string to search for
-     * @param int    $startingIndex Character postition to start looking for the target
-     *
-     * @return int Character position (index) or full length
-     */
-    public static function indexOf($haystack, $needle, $startingIndex = 0)
-    {
-        return strpos($haystack, $needle, $startingIndex);
     }
 
     /**
@@ -281,6 +248,7 @@ class Utils
         $min = $length;
         foreach ($needles as $needle) {
             $index = self::indexOfOrLength($userAgent, $needle, $startingIndex);
+
             if ($index < $min) {
                 $min = $index;
             }
@@ -300,9 +268,11 @@ class Utils
     {
         $userAgent_lower = strtolower($userAgent);
         if (self::$isMobileBrowser === null) {
+            $s = \Stringy\create($userAgent_lower);
+
             if (self::isDesktopBrowser($userAgent)) {
                 self::$isMobileBrowser = false;
-            } elseif (self::checkIfContainsAnyOf($userAgent_lower, self::$mobileBrowsers)) {
+            } elseif ($s->containsAny(self::$mobileBrowsers)) {
                 self::$isMobileBrowser = true;
             } elseif (self::regexContains($userAgent, '/[^\d]\d{3}x\d{3}/')) {
                 self::$isMobileBrowser = true;
@@ -376,17 +346,15 @@ class Utils
             return false;
         }
 
+        $s = \Stringy\create($userAgent);
+
         //WP Desktop - Edge Mode
-        if (self::checkIfContainsAll($userAgent, array('Mozilla/5.0 (Windows NT ', ' ARM;', ' Edge/'))) {
+        if ($s->containsAll(array('Mozilla/5.0 (Windows NT ', ' ARM;', ' Edge/'))) {
             return false;
         }
 
         // Chrome
-        if (self::checkIfContains($userAgent, 'Chrome') && !self::checkIfContainsAnyOf(
-            $userAgent,
-            array('Android', 'Ventana')
-        )
-        ) {
+        if ($s->contains('Chrome') && !$s->containsAny(array('Android', 'Ventana'))) {
             return true;
         }
 
@@ -395,16 +363,12 @@ class Utils
             return false;
         }
 
-        if (self::checkIfContains(
-            $userAgent,
-            'PPC'
-        )
-        ) {
+        if ($s->contains('PPC')) {
             return false;
         } // PowerPC; not always mobile, but we'll kick it out
 
         // Firefox;  fennec is already handled in the \Wurfl\Constants::$MOBILE_BROWSERS keywords
-        if (self::checkIfContains($userAgent, 'Firefox') && !self::checkIfContains($userAgent, 'Tablet')) {
+        if ($s->contains('Firefox') && !$s->contains('Tablet')) {
             return true;
         }
 
@@ -417,7 +381,7 @@ class Utils
         }
 
         // Opera Desktop
-        if (self::checkIfStartsWithAnyOf($userAgent, array('Opera/9.80 (Windows NT', 'Opera/9.80 (Macintosh'))) {
+        if ($s->startsWith('Opera/9.80 (Windows NT') || $s->startsWith('Opera/9.80 (Macintosh')) {
             return true;
         }
 
@@ -477,7 +441,9 @@ class Utils
      */
     public static function isSpamOrCrawler($userAgent)
     {
-        return self::checkIfContainsAnyOf($userAgent, array('Spam', 'FunWebProducts'));
+        $s = \Stringy\create($userAgent);
+
+        return $s->containsAny(array('Spam', 'FunWebProducts'));
     }
 
     /**
@@ -491,6 +457,7 @@ class Utils
     public static function thirdSemiColumn($haystack)
     {
         $thirdSemiColumnIndex = self::ordinalIndexOf($haystack, ';', 3);
+
         if ($thirdSemiColumnIndex < 0) {
             return strlen($haystack);
         }
@@ -520,12 +487,15 @@ class Utils
 
         $found = 0;
         $index = -1;
+
         do {
             $index = strpos($haystack, $needle, $index + 1);
             $index = is_int($index) ? $index : -1;
+
             if ($index < 0) {
                 return $index;
             }
+
             ++$found;
         } while ($found < $ordinal);
 
@@ -634,96 +604,6 @@ class Utils
     }
 
     /**
-     * Returns true if $haystack contains $needle
-     *
-     * @param string $haystack Haystack
-     * @param string $needle   Needle
-     *
-     * @return bool
-     */
-    public static function checkIfContains($haystack, $needle)
-    {
-        return (strpos($haystack, $needle) !== false);
-    }
-
-    /**
-     * Returns true if $haystack contains any of the (string)needles in $needles
-     *
-     * @param string $haystack Haystack
-     * @param array  $needles  Array of (string)needles
-     *
-     * @return bool
-     */
-    public static function checkIfContainsAnyOf($haystack, $needles)
-    {
-        foreach ($needles as $needle) {
-            if (self::checkIfContains($haystack, $needle)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Returns true if $haystack contains all of the (string)needles in $needles
-     *
-     * @param string $haystack Haystack
-     * @param array  $needles  Array of (string)needles
-     *
-     * @return bool
-     */
-    public static function checkIfContainsAll($haystack, $needles = array())
-    {
-        foreach ($needles as $needle) {
-            if (!self::checkIfContains($haystack, $needle)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Returns true if $haystack contains $needle without regard for case
-     *
-     * @param string $haystack Haystack
-     * @param string $needle   Needle
-     *
-     * @return bool
-     */
-    public static function checkIfContainsCaseInsensitive($haystack, $needle)
-    {
-        return stripos($haystack, $needle) !== false;
-    }
-
-    /**
-     * Returns true if $haystack starts with $needle
-     *
-     * @param string $haystack Haystack
-     * @param string $needle   Needle
-     *
-     * @return bool
-     */
-    public static function checkIfStartsWith($haystack, $needle)
-    {
-        return strpos($haystack, $needle) === 0;
-    }
-
-    /**
-     * Returns true if $haystack starts with $needle
-     *
-     * @param string $haystack Haystack
-     * @param string $needle   Needle
-     *
-     * @return bool
-     */
-    public static function checkIfStartsWithCaseInsensitive($haystack, $needle)
-    {
-        return stripos($haystack, $needle) === 0;
-    }
-
-    /**
      * Returns true if $haystack starts with any of the $needles
      *
      * @param string $haystack Haystack
@@ -733,11 +613,15 @@ class Utils
      */
     public static function checkIfStartsWithAnyOf($haystack, $needles)
     {
-        if (is_array($needles)) {
-            foreach ($needles as $needle) {
-                if (strpos($haystack, $needle) === 0) {
-                    return true;
-                }
+        if (!is_array($needles)) {
+            return false;
+        }
+
+        $s = \Stringy\create($haystack);
+
+        foreach ($needles as $needle) {
+            if ($s->startsWith($needle)) {
+                return true;
             }
         }
 
@@ -760,18 +644,6 @@ class Utils
 
         // Push the tolerance to the *end* of the RIS Delimiter
         return $tolerance + strlen(WurflConstants::RIS_DELIMITER);
-    }
-
-    /**
-     * Removes the locale portion from the userAgent
-     *
-     * @param string $userAgent
-     *
-     * @return string User agent without language string
-     */
-    public static function removeLocale($userAgent)
-    {
-        return preg_replace('/; ?[a-z]{2}(?:-r?[a-zA-Z]{2})?(?:\.utf8|\.big5)?\b-?(?!:)/', '; xx-xx', $userAgent);
     }
 
     /**

@@ -18,7 +18,6 @@
 
 namespace UaNormalizer\Specific;
 
-use UaNormalizer\Helper\Utils;
 use UaNormalizer\NormalizerInterface;
 
 /**
@@ -39,10 +38,12 @@ class Opera implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
+        $s = \Stringy\create($userAgent);
+
         // Repair Opera user agents using fake version 9.80
         // Normalize: Opera/9.80 (X11; Linux x86_64; U; sv) Presto/2.9.168 Version/11.50
         // Into: Opera/11.50 (X11; Linux x86_64; U; sv) Presto/2.9.168 Version/11.50
-        if (Utils::checkIfStartsWith($userAgent, 'Opera/9.80')) {
+        if ($s->startsWith('Opera/9.80')) {
             if (preg_match('#Version/(\d+\.\d+)#', $userAgent, $matches)) {
                 $userAgent = str_replace('Opera/9.80', 'Opera/' . $matches[1], $userAgent);
             }

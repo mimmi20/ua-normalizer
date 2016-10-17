@@ -20,7 +20,6 @@ namespace UaNormalizer\Specific;
 
 use UaNormalizer\Helper\Android as AndroidHelper;
 use UaNormalizer\Helper\UcwebU3 as UcwebU3Helper;
-use UaNormalizer\Helper\Utils;
 use UaNormalizer\Helper\WindowsPhone as WindowsPhoneHelper;
 use UaNormalizer\NormalizerInterface;
 use Wurfl\WurflConstants;
@@ -43,8 +42,10 @@ class UcwebU3 implements NormalizerInterface
             return $userAgent;
         }
 
+        $s = \Stringy\create($userAgent);
+
         // Windows Phone goes before Android
-        if (Utils::checkIfContains($userAgent, 'Windows Phone')) {
+        if ($s->contains('Windows Phone')) {
             // Apply Version+Model--- matching normalization
             $model   = WindowsPhoneHelper::getWindowsPhoneModel($userAgent);
             $version = WindowsPhoneHelper::getWindowsPhoneVersion($userAgent);
@@ -54,7 +55,7 @@ class UcwebU3 implements NormalizerInterface
 
                 return $prefix . $userAgent;
             }
-        } elseif (Utils::checkIfContains($userAgent, 'Android')) {
+        } elseif ($s->contains('Android')) {
             // Android U3K Mobile + Tablet
             // Apply Version+Model--- matching normalization
 
@@ -66,7 +67,7 @@ class UcwebU3 implements NormalizerInterface
 
                 return $prefix . $userAgent;
             }
-        } elseif (Utils::checkIfContains($userAgent, 'iPhone;')) {
+        } elseif ($s->contains('iPhone;')) {
             //iPhone U3K
             if (preg_match('/iPhone OS (\d+)(?:_(\d+))?(?:_\d+)* like/', $userAgent, $matches)) {
                 $version = $matches[1] . '.' . $matches[2];
@@ -74,7 +75,7 @@ class UcwebU3 implements NormalizerInterface
 
                 return $prefix . $userAgent;
             }
-        } elseif (Utils::checkIfContains($userAgent, 'iPad')) {
+        } elseif ($s->contains('iPad')) {
             //iPad U3K
             if (preg_match(
                 '/CPU OS (\d)_?(\d)?.+like Mac.+; iPad([0-9,]+)\) AppleWebKit/',

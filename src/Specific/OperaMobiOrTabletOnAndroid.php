@@ -20,7 +20,6 @@ namespace UaNormalizer\Specific;
 
 use UaNormalizer\Helper\Android as AndroidHelper;
 use UaNormalizer\Helper\OperaMobiOrTabletOnAndroid as OperaMobiOrTabletOnAndroidHelper;
-use UaNormalizer\Helper\Utils;
 use UaNormalizer\NormalizerInterface;
 use Wurfl\WurflConstants;
 
@@ -36,8 +35,10 @@ class OperaMobiOrTabletOnAndroid implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
-        $isOperaMobile = Utils::checkIfContains($userAgent, 'Opera Mobi');
-        $isOperaTablet = Utils::checkIfContains($userAgent, 'Opera Tablet');
+        $s = \Stringy\create($userAgent);
+
+        $isOperaMobile = $s->contains('Opera Mobi');
+        $isOperaTablet = $s->contains('Opera Tablet');
 
         if ($isOperaMobile || $isOperaTablet) {
             $operaVersion   = OperaMobiOrTabletOnAndroidHelper::getOperaOnAndroidVersion($userAgent, false);
