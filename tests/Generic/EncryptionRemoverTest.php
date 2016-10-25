@@ -47,11 +47,11 @@ class EncryptionRemoverTest extends TestBase
             ),
             array(
                 'Mozilla',
-                'Mozilla'
+                'Mozilla',
             ),
             array(
                 'Firefox',
-                'Firefox'
+                'Firefox',
             ),
         );
     }
