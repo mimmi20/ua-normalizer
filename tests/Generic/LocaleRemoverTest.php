@@ -89,8 +89,30 @@ class LocaleRemoverTest extends TestBase
                 'Mozilla/5.0 (X11; U; Linux armv7l; en-GB; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
                 'Mozilla/5.0 (X11; U; Linux armv7l; xx-xx; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
             ),
-            array('Mozilla', 'Mozilla'),
-            array('Firefox', 'Firefox'),
+            array(
+                'Mozilla',
+                'Mozilla'
+            ),
+            array(
+                'Firefox',
+                'Firefox'
+            ),
+            array(
+                'Mozilla/5.0 (X11; U; Linux armv7l; en; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+                'Mozilla/5.0 (X11; U; Linux armv7l; xx-xx; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+            ),
+            array(
+                'Mozilla/5.0 (X11; U; Linux armv7l;en; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+                'Mozilla/5.0 (X11; U; Linux armv7l; xx-xx; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+            ),
+            array(
+                'Mozilla/5.0 (X11; U; Linux armv7l;en-us; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+                'Mozilla/5.0 (X11; U; Linux armv7l; xx-xx; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+            ),
+            array(
+                'Mozilla/5.0 (X11; U; Linux armv7l; en_us; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+                'Mozilla/5.0 (X11; U; Linux armv7l; xx-xx; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+            ),
         );
     }
 }

@@ -21,17 +21,19 @@ namespace UaNormalizer\Generic;
 use UaNormalizer\NormalizerInterface;
 
 /**
- * User Agent Normalizer - removes locale information from user agent
+ * User Agent Normalizer - removes UCWEB garbage from user agent
  */
-class LocaleRemover implements NormalizerInterface
+class Mozilla implements NormalizerInterface
 {
     /**
+     * This method remove the 'UP.Link' substring from user agent string.
+     *
      * @param string $userAgent
      *
-     * @return string
+     * @return string Normalized user agent
      */
     public function normalize($userAgent)
     {
-        return preg_replace('/; ?[a-z]{2}(?:[-_]r?[a-zA-Z]{2})?(?:\.utf8|\.big5)?\b-?(?!:)/', '; xx-xx', $userAgent);
+        return preg_replace('/Moz(il|zi)la\/([\d.]+) */', 'Mozilla/$1 ', $userAgent);
     }
 }
