@@ -32,6 +32,6 @@ class LocaleRemover implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
-        return preg_replace('/; ?[a-z]{2}(?:[-_]r?[a-zA-Z]{2})?(?:\.utf8|\.big5)?\b-?(?!:)/', '; xx-xx', $userAgent);
+        return preg_replace('/; ?[a-z]{2}(?:[-_]r?[a-zA-Z]{2})?(?:\.utf8|\.big5)?\b-?(?!:)/', '', $userAgent);
     }
 }

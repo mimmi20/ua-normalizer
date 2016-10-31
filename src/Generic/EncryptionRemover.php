@@ -32,6 +32,6 @@ class EncryptionRemover implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
-        return preg_replace('/; ?(I|U)/', '; x', $userAgent);
+        return preg_replace('/; ?(I|U)/', '', $userAgent);
     }
 }

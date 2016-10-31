@@ -16,34 +16,24 @@
  * @license    GNU Affero General Public License
  */
 
-namespace UaNormalizer\Specific;
+namespace UaNormalizer\Generic;
 
-use UaNormalizer\Helper\Android as AndroidHelper;
 use UaNormalizer\NormalizerInterface;
-use Wurfl\WurflConstants;
 
 /**
- * User Agent Normalizer
+ * User Agent Normalizer - removes UCWEB garbage from user agent
  */
-class Android implements NormalizerInterface
+class Linux implements NormalizerInterface
 {
     /**
+     * This method remove the 'UP.Link' substring from user agent string.
+     *
      * @param string $userAgent
      *
-     * @return string
+     * @return string Normalized user agent
      */
     public function normalize($userAgent)
     {
-        // Normalize Android version
-        $model   = AndroidHelper::getAndroidModel($userAgent, false);
-        $version = AndroidHelper::getAndroidVersion($userAgent, false);
-
-        if ($model !== null && $version !== null) {
-            $prefix = $version . ' ' . $model . WurflConstants::RIS_DELIMITER;
-
-            return $prefix . $userAgent;
-        }
-
-        return $userAgent;
+        return preg_replace('/\(Linu(s|x); */', '(Linux; ', $userAgent);
     }
 }

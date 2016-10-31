@@ -35,15 +35,15 @@ class EncryptionRemoverTest extends TestBase
         return array(
             array(
                 'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
-                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; x; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
+                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
             ),
             array(
                 'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; I; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
-                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; x; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
+                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
             ),
             array(
                 'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5;U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
-                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; x; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
+                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
             ),
             array(
                 'Mozilla',
