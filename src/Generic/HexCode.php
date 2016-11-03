@@ -21,9 +21,9 @@ namespace UaNormalizer\Generic;
 use UaNormalizer\NormalizerInterface;
 
 /**
- * User Agent Normalizer - normalizes the KHTML, like Gecko Token from user agent
+ * User Agent Normalizer - removes hexcode garbage from user agent
  */
-class KhtmlGecko implements NormalizerInterface
+class HexCode implements NormalizerInterface
 {
     /**
      * This method remove the 'UP.Link' substring from user agent string.
@@ -34,6 +34,6 @@ class KhtmlGecko implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
-        return preg_replace('/ ?\(K?(HT|TH)ML,? *like Gecko\) */', ' (KHTML, like Gecko) ', $userAgent);
+        return preg_replace('/([\\\\]+)(x)([0-9a-f]{2})/i', '', $userAgent);
     }
 }
