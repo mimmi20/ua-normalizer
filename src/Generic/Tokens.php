@@ -40,6 +40,7 @@ class Tokens implements NormalizerInterface
         $userAgent = preg_replace('/([\\\\]+)/i', '', $userAgent);
         $userAgent = preg_replace('/Versio\//', 'Version/', $userAgent);
         $userAgent = str_replace('i686 (x86_64)', 'i686 on x86_64', $userAgent);
+        $userAgent = str_replace('X11buntu', 'X11; Ubuntu', $userAgent);
         return $userAgent;
     }
 }

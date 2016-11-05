@@ -50,6 +50,10 @@ class TokensTest extends TestBase
                 'Mozilla/5.0 (Windows; U; Windows NT 6.1; de; rv:1.9.2.6) Gecko/20100625 Firefox/3.6.6 ( .NET CLR 3.5.30729)',
             ),
             array(
+                'Mozilla/5.0 (X11buntu; Linux i686 on x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2477.8 Safari/537.36',
+                'Mozilla/5.0 (X11; Ubuntu; Linux i686 on x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2477.8 Safari/537.36',
+            ),
+            array(
                 'Mozilla',
                 'Mozilla',
             ),
