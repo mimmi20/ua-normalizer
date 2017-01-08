@@ -21,7 +21,6 @@ namespace UaNormalizer\Specific;
 use UaNormalizer\Helper\Utils;
 use UaNormalizer\Helper\WindowsPhone as WindowsPhoneHelper;
 use UaNormalizer\NormalizerInterface;
-use Wurfl\WurflConstants;
 
 /**
  * User Agent Normalizer
@@ -54,7 +53,7 @@ class WindowsPhone implements NormalizerInterface
 
         if ($model !== null && $version !== null) {
             // 'WP' is for Windows Phone
-            $prefix = 'WP' . $version . ' ' . $model . WurflConstants::RIS_DELIMITER;
+            $prefix = 'WP' . $version . ' ' . $model . '---';
 
             return $prefix . $userAgent;
         }

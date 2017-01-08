@@ -20,7 +20,6 @@ namespace UaNormalizer\Specific;
 
 use UaNormalizer\Helper\HTCMac as HTCMacHelper;
 use UaNormalizer\NormalizerInterface;
-use Wurfl\WurflConstants;
 
 /**
  * User Agent Normalizer
@@ -37,7 +36,7 @@ class HTCMac implements NormalizerInterface
         $model = HTCMacHelper::getHTCMacModel($userAgent, false);
 
         if ($model !== null) {
-            $prefix = $model . WurflConstants::RIS_DELIMITER;
+            $prefix = $model . '---';
 
             return $prefix . $userAgent;
         }

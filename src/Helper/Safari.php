@@ -18,8 +18,6 @@
 
 namespace UaNormalizer\Helper;
 
-use Wurfl\WurflConstants;
-
 /**
  * SafariHandler
  *
@@ -42,14 +40,14 @@ class Safari
         $idx    = strpos($userAgent, $search);
 
         if ($idx === false) {
-            return WurflConstants::NO_MATCH;
+            return null;
         }
 
         $idx += strlen($search);
         $endIdx = strpos($userAgent, '.', $idx);
 
         if ($endIdx === false) {
-            return WurflConstants::NO_MATCH;
+            return null;
         }
 
         return substr($userAgent, $idx, $endIdx - $idx);

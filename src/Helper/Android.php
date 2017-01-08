@@ -15,8 +15,6 @@
 
 namespace UaNormalizer\Helper;
 
-use Wurfl\WurflConstants;
-
 /**
  * AndroidUserAgentHandler
  *
@@ -99,7 +97,7 @@ class Android
         );
 
         // Initializing $version
-        $version = WurflConstants::NO_MATCH;
+        $version = null;
 
         // Look for 'Android <Version>' first and then for 'Android/<Version>'
         if (preg_match('#Android (\d\.\d)#', $userAgent, $matches)) {
@@ -113,7 +111,7 @@ class Android
             return $version;
         }
 
-        return $useDefault ? self::ANDROID_DEFAULT_VERSION : WurflConstants::NO_MATCH;
+        return $useDefault ? self::ANDROID_DEFAULT_VERSION : null;
     }
 
     /**
@@ -153,13 +151,13 @@ class Android
         )) {
             $model = $matches[1];
         } else {
-            return WurflConstants::NO_MATCH;
+            return null;
         }
 
         // The previous RegEx may return just 'Build/.*' for UAs like:
         // HTC_Dream Mozilla/5.0 (Linux; U; Android 1.5; xx-xx; Build/CUPCAKE) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1
         if (strpos($model, 'Build/') === 0) {
-            return WurflConstants::NO_MATCH;
+            return null;
         }
 
         // Replace xx-xx (locale) in the model name with ''
@@ -213,6 +211,6 @@ class Android
         // Normalize Samsung and Sony/SonyEricsson model name changes due to Chrome Mobile
         $model = preg_replace('#^(?:SAMSUNG|SonyEricsson|Sony)[ \-]?#', '', $model);
 
-        return (strlen($model) === 0) ? WurflConstants::NO_MATCH : $model;
+        return (strlen($model) === 0) ? null : $model;
     }
 }

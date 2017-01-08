@@ -18,8 +18,6 @@
 
 namespace UaNormalizer\Helper;
 
-use Wurfl\WurflConstants;
-
 /**
  * HTCMacUserAgentHandler
  *
@@ -44,6 +42,6 @@ class HTCMac
             return $model;
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 }

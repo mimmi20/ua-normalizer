@@ -20,7 +20,6 @@ namespace UaNormalizer\Specific;
 
 use UaNormalizer\Helper\Safari as SafariHelper;
 use UaNormalizer\NormalizerInterface;
-use Wurfl\WurflConstants;
 
 /**
  * User Agent Normalizer
@@ -46,7 +45,7 @@ class Safari implements NormalizerInterface
             return $userAgent;
         }
 
-        $prefix = 'Safari ' . $safariVersion . WurflConstants::RIS_DELIMITER;
+        $prefix = 'Safari ' . $safariVersion . '---';
 
         return $prefix . $userAgent;
     }

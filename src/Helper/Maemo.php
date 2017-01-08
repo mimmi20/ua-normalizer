@@ -18,8 +18,6 @@
 
 namespace UaNormalizer\Helper;
 
-use Wurfl\WurflConstants;
-
 /**
  * MaemoUserAgentHandler
  *
@@ -49,6 +47,6 @@ class Maemo
             return $model;
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 }

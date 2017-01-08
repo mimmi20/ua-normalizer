@@ -20,7 +20,6 @@ namespace UaNormalizer\Specific;
 
 use UaNormalizer\Helper\OperaMini as OperaMiniHelper;
 use UaNormalizer\NormalizerInterface;
-use Wurfl\WurflConstants;
 
 /**
  * User Agent Normalizer
@@ -32,7 +31,7 @@ class OperaMini implements NormalizerInterface
         $model = OperaMiniHelper::getOperaModel($userAgent, false);
 
         if ($model !== null) {
-            $prefix    = $model . WurflConstants::RIS_DELIMITER;
+            $prefix    = $model . '---';
             $userAgent = $prefix . $userAgent;
 
             return $userAgent;

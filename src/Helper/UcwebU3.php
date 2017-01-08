@@ -19,7 +19,6 @@
 namespace UaNormalizer\Helper;
 
 use UaNormalizer\Helper\Android as AndroidHelper;
-use Wurfl\WurflConstants;
 
 /**
  * UcwebU3UserAgentHandler
@@ -45,7 +44,7 @@ class UcwebU3
             return $ucVersion;
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 
     /**
@@ -64,7 +63,7 @@ class UcwebU3
             }
         }
 
-        return $useDefault ? AndroidHelper::ANDROID_DEFAULT_VERSION : WurflConstants::NO_MATCH;
+        return $useDefault ? AndroidHelper::ANDROID_DEFAULT_VERSION : null;
     }
 
     /**
@@ -78,7 +77,7 @@ class UcwebU3
     {
         // Locales are optional for matching model name since UAs like Chrome Mobile do not contain them
         if (!preg_match('#Adr [\d\.]+; [a-zA-Z]+-[a-zA-Z]+; (.*)\) U2#', $userAgent, $matches)) {
-            return WurflConstants::NO_MATCH;
+            return null;
         }
 
         $model = $matches[1];
@@ -103,6 +102,6 @@ class UcwebU3
 
         $model = trim($model);
 
-        return (strlen($model) === 0) ? WurflConstants::NO_MATCH : $model;
+        return (strlen($model) === 0) ? null : $model;
     }
 }

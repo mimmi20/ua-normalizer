@@ -18,8 +18,6 @@
 
 namespace UaNormalizer\Helper;
 
-use Wurfl\WurflConstants;
-
 /**
  * OperaHandlder
  *
@@ -44,6 +42,6 @@ class OperaMini
             return $matches[1];
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 }

@@ -20,7 +20,6 @@ namespace UaNormalizer\Specific;
 
 use UaNormalizer\Helper\Android as AndroidHelper;
 use UaNormalizer\NormalizerInterface;
-use Wurfl\WurflConstants;
 
 /**
  * User Agent Normalizer
@@ -39,7 +38,7 @@ class Android implements NormalizerInterface
         $version = AndroidHelper::getAndroidVersion($userAgent, false);
 
         if ($model !== null && $version !== null) {
-            $prefix = $version . ' ' . $model . WurflConstants::RIS_DELIMITER;
+            $prefix = $version . ' ' . $model . '---';
 
             return $prefix . $userAgent;
         }

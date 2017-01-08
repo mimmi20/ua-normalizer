@@ -18,8 +18,6 @@
 
 namespace UaNormalizer\Helper;
 
-use Wurfl\WurflConstants;
-
 /**
  * WindowsPhoneUserAgentHandler
  *
@@ -71,7 +69,7 @@ class WindowsPhone
             return $model;
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 
     /**
@@ -97,7 +95,7 @@ class WindowsPhone
             return $model;
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 
     /**
@@ -125,7 +123,7 @@ class WindowsPhone
             }
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 
     /**
@@ -152,7 +150,7 @@ class WindowsPhone
             return $model;
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 
     /**
@@ -172,6 +170,6 @@ class WindowsPhone
             }
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 }

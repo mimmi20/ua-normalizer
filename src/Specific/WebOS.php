@@ -20,7 +20,6 @@ namespace UaNormalizer\Specific;
 
 use UaNormalizer\Helper\WebOS as WebOSHelper;
 use UaNormalizer\NormalizerInterface;
-use Wurfl\WurflConstants;
 
 /**
  * User Agent Normalizer
@@ -38,7 +37,7 @@ class WebOS implements NormalizerInterface
         $osVersion = WebOSHelper::getWebOSVersion($userAgent);
 
         if ($model !== null && $osVersion !== null) {
-            $prefix = $model . ' ' . $osVersion . WurflConstants::RIS_DELIMITER;
+            $prefix = $model . ' ' . $osVersion . '---';
 
             return $prefix . $userAgent;
         }

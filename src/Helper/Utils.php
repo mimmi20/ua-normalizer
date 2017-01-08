@@ -19,7 +19,6 @@
 namespace UaNormalizer\Helper;
 
 use UaNormalizer\Matcher\RISMatcher;
-use Wurfl\WurflConstants;
 
 /**
  * WURFL user agent hander utilities
@@ -637,13 +636,13 @@ class Utils
      */
     public static function toleranceToRisDelimeter($userAgent)
     {
-        $tolerance = strpos($userAgent, WurflConstants::RIS_DELIMITER);
+        $tolerance = strpos($userAgent, '---');
         if ($tolerance === false) {
             return false;
         }
 
         // Push the tolerance to the *end* of the RIS Delimiter
-        return $tolerance + strlen(WurflConstants::RIS_DELIMITER);
+        return $tolerance + strlen('---');
     }
 
     /**

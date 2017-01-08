@@ -18,8 +18,6 @@
 
 namespace UaNormalizer\Helper;
 
-use Wurfl\WurflConstants;
-
 /**
  * WebOSUserAgentHandler
  *
@@ -47,7 +45,7 @@ class WebOS
             return $matches[1] . ' ' . $matches[2];
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 
     /**
@@ -61,6 +59,6 @@ class WebOS
             return 'webOS' . $matches[1];
         }
 
-        return WurflConstants::NO_MATCH;
+        return null;
     }
 }

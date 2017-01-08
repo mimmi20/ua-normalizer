@@ -22,7 +22,6 @@ use UaNormalizer\Helper\Android as AndroidHelper;
 use UaNormalizer\Helper\UcwebU3 as UcwebU3Helper;
 use UaNormalizer\Helper\WindowsPhone as WindowsPhoneHelper;
 use UaNormalizer\NormalizerInterface;
-use Wurfl\WurflConstants;
 
 /**
  * User Agent Normalizer
@@ -51,7 +50,7 @@ class UcwebU3 implements NormalizerInterface
             $version = WindowsPhoneHelper::getWindowsPhoneVersion($userAgent);
 
             if ($model !== null && $version !== null) {
-                $prefix = $version . ' U3WP ' . $ucbVersion . ' ' . $model . WurflConstants::RIS_DELIMITER;
+                $prefix = $version . ' U3WP ' . $ucbVersion . ' ' . $model . '---';
 
                 return $prefix . $userAgent;
             }
@@ -63,7 +62,7 @@ class UcwebU3 implements NormalizerInterface
             $version = AndroidHelper::getAndroidVersion($userAgent, false);
 
             if ($model !== null && $version !== null) {
-                $prefix = $version . ' U3Android ' . $ucbVersion . ' ' . $model . WurflConstants::RIS_DELIMITER;
+                $prefix = $version . ' U3Android ' . $ucbVersion . ' ' . $model . '---';
 
                 return $prefix . $userAgent;
             }
@@ -71,7 +70,7 @@ class UcwebU3 implements NormalizerInterface
             //iPhone U3K
             if (preg_match('/iPhone OS (\d+)(?:_(\d+))?(?:_\d+)* like/', $userAgent, $matches)) {
                 $version = $matches[1] . '.' . $matches[2];
-                $prefix  = $version . ' U3iPhone ' . $ucbVersion . WurflConstants::RIS_DELIMITER;
+                $prefix  = $version . ' U3iPhone ' . $ucbVersion . '---';
 
                 return $prefix . $userAgent;
             }
@@ -85,7 +84,7 @@ class UcwebU3 implements NormalizerInterface
             ) {
                 $version = $matches[1] . '.' . $matches[2];
                 $model   = $matches[3];
-                $prefix  = $version . ' U3iPad ' . $ucbVersion . ' ' . $model . WurflConstants::RIS_DELIMITER;
+                $prefix  = $version . ' U3iPad ' . $ucbVersion . ' ' . $model . '---';
 
                 return $prefix . $userAgent;
             }

@@ -18,8 +18,6 @@
 
 namespace UaNormalizer\Helper;
 
-use Wurfl\WurflConstants;
-
 /**
  * OperaMobiOrTabletOnAndroidUserAgentHandler
  *
@@ -55,6 +53,6 @@ class OperaMobiOrTabletOnAndroid
             }
         }
 
-        return $useDefault ? self::OPERA_DEFAULT_VERSION : WurflConstants::NO_MATCH;
+        return $useDefault ? self::OPERA_DEFAULT_VERSION : null;
     }
 }

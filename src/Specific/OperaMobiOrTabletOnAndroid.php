@@ -21,7 +21,6 @@ namespace UaNormalizer\Specific;
 use UaNormalizer\Helper\Android as AndroidHelper;
 use UaNormalizer\Helper\OperaMobiOrTabletOnAndroid as OperaMobiOrTabletOnAndroidHelper;
 use UaNormalizer\NormalizerInterface;
-use Wurfl\WurflConstants;
 
 /**
  * User Agent Normalizer
@@ -46,7 +45,7 @@ class OperaMobiOrTabletOnAndroid implements NormalizerInterface
 
             if ($operaVersion !== null && $androidVersion !== null) {
                 $operaModel = $isOperaTablet ? 'Opera Tablet' : 'Opera Mobi';
-                $prefix     = $operaModel . ' ' . $operaVersion . ' Android ' . $androidVersion . WurflConstants::RIS_DELIMITER;
+                $prefix     = $operaModel . ' ' . $operaVersion . ' Android ' . $androidVersion . '---';
 
                 return $prefix . $userAgent;
             }
