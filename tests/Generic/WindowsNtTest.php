@@ -32,19 +32,19 @@ class WindowsNtTest extends TestBase
 
     public function userAgentsDataProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'Mozilla/4.0 (compatible; Lotus-Notes/6.0; Windows-NT)',
                 'Mozilla/4.0 (compatible; Lotus-Notes/6.0; Windows NT)',
-            ),
-            array(
+            ],
+            [
                 'Mozilla',
                 'Mozilla',
-            ),
-            array(
+            ],
+            [
                 'Firefox',
                 'Firefox',
-            ),
-        );
+            ],
+        ];
     }
 }

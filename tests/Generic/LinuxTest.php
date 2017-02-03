@@ -32,23 +32,23 @@ class LinuxTest extends TestBase
 
     public function userAgentsDataProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'Android (Linus; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
                 'Android (Linux; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
-            ),
-            array(
+            ],
+            [
                 'Android (Linux;  U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
                 'Android (Linux; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
-            ),
-            array(
+            ],
+            [
                 'Mozilla',
                 'Mozilla',
-            ),
-            array(
+            ],
+            [
                 'Firefox',
                 'Firefox',
-            ),
-        );
+            ],
+        ];
     }
 }

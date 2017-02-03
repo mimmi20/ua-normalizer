@@ -38,20 +38,20 @@ class AndroidTest extends TestBase
      */
     public function normalizerDataProvider()
     {
-        return array(
-            array('FOO', 'FOO'),
-            array(
+        return [
+            ['FOO', 'FOO'],
+            [
                 'Mozilla/5.0 (Linux; U; Android 1.0.15; fr-fr; A70HB Build/CUPCAKE) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2',
                 '1.0 A70HB' . '---' . 'Mozilla/5.0 (Linux; U; Android 1.0.15; A70HB Build/CUPCAKE) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Linux; U; Android 2.1-update1; en-us; Hero Build/ERE27) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2',
                 '2.1 Hero' . '---' . 'Mozilla/5.0 (Linux; U; Android 2.1-update1; Hero Build/ERE27) AppleWebKit/525.10+ (KHTML, like Gecko) Version/3.0.4 Mobile Safari/523.12.2',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; myTouchHD Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
                 '2.2 myTouchHD' . '---' . 'Mozilla/5.0 (Linux; U; Android 2.2.1; myTouchHD Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
-            ),
-        );
+            ],
+        ];
     }
 }

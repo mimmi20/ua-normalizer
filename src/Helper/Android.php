@@ -35,7 +35,7 @@ class Android
     /**
      * @var array
      */
-    public static $validAndroidVersions = array(
+    public static $validAndroidVersions = [
         '1.0',
         '1.5',
         '1.6',
@@ -60,12 +60,12 @@ class Android
         '5.3',
         '6.0',
         '6.1',
-    );
+    ];
 
     /**
      * @var array
      */
-    private static $androidReleaseMap = array(
+    private static $androidReleaseMap = [
         'Cupcake'            => '1.5',
         'Donut'              => '1.6',
         'Eclair'             => '2.1',
@@ -75,7 +75,7 @@ class Android
         'Ice Cream Sandwich' => '4.0',
         'Jelly Bean'         => '4.1', // Note: 4.2/4.3 is also Jelly Bean
         'KitKat'             => '4.4',
-    );
+    ];
 
     /**
      * Get the Android version from the User Agent, or the default Android version is it cannot be determined

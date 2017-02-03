@@ -37,8 +37,8 @@ class Tokens implements NormalizerInterface
         $userAgent = preg_replace('/([\d]+)EMobile/', '$1; IEMobile', $userAgent);
 
         $userAgent = str_replace(
-            array('Macintoshntel', 'cpu=PPC=Mac'),
-            array('Macintosh; Intel', 'cpu=PPC;os=Mac'),
+            ['Macintoshntel', 'cpu=PPC=Mac'],
+            ['Macintosh; Intel', 'cpu=PPC;os=Mac'],
             $userAgent
         );
 
@@ -46,8 +46,8 @@ class Tokens implements NormalizerInterface
         $userAgent = preg_replace('/Versio\//', 'Version/', $userAgent);
 
         $userAgent = str_replace(
-            array('i686 (x86_64)', 'X11buntu', 'Chr0me', 'Web0S'),
-            array('i686 on x86_64', 'X11; Ubuntu', 'Chrome', 'webOS'),
+            ['i686 (x86_64)', 'X11buntu', 'Chr0me', 'Web0S'],
+            ['i686 on x86_64', 'X11; Ubuntu', 'Chrome', 'webOS'],
             $userAgent
         );
 

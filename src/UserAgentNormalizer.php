@@ -28,14 +28,14 @@ class UserAgentNormalizer implements NormalizerInterface
      *
      * @var array
      */
-    protected $normalizers = array();
+    protected $normalizers = [];
 
     /**
      * Set the User Agent Normalizers
      *
      * @param array $normalizers Array of \UaNormalizer\UserAgentNormalizer objects
      */
-    public function __construct($normalizers = array())
+    public function __construct($normalizers = [])
     {
         if (is_array($normalizers)) {
             $this->normalizers = $normalizers;

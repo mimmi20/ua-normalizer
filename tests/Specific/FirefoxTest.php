@@ -32,14 +32,14 @@ class FirefoxTest extends TestBase
 
     public function firefoxUserAgentsDataProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'Mozilla/5.0 (X11; U; Linux armv6l; en-US; rv:1.9a6pre) Gecko/20070810 Firefox/3.0a1',
                 'Firefox/3.0a1',
-            ),
-            array('Firefox/3.x', 'Firefox/3.x'),
-            array('Mozilla', 'Mozilla'),
-            array('Firefox', 'Firefox'),
-        );
+            ],
+            ['Firefox/3.x', 'Firefox/3.x'],
+            ['Mozilla', 'Mozilla'],
+            ['Firefox', 'Firefox'],
+        ];
     }
 }
