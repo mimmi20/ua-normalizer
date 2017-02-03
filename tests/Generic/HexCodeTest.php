@@ -32,27 +32,27 @@ class HexCodeTest extends TestBase
 
     public function userAgentsDataProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'QuickTime\\\\xaa.7.0.4 (qtver=7.0.4;cpu=PPC;os=Mac 10.3.9)',
                 'QuickTime.7.0.4 (qtver=7.0.4;cpu=PPC;os=Mac 10.3.9)',
-            ),
-            array(
+            ],
+            [
                 'QuickTime\\xaa.7.0.4 (qtver=7.0.4;cpu=PPC=Mac 10.3.9)',
                 'QuickTime.7.0.4 (qtver=7.0.4;cpu=PPC=Mac 10.3.9)',
-            ),
-            array(
+            ],
+            [
                 'QuickTime.7.6.6',
                 'QuickTime.7.6.6',
-            ),
-            array(
+            ],
+            [
                 'Mozilla',
                 'Mozilla',
-            ),
-            array(
+            ],
+            [
                 'Firefox',
                 'Firefox',
-            ),
-        );
+            ],
+        ];
     }
 }

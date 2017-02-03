@@ -22,6 +22,7 @@ return Symfony\CS\Config\Config::create()
     ->fixers(
         array(
             'align_double_arrow',
+            'double_arrow_multiline_whitespaces',
             'align_equals',
             'braces',
             'concat_with_spaces',
@@ -57,7 +58,7 @@ return Symfony\CS\Config\Config::create()
             'remove_lines_between_uses',
             'return',
             'self_accessor',
-            'long_array_syntax',
+            'short_array_syntax',
             'short_tag',
             'single_line_after_imports',
             'single_quote',

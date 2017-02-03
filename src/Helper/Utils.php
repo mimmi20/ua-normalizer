@@ -28,7 +28,7 @@ class Utils
     /**
      * @var array Collection of mobile browser keywords
      */
-    private static $mobileBrowsers = array(
+    private static $mobileBrowsers = [
         'midp',
         'mobile',
         'android',
@@ -75,9 +75,9 @@ class Utils
         'lgtelecom',
         ' gt-',
         'ventana',
-    );
+    ];
 
-    private static $smartTVBrowsers = array(
+    private static $smartTVBrowsers = [
         'googletv',
         'boxee',
         'sonydtv',
@@ -103,9 +103,9 @@ class Utils
         ' mb95/',
         'vizio-dtv',
         'bravia',
-    );
+    ];
 
-    private static $desktopBrowsers = array(
+    private static $desktopBrowsers = [
         'wow64',
         '.net clr',
         'gtb7',
@@ -117,9 +117,9 @@ class Utils
         'gtb8',
         'iceweasel',
         'epiphany',
-    );
+    ];
 
-    private static $robots = array(
+    private static $robots = [
         '+http',
         'bot',
         'crawler',
@@ -162,7 +162,7 @@ class Utils
         'httpunit',
         'hatena',
         'ichiro',
-    );
+    ];
 
     /**
      * @var bool
@@ -232,7 +232,7 @@ class Utils
      *
      * @return int Char index of left-most match or length of string
      */
-    public static function indexOfAnyOrLength($userAgent, $needles = array(), $startingIndex = 0)
+    public static function indexOfAnyOrLength($userAgent, $needles = [], $startingIndex = 0)
     {
         $length = strlen($userAgent);
 
@@ -348,12 +348,12 @@ class Utils
         $s = \Stringy\create($userAgent);
 
         //WP Desktop - Edge Mode
-        if ($s->containsAll(array('Mozilla/5.0 (Windows NT ', ' ARM;', ' Edge/'))) {
+        if ($s->containsAll(['Mozilla/5.0 (Windows NT ', ' ARM;', ' Edge/'])) {
             return false;
         }
 
         // Chrome
-        if ($s->contains('Chrome') && !$s->containsAny(array('Android', 'Ventana'))) {
+        if ($s->contains('Chrome') && !$s->containsAny(['Android', 'Ventana'])) {
             return true;
         }
 
@@ -442,7 +442,7 @@ class Utils
     {
         $s = \Stringy\create($userAgent);
 
-        return $s->containsAny(array('Spam', 'FunWebProducts'));
+        return $s->containsAny(['Spam', 'FunWebProducts']);
     }
 
     /**
@@ -707,7 +707,7 @@ class Utils
      */
     public static function getAndroidVersion($userAgent, $useDefault = true)
     {
-        $releaseMap = array(
+        $releaseMap = [
             'Cupcake'            => '1.5',
             'Donut'              => '1.6',
             'Eclair'             => '2.1',
@@ -717,7 +717,7 @@ class Utils
             'Ice Cream Sandwich' => '4.0',
             'Jelly Bean'         => '4.1', // Note: 4.2/4.3 is also Jelly Bean
             'KitKat'             => '4.4',
-        );
+        ];
 
         // Replace Android version names with their numbers
         // ex: Froyo => 2.2
@@ -737,7 +737,7 @@ class Utils
             $version = $matches[1];
         }
 
-        $validVersions = array(
+        $validVersions = [
             '1.0',
             '1.5',
             '1.6',
@@ -763,7 +763,7 @@ class Utils
             '6.0',
             '6.1',
             '7.0',
-        );
+        ];
 
         // Now check extracted Android version for validity
         if (null !== $version && in_array($version, $validVersions)) {

@@ -32,23 +32,23 @@ class MozillaTest extends TestBase
 
     public function userAgentsDataProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
                 'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
-            ),
-            array(
+            ],
+            [
                 'Mozzila/5.0 (hp-tablet; Linux; hpwOS/3.0.5;U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
                 'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5;U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla',
                 'Mozilla',
-            ),
-            array(
+            ],
+            [
                 'Firefox',
                 'Firefox',
-            ),
-        );
+            ],
+        ];
     }
 }

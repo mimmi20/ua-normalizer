@@ -41,7 +41,7 @@ class RISMatcherTest extends \PHPUnit_Framework_TestCase
         $expected = 'aaa bbb 1';
         $needle   = 'aaa bbb 4';
 
-        $candidates = array('aaa bbb 1', 'aaa bbb 2', 'aaa bbb 3', 'aaa bbb 5', 'aaa bbb 6');
+        $candidates = ['aaa bbb 1', 'aaa bbb 2', 'aaa bbb 3', 'aaa bbb 5', 'aaa bbb 6'];
 
         $match = $this->risMatcher->match($candidates, $needle, 1);
 
@@ -50,14 +50,14 @@ class RISMatcherTest extends \PHPUnit_Framework_TestCase
 
     public function risData()
     {
-        $candidates = array('aaa bbb ccc ddd', 'aaa bbb ccc', 'aaa bbb', 'aaa', 'aaa xxx');
+        $candidates = ['aaa bbb ccc ddd', 'aaa bbb ccc', 'aaa bbb', 'aaa', 'aaa xxx'];
         sort($candidates);
 
-        return array(
-            array($candidates, 'aaa bbb ccc ddd', 15, 'aaa bbb ccc ddd'),
-            array($candidates, 'aaa bbb ccc xxx', 15, null), //
-            array($candidates, 'aaa bbb ccc', 11, 'aaa bbb ccc'),
-            array($candidates, 'aaa bbb ccc ddd', 3, 'aaa bbb ccc ddd'),
-        );
+        return [
+            [$candidates, 'aaa bbb ccc ddd', 15, 'aaa bbb ccc ddd'],
+            [$candidates, 'aaa bbb ccc xxx', 15, null], //
+            [$candidates, 'aaa bbb ccc', 11, 'aaa bbb ccc'],
+            [$candidates, 'aaa bbb ccc ddd', 3, 'aaa bbb ccc ddd'],
+        ];
     }
 }

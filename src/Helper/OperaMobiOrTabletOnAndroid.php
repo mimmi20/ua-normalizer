@@ -31,7 +31,7 @@ class OperaMobiOrTabletOnAndroid
 {
     const OPERA_DEFAULT_VERSION = '10';
 
-    private static $validOperaVersions = array('10', '11', '12');
+    private static $validOperaVersions = ['10', '11', '12'];
 
     /**
      * Get the Opera browser version from an Opera Android user agent

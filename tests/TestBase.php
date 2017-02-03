@@ -22,7 +22,7 @@ class TestBase extends \PHPUnit_Framework_TestCase
     {
         $fullTestFilePath = dirname(__FILE__) . DIRECTORY_SEPARATOR . $testFilePath;
         $useragents       = file($fullTestFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        $map              = array();
+        $map              = [];
         foreach ($useragents as $useragent) {
             $map [] = explode('=', $useragent);
         }
