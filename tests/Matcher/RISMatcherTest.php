@@ -1,5 +1,14 @@
 <?php
+/**
+ * This file is part of the ua-normalizer package.
+ *
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
+declare(strict_types = 1);
 namespace UaNormalizerTest\Matcher;
 
 /*
@@ -55,7 +64,7 @@ class RISMatcherTest extends \PHPUnit_Framework_TestCase
 
         return [
             [$candidates, 'aaa bbb ccc ddd', 15, 'aaa bbb ccc ddd'],
-            [$candidates, 'aaa bbb ccc xxx', 15, null], //
+            [$candidates, 'aaa bbb ccc xxx', 15, null],
             [$candidates, 'aaa bbb ccc', 11, 'aaa bbb ccc'],
             [$candidates, 'aaa bbb ccc ddd', 3, 'aaa bbb ccc ddd'],
         ];

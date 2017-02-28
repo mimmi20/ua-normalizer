@@ -1,21 +1,14 @@
 <?php
 /**
- * Copyright (c) 2015 ScientiaMobile, Inc.
+ * This file is part of the ua-normalizer package.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
  *
- * Refer to the LICENSE file distributed with this package.
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
+declare(strict_types = 1);
 namespace UaNormalizer\Helper;
 
 use UaNormalizer\Matcher\RISMatcher;
@@ -192,6 +185,7 @@ class Utils
      * @param int    $tolerance
      *
      * @return string Matched user agent
+     *
      * @see \UaNormalizer\Matcher\RISMatcher::match()
      */
     public static function risMatch($collection, $needle, $tolerance)
@@ -211,13 +205,13 @@ class Utils
      */
     public static function indexOfOrLength($haystack, $needle, $startingIndex = 0)
     {
-        $length = strlen($haystack);
+        $length = mb_strlen($haystack);
 
         if ($startingIndex === false || $startingIndex > $length) {
             return $length;
         }
 
-        $pos = strpos($haystack, $needle, $startingIndex);
+        $pos = mb_strpos($haystack, $needle, $startingIndex);
 
         return ($pos === false) ? $length : $pos;
     }
@@ -234,7 +228,7 @@ class Utils
      */
     public static function indexOfAnyOrLength($userAgent, $needles = [], $startingIndex = 0)
     {
-        $length = strlen($userAgent);
+        $length = mb_strlen($userAgent);
 
         if (count($needles) === 0) {
             return $length;
@@ -265,7 +259,7 @@ class Utils
      */
     public static function isMobileBrowser($userAgent)
     {
-        $userAgent_lower = strtolower($userAgent);
+        $userAgent_lower = mb_strtolower($userAgent);
         if (self::$isMobileBrowser === null) {
             $s = \Stringy\create($userAgent_lower);
 
@@ -297,10 +291,10 @@ class Utils
         }
 
         self::$isDesktopBrowser = false;
-        $userAgent              = strtolower($userAgent);
+        $userAgent              = mb_strtolower($userAgent);
 
         foreach (self::$desktopBrowsers as $key) {
-            if (strpos($userAgent, $key) !== false) {
+            if (mb_strpos($userAgent, $key) !== false) {
                 self::$isDesktopBrowser = true;
                 break;
             }
@@ -319,10 +313,10 @@ class Utils
     public static function isRobot($userAgent)
     {
         self::$isRobot = false;
-        $userAgent     = strtolower($userAgent);
+        $userAgent     = mb_strtolower($userAgent);
 
         foreach (self::$robots as $key) {
-            if (strpos($userAgent, $key) !== false) {
+            if (mb_strpos($userAgent, $key) !== false) {
                 self::$isRobot = true;
                 break;
             }
@@ -420,9 +414,9 @@ class Utils
             return self::$isSmartTv;
         }
         self::$isSmartTv = false;
-        $userAgent       = strtolower($userAgent);
+        $userAgent       = mb_strtolower($userAgent);
         foreach (self::$smartTVBrowsers as $key) {
-            if (strpos($userAgent, $key) !== false) {
+            if (mb_strpos($userAgent, $key) !== false) {
                 self::$isSmartTv = true;
                 break;
             }
@@ -458,7 +452,7 @@ class Utils
         $thirdSemiColumnIndex = self::ordinalIndexOf($haystack, ';', 3);
 
         if ($thirdSemiColumnIndex < 0) {
-            return strlen($haystack);
+            return mb_strlen($haystack);
         }
 
         return $thirdSemiColumnIndex;
@@ -472,15 +466,16 @@ class Utils
      * @param int    $ordinal
      *
      * @throws \InvalidArgumentException
-     * @return int                       Char index of occurance
+     *
+     * @return int Char index of occurance
      */
     public static function ordinalIndexOf($haystack, $needle, $ordinal)
     {
-        if (is_null($haystack) || empty($haystack)) {
+        if (null === $haystack || empty($haystack)) {
             throw new \InvalidArgumentException('haystack must not be null or empty');
         }
 
-        if (!is_integer($ordinal)) {
+        if (!is_int($ordinal)) {
             throw new \InvalidArgumentException('ordinal must be a positive ineger');
         }
 
@@ -488,7 +483,7 @@ class Utils
         $index = -1;
 
         do {
-            $index = strpos($haystack, $needle, $index + 1);
+            $index = mb_strpos($haystack, $needle, $index + 1);
             $index = is_int($index) ? $index : -1;
 
             if ($index < 0) {
@@ -534,7 +529,7 @@ class Utils
      */
     public static function numSlashes($string)
     {
-        return substr_count($string, '/');
+        return mb_substr_count($string, '/');
     }
 
     /**
@@ -565,8 +560,7 @@ class Utils
      * The tolerance position of $char in $string.  If there are no occurrences of $char, returns null
      *
      * @param string $string Haystack
-     *
-     * @param   $char
+     * @param        $char
      *
      * @return int Character position
      */
@@ -597,9 +591,9 @@ class Utils
      */
     public static function firstMatchOrLength($string, $toMatch)
     {
-        $firstMatch = strpos($string, $toMatch);
+        $firstMatch = mb_strpos($string, $toMatch);
 
-        return ($firstMatch === false) ? strlen($string) : $firstMatch;
+        return ($firstMatch === false) ? mb_strlen($string) : $firstMatch;
     }
 
     /**
@@ -636,13 +630,13 @@ class Utils
      */
     public static function toleranceToRisDelimeter($userAgent)
     {
-        $tolerance = strpos($userAgent, '---');
+        $tolerance = mb_strpos($userAgent, '---');
         if ($tolerance === false) {
             return false;
         }
 
         // Push the tolerance to the *end* of the RIS Delimiter
-        return $tolerance + strlen('---');
+        return $tolerance + mb_strlen('---');
     }
 
     /**
@@ -668,7 +662,7 @@ class Utils
      */
     public static function findCharPosition($string, $char, $startAt = 0)
     {
-        $position = strpos($string, $char, $startAt);
+        $position = mb_strpos($string, $char, $startAt);
 
         return ($position !== false) ? $position + 1 : null;
     }
@@ -691,9 +685,9 @@ class Utils
             }
 
             return false;
-        } else {
-            return (preg_match($find, $string));
         }
+
+        return preg_match($find, $string);
     }
 
     /**
@@ -703,6 +697,7 @@ class Utils
      * @param bool   $useDefault Return the default version on fail, else return null
      *
      * @return null|string Android version
+     *
      * @see self::ANDROID_DEFAULT_VERSION
      */
     public static function getAndroidVersion($userAgent, $useDefault = true)
@@ -818,13 +813,13 @@ class Utils
         )) {
             $model = $matches[1];
         } else {
-            return null;
+            return;
         }
 
         // The previous RegEx may return just "Build/.*" for UAs like:
         // HTC_Dream Mozilla/5.0 (Linux; U; Android 1.5; xx-xx; Build/CUPCAKE) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1
-        if (strpos($model, 'Build/') === 0) {
-            return null;
+        if (mb_strpos($model, 'Build/') === 0) {
+            return;
         }
 
         // Replace xx-xx (locale) in the model name with ''
@@ -834,9 +829,9 @@ class Utils
         $model = preg_replace('#(?:_CMCC_TD|_CMCC|_TD)\b#', '', $model);
 
         // Normalize models with resolution
-        if (strpos($model, '*') !== false) {
-            if (($pos = strpos($model, '/')) !== false) {
-                $model = substr($model, 0, $pos);
+        if (mb_strpos($model, '*') !== false) {
+            if (($pos = mb_strpos($model, '/')) !== false) {
+                $model = mb_substr($model, 0, $pos);
             }
         }
 
@@ -844,18 +839,18 @@ class Utils
         $model = str_replace('HW-HUAWEI_', 'HUAWEI ', $model);
 
         // Normalize Coolpad UAs
-        if (strpos($model, 'YL-Coolpad') !== false) {
+        if (mb_strpos($model, 'YL-Coolpad') !== false) {
             $model = preg_replace('#YL-Coolpad[ _]#', 'Coolpad ', $model);
         }
 
         // HTC
-        if (strpos($model, 'HTC') !== false) {
+        if (mb_strpos($model, 'HTC') !== false) {
             // Normalize "HTC/"
             $model = preg_replace('#HTC[ _\-/]#', 'HTC~', $model);
 
             // Remove the version
-            if (($pos = strpos($model, '/')) !== false) {
-                $model = substr($model, 0, $pos);
+            if (($pos = mb_strpos($model, '/')) !== false) {
+                $model = mb_substr($model, 0, $pos);
             }
             $model = preg_replace('#( V| )\d+?\.[\d\.]+$#', '', $model);
         }
@@ -878,6 +873,6 @@ class Utils
         // Normalize Samsung and Sony/SonyEricsson model name changes due to Chrome Mobile
         $model = preg_replace('#^(?:SAMSUNG|SonyEricsson|Sony)[ \-]?#', '', $model);
 
-        return (strlen($model) === 0) ? null : $model;
+        return (mb_strlen($model) === 0) ? null : $model;
     }
 }

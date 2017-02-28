@@ -1,31 +1,18 @@
 <?php
 /**
- * Copyright (c) 2015 ScientiaMobile, Inc.
+ * This file is part of the ua-normalizer package.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
  *
- * Refer to the LICENSE file distributed with this package.
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
+declare(strict_types = 1);
 namespace UaNormalizer\Helper;
 
 /**
  * SafariHandler
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
  */
 class Safari
 {
@@ -37,19 +24,19 @@ class Safari
     public static function getSafariVersion($userAgent)
     {
         $search = 'Version/';
-        $idx    = strpos($userAgent, $search);
+        $idx    = mb_strpos($userAgent, $search);
 
         if ($idx === false) {
-            return null;
+            return;
         }
 
-        $idx += strlen($search);
-        $endIdx = strpos($userAgent, '.', $idx);
+        $idx += mb_strlen($search);
+        $endIdx = mb_strpos($userAgent, '.', $idx);
 
         if ($endIdx === false) {
-            return null;
+            return;
         }
 
-        return substr($userAgent, $idx, $endIdx - $idx);
+        return mb_substr($userAgent, $idx, $endIdx - $idx);
     }
 }

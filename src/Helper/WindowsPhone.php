@@ -1,31 +1,18 @@
 <?php
 /**
- * Copyright (c) 2015 ScientiaMobile, Inc.
+ * This file is part of the ua-normalizer package.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
  *
- * Refer to the LICENSE file distributed with this package.
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
+declare(strict_types = 1);
 namespace UaNormalizer\Helper;
 
 /**
  * WindowsPhoneUserAgentHandler
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
  */
 class WindowsPhone
 {
@@ -68,8 +55,6 @@ class WindowsPhone
 
             return $model;
         }
-
-        return null;
     }
 
     /**
@@ -94,8 +79,6 @@ class WindowsPhone
 
             return $model;
         }
-
-        return null;
     }
 
     /**
@@ -106,24 +89,22 @@ class WindowsPhone
     public static function getWindowsPhoneVersion($userAgent)
     {
         if (preg_match('|Windows ?Phone(?: ?OS)? ?(\d+\.\d+)|', $userAgent, $matches)) {
-            if (strpos($matches[1], '10.0') !== false) {
+            if (mb_strpos($matches[1], '10.0') !== false) {
                 return '10.0';
-            } elseif (strpos($matches[1], '6.3') !== false || strpos($matches[1], '8.1') !== false) {
+            } elseif (mb_strpos($matches[1], '6.3') !== false || mb_strpos($matches[1], '8.1') !== false) {
                 return '8.1';
-            } elseif (strpos($matches[1], '8.') !== false) {
+            } elseif (mb_strpos($matches[1], '8.') !== false) {
                 return '8.0';
-            } elseif (strpos($matches[1], '7.8') !== false) {
+            } elseif (mb_strpos($matches[1], '7.8') !== false) {
                 return '7.8';
-            } elseif (strpos($matches[1], '7.10') !== false || strpos($matches[1], '7.5') !== false) {
+            } elseif (mb_strpos($matches[1], '7.10') !== false || mb_strpos($matches[1], '7.5') !== false) {
                 return '7.5';
-            } elseif (strpos($matches[1], '6.5') !== false) {
+            } elseif (mb_strpos($matches[1], '6.5') !== false) {
                 return '6.5';
-            } else {
-                return '7.0';
             }
-        }
 
-        return null;
+            return '7.0';
+        }
     }
 
     /**
@@ -149,8 +130,6 @@ class WindowsPhone
 
             return $model;
         }
-
-        return null;
     }
 
     /**
@@ -161,15 +140,13 @@ class WindowsPhone
     public static function getWindowsPhoneDesktopVersion($userAgent)
     {
         if (preg_match('|Windows NT (\d+\.\d+)|', $userAgent, $matches)) {
-            if (strpos($matches[1], '10.0') !== false) {
+            if (mb_strpos($matches[1], '10.0') !== false) {
                 return '10.0';
-            } elseif (strpos($matches[1], '6.3') !== false || strpos($matches[1], '8.1') !== false) {
+            } elseif (mb_strpos($matches[1], '6.3') !== false || mb_strpos($matches[1], '8.1') !== false) {
                 return '8.1';
-            } else {
-                return '8.0';
             }
-        }
 
-        return null;
+            return '8.0';
+        }
     }
 }
