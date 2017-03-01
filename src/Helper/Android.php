@@ -1,27 +1,18 @@
 <?php
 /**
- * Copyright (c) 2015 ScientiaMobile, Inc.
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- * Refer to the LICENSE file distributed with this package.
+ * This file is part of the ua-normalizer package.
  *
- * @category   WURFL
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
  *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
+declare(strict_types = 1);
 namespace UaNormalizer\Helper;
 
 /**
  * AndroidUserAgentHandler
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
  */
 class Android
 {
@@ -84,6 +75,7 @@ class Android
      * @param bool   $useDefault Return the default version on fail, else return null
      *
      * @return string Android version
+     *
      * @see self::ANDROID_DEFAULT_VERSION
      */
     public static function getAndroidVersion($userAgent, $useDefault = true)
@@ -151,13 +143,13 @@ class Android
         )) {
             $model = $matches[1];
         } else {
-            return null;
+            return;
         }
 
         // The previous RegEx may return just 'Build/.*' for UAs like:
         // HTC_Dream Mozilla/5.0 (Linux; U; Android 1.5; xx-xx; Build/CUPCAKE) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1
-        if (strpos($model, 'Build/') === 0) {
-            return null;
+        if (mb_strpos($model, 'Build/') === 0) {
+            return;
         }
 
         // Replace xx-xx (locale) in the model name with ''
@@ -167,9 +159,9 @@ class Android
         $model = preg_replace('#(?:_CMCC_TD|_CMCC|_TD)\b#', '', $model);
 
         // Normalize models with resolution
-        if (strpos($model, '*') !== false) {
-            if (($pos = strpos($model, '/')) !== false) {
-                $model = substr($model, 0, $pos);
+        if (mb_strpos($model, '*') !== false) {
+            if (($pos = mb_strpos($model, '/')) !== false) {
+                $model = mb_substr($model, 0, $pos);
             }
         }
 
@@ -177,18 +169,18 @@ class Android
         $model = str_replace('HW-HUAWEI_', 'HUAWEI ', $model);
 
         // Normalize Coolpad UAs
-        if (strpos($model, 'YL-Coolpad') !== false) {
+        if (mb_strpos($model, 'YL-Coolpad') !== false) {
             $model = preg_replace('#YL-Coolpad[ _]#', 'Coolpad ', $model);
         }
 
         // HTC
-        if (strpos($model, 'HTC') !== false) {
+        if (mb_strpos($model, 'HTC') !== false) {
             // Normalize 'HTC/'
             $model = preg_replace('#HTC[ _\-/]#', 'HTC~', $model);
 
             // Remove the version
-            if (($pos = strpos($model, '/')) !== false) {
-                $model = substr($model, 0, $pos);
+            if (($pos = mb_strpos($model, '/')) !== false) {
+                $model = mb_substr($model, 0, $pos);
             }
             $model = preg_replace('#( V| )\d+?\.[\d\.]+$#', '', $model);
         }
@@ -211,6 +203,6 @@ class Android
         // Normalize Samsung and Sony/SonyEricsson model name changes due to Chrome Mobile
         $model = preg_replace('#^(?:SAMSUNG|SonyEricsson|Sony)[ \-]?#', '', $model);
 
-        return (strlen($model) === 0) ? null : $model;
+        return (mb_strlen($model) === 0) ? null : $model;
     }
 }

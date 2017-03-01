@@ -1,31 +1,18 @@
 <?php
 /**
- * Copyright (c) 2015 ScientiaMobile, Inc.
+ * This file is part of the ua-normalizer package.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
  *
- * Refer to the LICENSE file distributed with this package.
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
+declare(strict_types = 1);
 namespace UaNormalizer\Helper;
 
 /**
  * WebOSUserAgentHandler
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
  */
 class WebOS
 {
@@ -44,8 +31,6 @@ class WebOS
         if (preg_match('# ([^/]+)/([\d\.]+)$#', $userAgent, $matches)) {
             return $matches[1] . ' ' . $matches[2];
         }
-
-        return null;
     }
 
     /**
@@ -58,7 +43,5 @@ class WebOS
         if (preg_match('#(?:hpw|web)OS.(\d)\.#', $userAgent, $matches)) {
             return 'webOS' . $matches[1];
         }
-
-        return null;
     }
 }

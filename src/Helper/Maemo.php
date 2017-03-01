@@ -1,31 +1,18 @@
 <?php
 /**
- * Copyright (c) 2015 ScientiaMobile, Inc.
+ * This file is part of the ua-normalizer package.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
  *
- * Refer to the LICENSE file distributed with this package.
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
+declare(strict_types = 1);
 namespace UaNormalizer\Helper;
 
 /**
  * MaemoUserAgentHandler
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
  */
 class Maemo
 {
@@ -38,15 +25,13 @@ class Maemo
     {
         if (preg_match('/Maemo [bB]rowser [\d\.]+ (.+)/', $userAgent, $matches)) {
             $model = $matches[1];
-            $idx   = strpos($model, ' GTB');
+            $idx   = mb_strpos($model, ' GTB');
 
             if ($idx !== false) {
-                $model = substr($model, 0, $idx);
+                $model = mb_substr($model, 0, $idx);
             }
 
             return $model;
         }
-
-        return null;
     }
 }

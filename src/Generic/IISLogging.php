@@ -1,21 +1,14 @@
 <?php
 /**
- * Copyright (c) 2015 ScientiaMobile, Inc.
+ * This file is part of the ua-normalizer package.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
+ * Copyright (c) 2015-2017, Thomas Mueller <mimmi20@live.de>
  *
- * Refer to the LICENSE file distributed with this package.
- *
- *
- * @category   WURFL
- *
- * @copyright  ScientiaMobile, Inc.
- * @license    GNU Affero General Public License
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
+declare(strict_types = 1);
 namespace UaNormalizer\Generic;
 
 use UaNormalizer\NormalizerInterface;
@@ -28,13 +21,14 @@ class IISLogging implements NormalizerInterface
     /**
      * This method clean the IIS logging from user agent string.
      *
-     * @param  string $userAgent
+     * @param string $userAgent
+     *
      * @return string Normalized user agent
      */
     public function normalize($userAgent)
     {
         //If there are no spaces in a UA and more than 2 plus symbols, the UA is likely affected by IIS style logging issues
-        if (substr_count($userAgent, ' ') === 0 and substr_count($userAgent, '+') > 2) {
+        if (mb_substr_count($userAgent, ' ') === 0 and mb_substr_count($userAgent, '+') > 2) {
             $userAgent = str_replace('+', ' ', $userAgent);
         }
 
