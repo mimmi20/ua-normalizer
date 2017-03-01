@@ -25,12 +25,12 @@ class DesktopApplication implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
-        $idx = mb_strpos($userAgent, 'Thunderbird');
+        $pos = mb_strpos($userAgent, 'Thunderbird');
 
-        if ($idx !== false) {
-            return mb_substr($userAgent, $idx);
+        if (false === $pos || 0 === $pos) {
+            return $userAgent;
         }
 
-        return $userAgent;
+        return mb_substr($userAgent, $pos);
     }
 }

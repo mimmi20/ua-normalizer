@@ -26,12 +26,13 @@ class BlackBerry implements NormalizerInterface
     public function normalize($userAgent)
     {
         $userAgent = str_ireplace('blackberry', 'BlackBerry', $userAgent);
-        $pos       = mb_strpos($userAgent, 'BlackBerry');
 
-        if ($pos !== false && $pos > 0) {
-            $userAgent = mb_substr($userAgent, $pos);
+        $pos = mb_strpos($userAgent, 'BlackBerry');
+
+        if (false === $pos || 0 === $pos) {
+            return $userAgent;
         }
 
-        return $userAgent;
+        return mb_substr($userAgent, $pos);
     }
 }

@@ -25,6 +25,12 @@ class LG implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
-        return mb_substr($userAgent, mb_strpos($userAgent, 'LG'));
+        $pos = mb_strpos($userAgent, 'LG');
+
+        if (false === $pos || 0 === $pos) {
+            return $userAgent;
+        }
+
+        return mb_substr($userAgent, $pos);
     }
 }

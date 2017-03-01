@@ -25,6 +25,12 @@ class Chrome implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
-        return mb_substr($userAgent, mb_strpos($userAgent, 'Chrome'));
+        $pos = mb_strpos($userAgent, 'Chrome');
+
+        if (false === $pos || 0 === $pos) {
+            return $userAgent;
+        }
+
+        return mb_substr($userAgent, $pos);
     }
 }

@@ -25,18 +25,12 @@ class Firefox implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
-        return $this->firefoxWithMajorAndMinorVersion($userAgent);
-    }
+        $pos = mb_strpos($userAgent, 'Firefox');
 
-    /**
-     * Returns FireFox major and minor version numbers
-     *
-     * @param string $userAgent
-     *
-     * @return string Major and minor version
-     */
-    private function firefoxWithMajorAndMinorVersion($userAgent)
-    {
-        return mb_substr($userAgent, mb_strpos($userAgent, 'Firefox'));
+        if (false === $pos || 0 === $pos) {
+            return $userAgent;
+        }
+
+        return mb_substr($userAgent, $pos);
     }
 }
