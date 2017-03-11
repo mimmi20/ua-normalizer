@@ -18,29 +18,26 @@ use UaNormalizer\Helper\Utils;
  *
  * @group Handlers
  */
-class UtilsTest extends \PHPUnit_Framework_TestCase
+class UtilsTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testShouldThrowExceptionForNullString()
     {
+        $this->expectException('\InvalidArgumentException');
+
         Utils::ordinalIndexOf(null, '', 0);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testShouldThrowExceptionForEmptyString()
     {
+        $this->expectException('\InvalidArgumentException');
+
         Utils::ordinalIndexOf('', '', 0);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testShouldThrowExceptionForNonNumericOrdinalVlaue()
     {
+        $this->expectException('\InvalidArgumentException');
+
         Utils::ordinalIndexOf('useranget', '', '');
     }
 

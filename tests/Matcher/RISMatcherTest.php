@@ -21,7 +21,7 @@ use UaNormalizer\Matcher\RISMatcher;
  *
  * @group Handlers
  */
-class RISMatcherTest extends \PHPUnit_Framework_TestCase
+class RISMatcherTest extends \PHPUnit\Framework\TestCase
 {
     /** @var \UaNormalizer\Matcher\RISMatcher */
     private $risMatcher;

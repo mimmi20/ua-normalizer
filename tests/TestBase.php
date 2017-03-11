@@ -16,7 +16,7 @@ namespace UaNormalizerTest;
  *
  * @group Handlers
  */
-class TestBase extends \PHPUnit_Framework_TestCase
+class TestBase extends \PHPUnit\Framework\TestCase
 {
     /** @var \UaNormalizer\NormalizerInterface */
     protected $normalizer;
