@@ -70,6 +70,10 @@ class KhtmlGeckoTest extends TestBase
                 'Firefox',
                 'Firefox',
             ],
+            [
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.1.25 (KHTML, like Gecko)',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.1.25 (KHTML, like Gecko)',
+            ],
         ];
     }
 }

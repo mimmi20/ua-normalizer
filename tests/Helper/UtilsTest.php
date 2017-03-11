@@ -18,7 +18,7 @@ use UaNormalizer\Helper\Utils;
  *
  * @group Handlers
  */
-class UtilsTest extends \PHPUnit_Framework_TestCase
+class UtilsTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @expectedException \InvalidArgumentException
