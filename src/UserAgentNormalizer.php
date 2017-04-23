@@ -19,20 +19,18 @@ class UserAgentNormalizer implements NormalizerInterface
     /**
      * UserAgentNormalizer chain - array of \UaNormalizer\UserAgentNormalizer objects
      *
-     * @var array
+     * @var \UaNormalizer\NormalizerInterface[]
      */
-    protected $normalizers = [];
+    private $normalizers = [];
 
     /**
      * Set the User Agent Normalizers
      *
-     * @param array $normalizers Array of \UaNormalizer\UserAgentNormalizer objects
+     * @param \UaNormalizer\NormalizerInterface[] $normalizers
      */
-    public function __construct($normalizers = [])
+    public function __construct(array $normalizers = [])
     {
-        if (is_array($normalizers)) {
-            $this->normalizers = $normalizers;
-        }
+        $this->normalizers = $normalizers;
     }
 
     /**

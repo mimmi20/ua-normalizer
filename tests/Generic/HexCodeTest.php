@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\HexCode;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class HexCodeTest extends TestBase
+class HexCodeTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\HexCode
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new HexCode();
@@ -36,7 +40,7 @@ class HexCodeTest extends TestBase
     public function shouldNormalizeTheHexCodeToken($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function userAgentsDataProvider()

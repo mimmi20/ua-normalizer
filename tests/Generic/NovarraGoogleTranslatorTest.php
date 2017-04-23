@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\NovarraGoogleTranslator;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class NovarraGoogleTranslatorTest
  *
  * @group Handlers
  */
-class NovarraGoogleTranslatorTest extends TestBase
+class NovarraGoogleTranslatorTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\NovarraGoogleTranslator
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new NovarraGoogleTranslator();
@@ -36,7 +40,7 @@ class NovarraGoogleTranslatorTest extends TestBase
     public function testNovarraAndGoogleTranslator($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function novarraGoogleTranslatorDataProvider()

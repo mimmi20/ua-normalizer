@@ -11,23 +11,23 @@
 declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
-use UaNormalizer\Generic\Linux;
+use UaNormalizer\Generic\BabelFish;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class LinuxTest extends \PHPUnit\Framework\TestCase
+class BabelFishTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \UaNormalizer\Generic\Linux
+     * @var \UaNormalizer\Generic\BabelFish
      */
     private $normalizer = null;
 
     protected function setUp()
     {
-        $this->normalizer = new Linux();
+        $this->normalizer = new BabelFish();
     }
 
     /**
@@ -37,7 +37,7 @@ class LinuxTest extends \PHPUnit\Framework\TestCase
      * @param string $userAgent
      * @param string $expected
      */
-    public function shouldNormalizeTheLinuxToken($userAgent, $expected)
+    public function testNormalize($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
         self::assertSame($expected, $found);
@@ -47,16 +47,8 @@ class LinuxTest extends \PHPUnit\Framework\TestCase
     {
         return [
             [
-                'Android (Linus; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
-                'Android (Linux; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
-            ],
-            [
-                'Android (Linux;  U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
-                'Android (Linux; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
-            ],
-            [
-                'Mozilla',
-                'Mozilla',
+                'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5 (.NET CLR 3.5.30729) (via babelfish.yahoo.com)',
+                'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5 (.NET CLR 3.5.30729)',
             ],
             [
                 'Firefox',

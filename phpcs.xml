@@ -1,14 +1,23 @@
 <?xml version="1.0"?>
 <ruleset name="PHP_CodeSniffer">
-    <description>browser-detector</description>
-
-    <file>src</file>
-    <file>tests</file>
-
-    <exclude-pattern>*/temp/*</exclude-pattern>
+    <description>ua-normalizer</description>
 
     <arg name="report" value="full" />
     <arg value="np" />
 
+    <!-- inherit rules from: -->
     <rule ref="PSR2" />
+
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+        <properties>
+            <property name="ignoreBlankLines" value="false"/>
+        </properties>
+    </rule>
+
+    <!-- Paths to check -->
+    <file>src</file>
+    <file>tests</file>
+
+    <exclude-pattern>*/temp/*</exclude-pattern>
 </ruleset>

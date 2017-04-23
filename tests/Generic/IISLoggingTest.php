@@ -11,23 +11,23 @@
 declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
-use UaNormalizer\Generic\Mozilla;
+use UaNormalizer\Generic\IISLogging;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class MozillaTest extends \PHPUnit\Framework\TestCase
+class IISLoggingTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \UaNormalizer\Generic\Mozilla
+     * @var \UaNormalizer\Generic\IISLogging
      */
     private $normalizer = null;
 
     protected function setUp()
     {
-        $this->normalizer = new Mozilla();
+        $this->normalizer = new IISLogging();
     }
 
     /**
@@ -37,7 +37,7 @@ class MozillaTest extends \PHPUnit\Framework\TestCase
      * @param string $userAgent
      * @param string $expected
      */
-    public function shouldNormalizeTheMozillaToken($userAgent, $expected)
+    public function testNormalize($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
         self::assertSame($expected, $found);
@@ -47,16 +47,12 @@ class MozillaTest extends \PHPUnit\Framework\TestCase
     {
         return [
             [
-                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
-                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
+                'Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+5.1)',
+                'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
             ],
             [
-                'Mozzila/5.0 (hp-tablet; Linux; hpwOS/3.0.5;U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
-                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5;U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
-            ],
-            [
-                'Mozilla',
-                'Mozilla',
+                'Mozilla/5.0 (compatible;WI Job Roboter Spider Version 3;+http://www.webintegration.at)',
+                'Mozilla/5.0 (compatible;WI Job Roboter Spider Version 3;+http://www.webintegration.at)',
             ],
             [
                 'Firefox',

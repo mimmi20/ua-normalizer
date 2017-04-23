@@ -9,25 +9,26 @@
  */
 
 declare(strict_types = 1);
-namespace UaNormalizerTest\Generic;
+namespace UaNormalizerTest;
 
-use UaNormalizer\Generic\Mozilla;
+use UaNormalizer\Generic\Linux;
+use UaNormalizer\NullNormalizer;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class MozillaTest extends \PHPUnit\Framework\TestCase
+class NullNormalizerTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \UaNormalizer\Generic\Mozilla
+     * @var \UaNormalizer\NullNormalizer
      */
     private $normalizer = null;
 
     protected function setUp()
     {
-        $this->normalizer = new Mozilla();
+        $this->normalizer = new NullNormalizer();
     }
 
     /**
@@ -37,7 +38,7 @@ class MozillaTest extends \PHPUnit\Framework\TestCase
      * @param string $userAgent
      * @param string $expected
      */
-    public function shouldNormalizeTheMozillaToken($userAgent, $expected)
+    public function testNormalize($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
         self::assertSame($expected, $found);
@@ -47,12 +48,12 @@ class MozillaTest extends \PHPUnit\Framework\TestCase
     {
         return [
             [
-                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
-                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
+                'Android (Linus; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
+                'Android (Linus; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
             ],
             [
-                'Mozzila/5.0 (hp-tablet; Linux; hpwOS/3.0.5;U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
-                'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5;U; en-us) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 Touchpad/1.0',
+                'Android (Linux;  U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
+                'Android (Linux;  U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
             ],
             [
                 'Mozilla',

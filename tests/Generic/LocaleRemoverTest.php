@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\LocaleRemover;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class LocaleRemoverTest extends TestBase
+class LocaleRemoverTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\LocaleRemover
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new LocaleRemover();
@@ -36,7 +40,7 @@ class LocaleRemoverTest extends TestBase
     public function shouldNormalizeTheLocale($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function userAgentsDataProvider()
@@ -121,6 +125,14 @@ class LocaleRemoverTest extends TestBase
             [
                 'Mozilla/5.0 (X11; U; Linux armv7l; en_us; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
                 'Mozilla/5.0 (X11; U; Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+            ],
+            [
+                'Mozilla/5.0 (compatible; fr-crawler/1.1)',
+                'Mozilla/5.0 (compatible; fr-crawler/1.1)',
+            ],
+            [
+                'Mozilla/5.0 (compatible; ca-crawler/1.0)',
+                'Mozilla/5.0 (compatible; ca-crawler/1.0)',
             ],
         ];
     }
