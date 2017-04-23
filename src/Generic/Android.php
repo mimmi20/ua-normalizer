@@ -14,7 +14,7 @@ namespace UaNormalizer\Generic;
 use UaNormalizer\NormalizerInterface;
 
 /**
- * User Agent Normalizer - Trims the version number to two digits (e.g. 2.1.1 -> 2.1)
+ * User Agent Normalizer
  */
 class Android implements NormalizerInterface
 {
@@ -25,7 +25,9 @@ class Android implements NormalizerInterface
      */
     public function normalize($userAgent)
     {
+        $userAgent = str_ireplace('2.1-update1', '2.1.1', $userAgent);
+
         // Normalize Android version
-        return preg_replace('/(Android)[ \-\/](\d\.\d)([^; \/\)]+)/', '$1 $2', $userAgent);
+        return preg_replace('/(Android)[ \-\/]([\d\.]+)([^; \/\)\d\.]+)/', '$1 $2', $userAgent);
     }
 }
