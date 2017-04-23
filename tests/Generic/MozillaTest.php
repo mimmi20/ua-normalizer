@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\Mozilla;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class MozillaTest extends TestBase
+class MozillaTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\Mozilla
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new Mozilla();
@@ -36,7 +40,7 @@ class MozillaTest extends TestBase
     public function shouldNormalizeTheMozillaToken($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function userAgentsDataProvider()

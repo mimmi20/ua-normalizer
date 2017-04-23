@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\LocaleRemover;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class LocaleRemoverTest extends TestBase
+class LocaleRemoverTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\LocaleRemover
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new LocaleRemover();
@@ -36,7 +40,7 @@ class LocaleRemoverTest extends TestBase
     public function shouldNormalizeTheLocale($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function userAgentsDataProvider()

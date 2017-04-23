@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\Android;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class AndroidTest extends TestBase
+class AndroidTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\Android
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new Android();
@@ -33,10 +37,10 @@ class AndroidTest extends TestBase
      * @param string $userAgent
      * @param string $expected
      */
-    public function shouldNormalizeTheEncryptionToken($userAgent, $expected)
+    public function testNormalize($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function userAgentsDataProvider()

@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\KhtmlGecko;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class KhtmlGeckoTest extends TestBase
+class KhtmlGeckoTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\KhtmlGecko
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new KhtmlGecko();
@@ -36,7 +40,7 @@ class KhtmlGeckoTest extends TestBase
     public function shouldNormalizeTheKhtmlGeckoToken($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function userAgentsDataProvider()

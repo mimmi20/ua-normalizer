@@ -11,23 +11,23 @@
 declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
-use UaNormalizer\Generic\BabelFish;
+use UaNormalizer\Generic\IISLogging;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class BabelFishTest extends \PHPUnit\Framework\TestCase
+class IISLoggingTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \UaNormalizer\Generic\BabelFish
+     * @var \UaNormalizer\Generic\IISLogging
      */
     private $normalizer = null;
 
     protected function setUp()
     {
-        $this->normalizer = new BabelFish();
+        $this->normalizer = new IISLogging();
     }
 
     /**
@@ -47,8 +47,12 @@ class BabelFishTest extends \PHPUnit\Framework\TestCase
     {
         return [
             [
-                'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5 (.NET CLR 3.5.30729) (via babelfish.yahoo.com)',
-                'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5 (.NET CLR 3.5.30729)',
+                'Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+5.1)',
+                'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
+            ],
+            [
+                'Mozilla/5.0 (compatible;WI Job Roboter Spider Version 3;+http://www.webintegration.at)',
+                'Mozilla/5.0 (compatible;WI Job Roboter Spider Version 3;+http://www.webintegration.at)',
             ],
             [
                 'Firefox',

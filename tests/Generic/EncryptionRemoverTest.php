@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\EncryptionRemover;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class EncryptionRemoverTest extends TestBase
+class EncryptionRemoverTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\EncryptionRemover
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new EncryptionRemover();
@@ -36,7 +40,7 @@ class EncryptionRemoverTest extends TestBase
     public function shouldNormalizeTheEncryptionToken($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function userAgentsDataProvider()

@@ -9,25 +9,33 @@
  */
 
 declare(strict_types = 1);
-namespace UaNormalizerTest\Generic;
+namespace UaNormalizerTest;
 
 use UaNormalizer\Generic\Linux;
+use UaNormalizer\Generic\Mozilla;
+use UaNormalizer\UserAgentNormalizer;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class LinuxTest extends \PHPUnit\Framework\TestCase
+class UserAgentNormalizerTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \UaNormalizer\Generic\Linux
+     * @test
+     * @dataProvider userAgentsDataProvider
+     *
+     * @param string $userAgent
+     * @param string $expected
      */
-    private $normalizer = null;
-
-    protected function setUp()
+    public function testNormalizeConstruct($userAgent, $expected)
     {
-        $this->normalizer = new Linux();
+        $normalizer = new UserAgentNormalizer([new Mozilla()]);
+
+        self::assertSame(1, $normalizer->count());
+
+        self::assertSame($expected, $normalizer->normalize($userAgent));
     }
 
     /**
@@ -37,10 +45,14 @@ class LinuxTest extends \PHPUnit\Framework\TestCase
      * @param string $userAgent
      * @param string $expected
      */
-    public function shouldNormalizeTheLinuxToken($userAgent, $expected)
+    public function testNormalizeAdd($userAgent, $expected)
     {
-        $found = $this->normalizer->normalize($userAgent);
-        self::assertSame($expected, $found);
+        $normalizer = new UserAgentNormalizer();
+        $normalizer->add(new Mozilla());
+
+        self::assertSame(1, $normalizer->count());
+
+        self::assertSame($expected, $normalizer->normalize($userAgent));
     }
 
     public function userAgentsDataProvider()
@@ -48,11 +60,11 @@ class LinuxTest extends \PHPUnit\Framework\TestCase
         return [
             [
                 'Android (Linus; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
-                'Android (Linux; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
+                'Android (Linus; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
             ],
             [
                 'Android (Linux;  U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
-                'Android (Linux; U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
+                'Android (Linux;  U; Android 1.5; zh-cn; hero) AppleWebKit/528.5+ (KHTML) Version/3.1.2',
             ],
             [
                 'Mozilla',

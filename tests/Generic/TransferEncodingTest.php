@@ -11,23 +11,23 @@
 declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
-use UaNormalizer\Generic\BabelFish;
+use UaNormalizer\Generic\TransferEncoding;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class BabelFishTest extends \PHPUnit\Framework\TestCase
+class TransferEncodingTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \UaNormalizer\Generic\BabelFish
+     * @var \UaNormalizer\Generic\TransferEncoding
      */
     private $normalizer = null;
 
     protected function setUp()
     {
-        $this->normalizer = new BabelFish();
+        $this->normalizer = new TransferEncoding();
     }
 
     /**
@@ -47,8 +47,8 @@ class BabelFishTest extends \PHPUnit\Framework\TestCase
     {
         return [
             [
-                'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5 (.NET CLR 3.5.30729) (via babelfish.yahoo.com)',
-                'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1) Gecko/20090624 Firefox/3.5 (.NET CLR 3.5.30729)',
+                'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0,gzip(gfe)',
+                'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0',
             ],
             [
                 'Firefox',

@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\SerialNumbers;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class SerialNumbersTest
  *
  * @group Handlers
  */
-class SerialNumbersTest extends TestBase
+class SerialNumbersTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\SerialNumbers
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new SerialNumbers();
@@ -36,7 +40,7 @@ class SerialNumbersTest extends TestBase
     public function testRemoveSerialNumber($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function serialNumbersDataProvider()

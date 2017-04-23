@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\Tokens;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class TokensTest extends TestBase
+class TokensTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\Tokens
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new Tokens();
@@ -36,7 +40,7 @@ class TokensTest extends TestBase
     public function shouldNormalizeTheDamagedToken($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function userAgentsDataProvider()

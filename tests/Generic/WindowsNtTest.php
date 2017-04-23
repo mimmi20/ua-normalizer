@@ -12,15 +12,19 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Generic;
 
 use UaNormalizer\Generic\WindowsNt;
-use UaNormalizerTest\TestBase;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class WindowsNtTest extends TestBase
+class WindowsNtTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @var \UaNormalizer\Generic\WindowsNt
+     */
+    private $normalizer = null;
+
     protected function setUp()
     {
         $this->normalizer = new WindowsNt();
@@ -36,7 +40,7 @@ class WindowsNtTest extends TestBase
     public function shouldNormalizeTheWindowsNtToken($userAgent, $expected)
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertEquals($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     public function userAgentsDataProvider()
