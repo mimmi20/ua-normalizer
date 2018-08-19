@@ -145,6 +145,10 @@ class LocaleRemoverTest extends TestCase
                 'Mozilla/5.0 (compatible; ca-crawler/1.0)',
                 'Mozilla/5.0 (compatible; ca-crawler/1.0)',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.1.1; es-es; bq Curie Build/1.1.0 20130322-14:50) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.1.1; bq Curie Build/1.1.0 20130322-14:50) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+            ],
         ];
     }
 }
