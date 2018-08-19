@@ -37,6 +37,7 @@ script: vendor/bin/phpunit --colors --columns 121 --no-coverage
 
 jobs:
   allow_failures:
+    - php: 7.3
     - php: nightly
   include:
     - php: nightly
