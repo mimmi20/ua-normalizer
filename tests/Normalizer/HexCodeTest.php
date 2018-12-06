@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\HexCode;
  *
  * @group Handlers
  */
-class HexCodeTest extends TestCase
+final class HexCodeTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\HexCode

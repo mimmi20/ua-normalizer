@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\KhtmlGecko;
  *
  * @group Handlers
  */
-class KhtmlGeckoTest extends TestCase
+final class KhtmlGeckoTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\KhtmlGecko

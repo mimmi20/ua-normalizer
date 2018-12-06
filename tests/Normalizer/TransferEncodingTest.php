@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\TransferEncoding;
  *
  * @group Handlers
  */
-class TransferEncodingTest extends TestCase
+final class TransferEncodingTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\TransferEncoding

@@ -14,7 +14,7 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - clean IIS Logging from user agent
  */
-class IISLogging implements NormalizerInterface
+final class IISLogging implements NormalizerInterface
 {
     /**
      * @param string $userAgent

@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\WindowsNt;
  *
  * @group Handlers
  */
-class WindowsNtTest extends TestCase
+final class WindowsNtTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\WindowsNt

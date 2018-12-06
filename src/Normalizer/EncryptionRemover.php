@@ -14,18 +14,24 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - removes encryption information from user agent
  */
-class EncryptionRemover implements NormalizerInterface
+final class EncryptionRemover implements NormalizerInterface
 {
     /**
      * @param string $userAgent
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string
      */
     public function normalize(string $userAgent): string
     {
-        $userAgent = str_replace('; UEAINT', '', $userAgent);
-        $userAgent = preg_replace('/; ?(I|U);/', ';', $userAgent);
+        $userAgent  = str_replace('; UEAINT', '', $userAgent);
+        $normalized = preg_replace('/; ?(I|U);/', ';', $userAgent);
 
-        return $userAgent;
+        if (null === $normalized) {
+            throw new \UnexpectedValueException(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        }
+
+        return $normalized;
     }
 }

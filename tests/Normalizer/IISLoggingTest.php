@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\IISLogging;
  *
  * @group Handlers
  */
-class IISLoggingTest extends TestCase
+final class IISLoggingTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\IISLogging

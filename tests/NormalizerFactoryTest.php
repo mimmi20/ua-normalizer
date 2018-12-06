@@ -12,7 +12,7 @@ declare(strict_types = 1);
 namespace UaNormalizerTest;
 
 use PHPUnit\Framework\TestCase;
-use UaNormalizer\Normalizer\UserAgentNormalizer;
+use UaNormalizer\Normalizer\NormalizerChain;
 use UaNormalizer\NormalizerFactory;
 
 /**
@@ -20,7 +20,7 @@ use UaNormalizer\NormalizerFactory;
  *
  * @group Handlers
  */
-class NormalizerFactoryTest extends TestCase
+final class NormalizerFactoryTest extends TestCase
 {
     /**
      * @var \UaNormalizer\NormalizerFactory
@@ -43,6 +43,6 @@ class NormalizerFactoryTest extends TestCase
      */
     public function testNormalize(): void
     {
-        self::assertInstanceOf(UserAgentNormalizer::class, $this->normalizer->build());
+        self::assertInstanceOf(NormalizerChain::class, $this->normalizer->build());
     }
 }

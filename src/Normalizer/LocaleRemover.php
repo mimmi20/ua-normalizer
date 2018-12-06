@@ -14,10 +14,12 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - removes locale information from user agent
  */
-class LocaleRemover implements NormalizerInterface
+final class LocaleRemover implements NormalizerInterface
 {
     /**
      * @param string $userAgent
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string
      */
@@ -39,6 +41,12 @@ class LocaleRemover implements NormalizerInterface
             sprintf('%s%s%s%s', $matches[1], $matches[4], $matches[5], $matches[6])
         );
 
-        return preg_replace($regex, $replacement, $userAgent);
+        $normalized = preg_replace($regex, $replacement, $userAgent);
+
+        if (null === $normalized) {
+            throw new \UnexpectedValueException(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        }
+
+        return $normalized;
     }
 }

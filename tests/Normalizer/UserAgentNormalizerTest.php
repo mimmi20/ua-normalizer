@@ -13,14 +13,14 @@ namespace UaNormalizerTest\Normalizer;
 
 use PHPUnit\Framework\TestCase;
 use UaNormalizer\Normalizer\Mozilla;
-use UaNormalizer\Normalizer\UserAgentNormalizer;
+use UaNormalizer\Normalizer\NormalizerChain;
 
 /**
  * Class LocaleRemoverTest
  *
  * @group Handlers
  */
-class UserAgentNormalizerTest extends TestCase
+final class UserAgentNormalizerTest extends TestCase
 {
     /**
      * @dataProvider userAgentsDataProvider
@@ -32,7 +32,7 @@ class UserAgentNormalizerTest extends TestCase
      */
     public function testNormalizeConstruct(string $userAgent, string $expected): void
     {
-        $normalizer = new UserAgentNormalizer([new Mozilla()]);
+        $normalizer = new NormalizerChain([new Mozilla()]);
 
         self::assertSame(1, $normalizer->count());
 
@@ -49,7 +49,7 @@ class UserAgentNormalizerTest extends TestCase
      */
     public function testNormalizeAdd(string $userAgent, string $expected): void
     {
-        $normalizer = new UserAgentNormalizer();
+        $normalizer = new NormalizerChain();
         $normalizer->add(new Mozilla());
 
         self::assertSame(1, $normalizer->count());

@@ -14,15 +14,23 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - normalizes/fixes "Linux" token in user agent
  */
-class Linux implements NormalizerInterface
+final class Linux implements NormalizerInterface
 {
     /**
      * @param string $userAgent
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string
     {
-        return preg_replace('/\(Linu(s|x); */', '(Linux; ', $userAgent);
+        $normalized = preg_replace('/\(Linu(s|x); */', '(Linux; ', $userAgent);
+
+        if (null === $normalized) {
+            throw new \UnexpectedValueException(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        }
+
+        return $normalized;
     }
 }

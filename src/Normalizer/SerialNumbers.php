@@ -14,18 +14,23 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - removes serial numbers from user agent
  */
-class SerialNumbers implements NormalizerInterface
+final class SerialNumbers implements NormalizerInterface
 {
     /**
      * @param string $userAgent
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string
      */
     public function normalize(string $userAgent): string
     {
-        $userAgent = preg_replace('/\/SN[\dX]+/', '', $userAgent);
-        $userAgent = preg_replace('/\[(ST|TF|NT)[\dX]+\]/', '', $userAgent);
+        $normalized = preg_replace(['/\/SN[\dX]+/', '/\[(ST|TF|NT)[\dX]+\]/'], '', $userAgent);
 
-        return $userAgent;
+        if (null === $normalized) {
+            throw new \UnexpectedValueException(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        }
+
+        return $normalized;
     }
 }

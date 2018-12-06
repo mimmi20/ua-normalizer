@@ -11,21 +11,21 @@
 declare(strict_types = 1);
 namespace UaNormalizer;
 
-use UaNormalizer\Normalizer\UserAgentNormalizer;
+use UaNormalizer\Normalizer\NormalizerChain;
 
 /**
  * factory to create a useragent normalizer
  */
-class NormalizerFactory
+final class NormalizerFactory
 {
     /**
      * builds a useragent normalizer chain
      *
-     * @return \UaNormalizer\Normalizer\UserAgentNormalizer
+     * @return \UaNormalizer\Normalizer\NormalizerChain
      */
-    public function build(): UserAgentNormalizer
+    public function build(): NormalizerChain
     {
-        return new UserAgentNormalizer(
+        return new NormalizerChain(
             [
                 new Normalizer\BabelFish(),
                 new Normalizer\IISLogging(),
@@ -36,7 +36,6 @@ class NormalizerFactory
                 new Normalizer\KhtmlGecko(),
                 new Normalizer\HexCode(),
                 new Normalizer\WindowsNt(),
-                new Normalizer\Tokens(),
                 new Normalizer\SerialNumbers(),
                 new Normalizer\TransferEncoding(),
             ]

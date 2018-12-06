@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\LocaleRemover;
  *
  * @group Handlers
  */
-class LocaleRemoverTest extends TestCase
+final class LocaleRemoverTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\LocaleRemover

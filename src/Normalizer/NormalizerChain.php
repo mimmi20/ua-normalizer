@@ -14,7 +14,7 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer
  */
-class UserAgentNormalizer implements NormalizerInterface
+final class NormalizerChain implements NormalizerInterface
 {
     /**
      * UserAgentNormalizer chain - array of \UaNormalizer\UserAgentNormalizer objects
@@ -60,6 +60,8 @@ class UserAgentNormalizer implements NormalizerInterface
      * of normalizers
      *
      * @param string $userAgent
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string Normalized user agent
      */

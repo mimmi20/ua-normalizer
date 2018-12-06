@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\SerialNumbers;
  *
  * @group Handlers
  */
-class SerialNumbersTest extends TestCase
+final class SerialNumbersTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\SerialNumbers

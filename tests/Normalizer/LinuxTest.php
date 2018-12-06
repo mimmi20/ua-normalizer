@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\Linux;
  *
  * @group Handlers
  */
-class LinuxTest extends TestCase
+final class LinuxTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\Linux

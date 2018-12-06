@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\BabelFish;
  *
  * @group Handlers
  */
-class BabelFishTest extends TestCase
+final class BabelFishTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\BabelFish

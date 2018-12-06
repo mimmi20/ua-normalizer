@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\Mozilla;
  *
  * @group Handlers
  */
-class MozillaTest extends TestCase
+final class MozillaTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\Mozilla

@@ -14,7 +14,7 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - removes transfer encoding information from user agent
  */
-class TransferEncoding implements NormalizerInterface
+final class TransferEncoding implements NormalizerInterface
 {
     /**
      * @param string $userAgent

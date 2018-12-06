@@ -14,15 +14,23 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - removes hexcode garbage from user agent
  */
-class HexCode implements NormalizerInterface
+final class HexCode implements NormalizerInterface
 {
     /**
      * @param string $userAgent
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string
     {
-        return preg_replace('/([\\\\]+)(x)([0-9a-f]{2})/i', '', $userAgent);
+        $normalized = preg_replace('/([\\\\]+)(x)([0-9a-f]{2})/i', '', $userAgent);
+
+        if (null === $normalized) {
+            throw new \UnexpectedValueException(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        }
+
+        return $normalized;
     }
 }

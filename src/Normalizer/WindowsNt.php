@@ -14,15 +14,23 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - normalizes/fixes the "Windows NT" token in user agent
  */
-class WindowsNt implements NormalizerInterface
+final class WindowsNt implements NormalizerInterface
 {
     /**
      * @param string $userAgent
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string
     {
-        return preg_replace('/windows[ \-]nt/i', 'Windows NT', $userAgent);
+        $normalized = preg_replace('/windows[ \-]nt/i', 'Windows NT', $userAgent);
+
+        if (null === $normalized) {
+            throw new \UnexpectedValueException(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        }
+
+        return $normalized;
     }
 }

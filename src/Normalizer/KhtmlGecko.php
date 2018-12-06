@@ -14,15 +14,23 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - normalizes the KHTML, like Gecko Token from user agent
  */
-class KhtmlGecko implements NormalizerInterface
+final class KhtmlGecko implements NormalizerInterface
 {
     /**
      * @param string $userAgent
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string
     {
-        return trim(preg_replace('/ *\(K?(HT|TH)ML,? *like ?Gecko\) */', ' (KHTML, like Gecko) ', $userAgent));
+        $normalized = preg_replace('/ *\(K?(HT|TH)ML,? *like ?Gecko\) */', ' (KHTML, like Gecko) ', $userAgent);
+
+        if (null === $normalized) {
+            throw new \UnexpectedValueException(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        }
+
+        return trim($normalized);
     }
 }

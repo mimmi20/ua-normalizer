@@ -14,15 +14,23 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - normalizes/fixes "Mozilla" token in user agent
  */
-class Mozilla implements NormalizerInterface
+final class Mozilla implements NormalizerInterface
 {
     /**
      * @param string $userAgent
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string
     {
-        return preg_replace('/Moz(il|zi)la[\/ ]([\d.]+) */', 'Mozilla/$2 ', $userAgent);
+        $normalized = preg_replace('/Moz(il|zi)la[\/ ]([\d.]+) */', 'Mozilla/$2 ', $userAgent);
+
+        if (null === $normalized) {
+            throw new \UnexpectedValueException(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        }
+
+        return $normalized;
     }
 }

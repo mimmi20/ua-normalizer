@@ -19,7 +19,7 @@ use UaNormalizer\Normalizer\EncryptionRemover;
  *
  * @group Handlers
  */
-class EncryptionRemoverTest extends TestCase
+final class EncryptionRemoverTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\EncryptionRemover

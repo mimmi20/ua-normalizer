@@ -14,15 +14,23 @@ namespace UaNormalizer\Normalizer;
 /**
  * User Agent Normalizer - removes BabelFish garbage from user agent
  */
-class BabelFish implements NormalizerInterface
+final class BabelFish implements NormalizerInterface
 {
     /**
      * @param string $userAgent
+     *
+     * @throws \UnexpectedValueException
      *
      * @return string
      */
     public function normalize(string $userAgent): string
     {
-        return preg_replace('/\s*\(via babelfish.yahoo.com\)\s*/', '', $userAgent);
+        $normalized = preg_replace('/\s*\(via babelfish.yahoo.com\)\s*/', '', $userAgent);
+
+        if (null === $normalized) {
+            throw new \UnexpectedValueException(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        }
+
+        return $normalized;
     }
 }
