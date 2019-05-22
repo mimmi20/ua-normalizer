@@ -12,7 +12,7 @@ declare(strict_types = 1);
 $header = <<<'EOF'
 This file is part of the ua-normalizer package.
 
-Copyright (c) 2015-2018, Thomas Mueller <mimmi20@live.de>
+Copyright (c) 2015-2019, Thomas Mueller <mimmi20@live.de>
 
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
@@ -30,12 +30,15 @@ return PhpCsFixer\Config::create()
     ->setRules(
         [
             '@PSR2' => true,
+            '@PhpCsFixer' => true,
+            '@PhpCsFixer:risky' => true,
             '@Symfony' => true,
             '@Symfony:risky' => true,
             '@PHP70Migration' => true,
             '@PHP70Migration:risky' => true,
             '@PHP71Migration' => true,
             '@PHP71Migration:risky' => true,
+            '@PHP73Migration' => true,
             '@PHPUnit60Migration:risky' => true,
 
             // @PSR2 rules configured different from default
@@ -52,9 +55,14 @@ return PhpCsFixer\Config::create()
             'no_break_comment' => false,
             'visibility_required' => ['elements' => ['property', 'method', 'const']],
 
-            // @Symfony rules configured different from default
+            // @PhpCsFixer rules configured different from default
+            'align_multiline_comment' => ['comment_type' => 'all_multiline'],
+            'array_syntax' => ['syntax' => 'short'],
             'binary_operator_spaces' => ['default' => 'single_space', 'operators' => ['=' => 'align_single_space_minimal']],
+
+            // @Symfony rules configured different from default
             'concat_space' => ['spacing' => 'one'],
+            'date_time_immutable' => true,
             'declare_equal_normalize' => ['space' => 'single'],
             'no_blank_lines_after_phpdoc' => false,
             'phpdoc_no_empty_return' => false,
@@ -81,12 +89,8 @@ return PhpCsFixer\Config::create()
             'php_unit_dedicate_assert' => ['target' => 'newest'],
 
             // other rules
-            'align_multiline_comment' => ['comment_type' => 'all_multiline'],
-            'array_syntax' => ['syntax' => 'short'],
             'backtick_to_shell_exec' => true,
             'class_keyword_remove' => false,
-            'combine_consecutive_issets' => true,
-            'combine_consecutive_unsets' => true,
             'compact_nullable_typehint' => true,
             'escape_implicit_backslashes' => [
                 'double_quoted' => true,
@@ -117,7 +121,6 @@ return PhpCsFixer\Config::create()
             'list_syntax' => ['syntax' => 'short'],
             'mb_str_functions' => true,
             'method_chaining_indentation' => true,
-            'method_separation' => true,
             'native_function_invocation' => false,
             'no_blank_lines_before_namespace' => true,
             'no_multiline_whitespace_before_semicolons' => true,

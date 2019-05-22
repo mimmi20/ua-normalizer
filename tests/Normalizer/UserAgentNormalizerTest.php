@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2018, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2019, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,6 +19,8 @@ use UaNormalizer\Normalizer\NormalizerChain;
  * Class LocaleRemoverTest
  *
  * @group Handlers
+ *
+ * @internal
  */
 final class UserAgentNormalizerTest extends TestCase
 {
@@ -28,15 +30,19 @@ final class UserAgentNormalizerTest extends TestCase
      * @param string $userAgent
      * @param string $expected
      *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws \UaNormalizer\Normalizer\Exception
+     *
      * @return void
      */
     public function testNormalizeConstruct(string $userAgent, string $expected): void
     {
         $normalizer = new NormalizerChain([new Mozilla()]);
 
-        self::assertSame(1, $normalizer->count());
+        static::assertSame(1, $normalizer->count());
 
-        self::assertSame($expected, $normalizer->normalize($userAgent));
+        static::assertSame($expected, $normalizer->normalize($userAgent));
     }
 
     /**
@@ -45,16 +51,18 @@ final class UserAgentNormalizerTest extends TestCase
      * @param string $userAgent
      * @param string $expected
      *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws \UaNormalizer\Normalizer\Exception
+     *
      * @return void
      */
     public function testNormalizeAdd(string $userAgent, string $expected): void
     {
-        $normalizer = new NormalizerChain();
-        $normalizer->add(new Mozilla());
+        $normalizer = new NormalizerChain([new Mozilla()]);
 
-        self::assertSame(1, $normalizer->count());
-
-        self::assertSame($expected, $normalizer->normalize($userAgent));
+        static::assertSame(1, $normalizer->count());
+        static::assertSame($expected, $normalizer->normalize($userAgent));
     }
 
     /**

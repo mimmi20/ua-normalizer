@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2018, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2019, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,6 +19,8 @@ use UaNormalizer\NormalizerFactory;
  * Class LocaleRemoverTest
  *
  * @group Handlers
+ *
+ * @internal
  */
 final class NormalizerFactoryTest extends TestCase
 {
@@ -39,10 +41,13 @@ final class NormalizerFactoryTest extends TestCase
     }
 
     /**
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     *
      * @return void
      */
     public function testNormalize(): void
     {
-        self::assertInstanceOf(NormalizerChain::class, $this->normalizer->build());
+        static::assertInstanceOf(NormalizerChain::class, $this->normalizer->build());
     }
 }

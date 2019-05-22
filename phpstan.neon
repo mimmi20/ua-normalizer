@@ -10,10 +10,12 @@ parameters:
   excludes_analyse:
     - */tests/*/data/*
   ignoreErrors:
-#    - '~MockObject~'
+    - '~Call to static method PHPUnit~'
   exceptionRules:
     reportUnusedCatchesOfUncheckedExceptions: false
     uncheckedExceptions: []
+  classesAllowedToBeExtended:
+  	- UnexpectedValueException
 
 includes:
   - vendor/phpstan/phpstan-strict-rules/rules.neon
@@ -21,5 +23,4 @@ includes:
   - vendor/phpstan/phpstan-phpunit/rules.neon
   - vendor/pepakriz/phpstan-exception-rules/extension.neon
   - vendor/phpstan/phpstan-deprecation-rules/rules.neon
-  - vendor/localheinz/phpstan-rules/rules.neon
   - vendor/thecodingmachine/phpstan-safe-rule/phpstan-safe-rule.neon

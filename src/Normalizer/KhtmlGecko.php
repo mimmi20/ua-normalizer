@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2018, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2019, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,6 +10,9 @@
 
 declare(strict_types = 1);
 namespace UaNormalizer\Normalizer;
+
+use Safe\Exceptions\PcreException;
+use function Safe\preg_replace;
 
 /**
  * User Agent Normalizer - normalizes the KHTML, like Gecko Token from user agent
@@ -19,18 +22,18 @@ final class KhtmlGecko implements NormalizerInterface
     /**
      * @param string $userAgent
      *
-     * @throws \UnexpectedValueException
+     * @throws Exception
      *
      * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string
     {
-        $normalized = preg_replace('/ *\(K?(HT|TH)ML,? *like ?Gecko\) */', ' (KHTML, like Gecko) ', $userAgent);
-
-        if (null === $normalized) {
-            throw new \UnexpectedValueException(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        try {
+            $normalized = preg_replace('/ *\(K?(?:HT|TH)ML,? *like ?Gecko\) */', ' (KHTML, like Gecko) ', $userAgent);
+        } catch (PcreException $e) {
+            throw Exception::throw($userAgent, $e);
         }
 
-        return trim($normalized);
+        return $normalized;
     }
 }

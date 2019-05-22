@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2018, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2019, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -18,6 +18,8 @@ use UaNormalizer\Normalizer\EncryptionRemover;
  * Class LocaleRemoverTest
  *
  * @group Handlers
+ *
+ * @internal
  */
 final class EncryptionRemoverTest extends TestCase
 {
@@ -43,12 +45,16 @@ final class EncryptionRemoverTest extends TestCase
      * @param string $userAgent
      * @param string $expected
      *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws \UaNormalizer\Normalizer\Exception
+     *
      * @return void
      */
     public function testShouldNormalizeTheEncryptionToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertSame($expected, $found);
+        static::assertSame($expected, $found);
     }
 
     /**
