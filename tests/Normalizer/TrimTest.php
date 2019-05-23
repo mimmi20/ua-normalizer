@@ -12,12 +12,12 @@ declare(strict_types = 1);
 namespace UaNormalizerTest\Normalizer;
 
 use PHPUnit\Framework\TestCase;
-use UaNormalizer\Normalizer\IISLogging;
+use UaNormalizer\Normalizer\Trim;
 
-final class IISLoggingTest extends TestCase
+final class TrimTest extends TestCase
 {
     /**
-     * @var \UaNormalizer\Normalizer\IISLogging
+     * @var \UaNormalizer\Normalizer\Trim
      */
     private $normalizer;
 
@@ -29,7 +29,7 @@ final class IISLoggingTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->normalizer = new IISLogging();
+        $this->normalizer = new Trim();
     }
 
     /**
@@ -43,7 +43,7 @@ final class IISLoggingTest extends TestCase
      *
      * @return void
      */
-    public function testNormalize(string $userAgent, string $expected): void
+    public function testShouldNormalize(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
         static::assertSame($expected, $found);
@@ -56,16 +56,8 @@ final class IISLoggingTest extends TestCase
     {
         return [
             [
-                'Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+5.1)',
-                'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
-            ],
-            [
-                'Mozilla/5.0 (compatible;WI Job Roboter Spider Version 3;+http://www.webintegration.at)',
-                'Mozilla/5.0 (compatible;WI Job Roboter Spider Version 3;+http://www.webintegration.at)',
-            ],
-            [
-                'Firefox',
-                'Firefox',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.1.25 (KHTML, like Gecko) ',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.1.25 (KHTML, like Gecko)',
             ],
         ];
     }

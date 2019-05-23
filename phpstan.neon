@@ -11,6 +11,7 @@ parameters:
     - */tests/*/data/*
   ignoreErrors:
     - '~Call to static method PHPUnit~'
+    - '~has parameter \$e with null as default value~'
   exceptionRules:
     reportUnusedCatchesOfUncheckedExceptions: false
     uncheckedExceptions: []
@@ -24,3 +25,4 @@ includes:
   - vendor/pepakriz/phpstan-exception-rules/extension.neon
   - vendor/phpstan/phpstan-deprecation-rules/rules.neon
   - vendor/thecodingmachine/phpstan-safe-rule/phpstan-safe-rule.neon
+  - vendor/localheinz/phpstan-rules/rules.neon

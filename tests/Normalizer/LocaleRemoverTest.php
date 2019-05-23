@@ -14,13 +14,6 @@ namespace UaNormalizerTest\Normalizer;
 use PHPUnit\Framework\TestCase;
 use UaNormalizer\Normalizer\LocaleRemover;
 
-/**
- * Class LocaleRemoverTest
- *
- * @group Handlers
- *
- * @internal
- */
 final class LocaleRemoverTest extends TestCase
 {
     /**

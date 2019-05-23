@@ -14,13 +14,6 @@ namespace UaNormalizerTest\Normalizer;
 use PHPUnit\Framework\TestCase;
 use UaNormalizer\Normalizer\SerialNumbers;
 
-/**
- * Class SerialNumbersTest
- *
- * @group Handlers
- *
- * @internal
- */
 final class SerialNumbersTest extends TestCase
 {
     /**

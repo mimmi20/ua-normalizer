@@ -15,13 +15,6 @@ use PHPUnit\Framework\TestCase;
 use UaNormalizer\Normalizer\Mozilla;
 use UaNormalizer\Normalizer\NormalizerChain;
 
-/**
- * Class LocaleRemoverTest
- *
- * @group Handlers
- *
- * @internal
- */
 final class UserAgentNormalizerTest extends TestCase
 {
     /**
