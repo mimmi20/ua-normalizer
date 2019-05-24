@@ -11,27 +11,23 @@
 declare(strict_types = 1);
 namespace UaNormalizer\Normalizer;
 
-use Safe\Exceptions\SafeExceptionInterface;
-use Safe\Exceptions\StringsException;
-use function Safe\sprintf;
+use function sprintf;
 
 final class Exception extends \UnexpectedValueException
 {
     /**
-     * @param string                                       $userAgent
-     * @param \Safe\Exceptions\SafeExceptionInterface|null $e
+     * @param string $userAgent
      *
      * @return self
      */
-    public static function throw(string $userAgent, SafeExceptionInterface $e = null): self
+    public static function throw(string $userAgent): self
     {
-        try {
-            $message = sprintf('an error occurecd while normalizing useragent "%s"', $userAgent);
-        } catch (StringsException $ex) {
-            $message = 'an error occurecd while normalizing an useragent followed by an exception while generating the exception message';
-            $e       = new \Exception($ex->getMessage(), 0, $e);
+        $message = sprintf('an error occurecd while normalizing useragent "%s"', $userAgent);
+
+        if (false === $message) {
+            $message = 'an error occurecd while normalizing an useragent followed by an error while generating the exception message';
         }
 
-        return new self($message, 0, $e);
+        return new self($message);
     }
 }

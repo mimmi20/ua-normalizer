@@ -11,8 +11,7 @@
 declare(strict_types = 1);
 namespace UaNormalizer\Normalizer;
 
-use Safe\Exceptions\PcreException;
-use function Safe\preg_replace;
+use function preg_replace;
 
 /**
  * User Agent Normalizer - normalizes the KHTML, like Gecko Token from user agent
@@ -28,10 +27,10 @@ final class KhtmlGecko implements NormalizerInterface
      */
     public function normalize(string $userAgent): string
     {
-        try {
-            $normalized = preg_replace('/ *\(K?(?:HT|TH)ML,? *like ?Gecko\) */', ' (KHTML, like Gecko) ', $userAgent);
-        } catch (PcreException $e) {
-            throw Exception::throw($userAgent, $e);
+        $normalized = preg_replace('/ *\(K?(HT|TH)ML,? *like ?Gecko\) */', ' (KHTML, like Gecko) ', $userAgent);
+
+        if (null === $normalized) {
+            throw Exception::throw($userAgent);
         }
 
         return $normalized;

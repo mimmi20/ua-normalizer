@@ -11,8 +11,7 @@
 declare(strict_types = 1);
 namespace UaNormalizer\Normalizer;
 
-use Safe\Exceptions\PcreException;
-use function Safe\preg_replace;
+use function preg_replace;
 
 /**
  * User Agent Normalizer - normalizes/fixes the "Windows NT" token in user agent
@@ -28,10 +27,10 @@ final class WindowsNt implements NormalizerInterface
      */
     public function normalize(string $userAgent): string
     {
-        try {
-            $normalized = preg_replace('/windows[ \-]?nt/i', 'Windows NT', $userAgent);
-        } catch (PcreException $e) {
-            throw Exception::throw($userAgent, $e);
+        $normalized = preg_replace('/windows[ \-]nt/i', 'Windows NT', $userAgent);
+
+        if (null === $normalized) {
+            throw Exception::throw($userAgent);
         }
 
         return $normalized;

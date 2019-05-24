@@ -47,7 +47,7 @@ final class LocaleRemoverTest extends TestCase
     public function testShouldNormalizeTheLocale(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        static::assertSame($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     /**

@@ -30,9 +30,21 @@ final class NormalizerChain implements NormalizerInterface
      *
      * @param \UaNormalizer\Normalizer\NormalizerInterface[] $normalizers
      */
-    public function __construct(array $normalizers)
+    public function __construct(array $normalizers = [])
     {
         $this->normalizers = $normalizers;
+    }
+
+    /**
+     * Adds a new UserAgent Normalizer to the chain
+     *
+     * @param \UaNormalizer\Normalizer\NormalizerInterface $normalizer
+     *
+     * @return void
+     */
+    public function add(NormalizerInterface $normalizer): void
+    {
+        $this->normalizers[] = $normalizer;
     }
 
     /**

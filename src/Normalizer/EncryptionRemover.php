@@ -11,8 +11,7 @@
 declare(strict_types = 1);
 namespace UaNormalizer\Normalizer;
 
-use Safe\Exceptions\PcreException;
-use function Safe\preg_replace;
+use function preg_replace;
 use function str_replace;
 
 /**
@@ -29,12 +28,11 @@ final class EncryptionRemover implements NormalizerInterface
      */
     public function normalize(string $userAgent): string
     {
-        $userAgent = str_replace('; UEAINT', '', $userAgent);
+        $userAgent  = str_replace('; UEAINT', '', $userAgent);
+        $normalized = preg_replace('/; ?(I|U);/', ';', $userAgent);
 
-        try {
-            $normalized = preg_replace('/; ?(I|U);/', ';', $userAgent);
-        } catch (PcreException $e) {
-            throw Exception::throw($userAgent, $e);
+        if (null === $normalized) {
+            throw Exception::throw($userAgent);
         }
 
         return $normalized;
