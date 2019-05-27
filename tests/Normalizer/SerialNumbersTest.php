@@ -47,7 +47,7 @@ final class SerialNumbersTest extends TestCase
     public function testRemoveSerialNumber(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertSame($expected, $found);
+        static::assertSame($expected, $found);
     }
 
     /**

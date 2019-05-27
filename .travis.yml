@@ -25,7 +25,6 @@ stages:
   - static code analysis
   - test
   - test with coverage
-  - integration tests
   - infection
 
 before_install:
@@ -93,7 +92,7 @@ jobs:
       env:
         - TEST=phpstan
         - COMPOSER_FLAGS=""
-      script: vendor/bin/phpstan analyse -l max -c phpstan.neon --autoload-file=vendor/autoload.php --memory-limit=768M --no-progress src tests
+      script: vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=768M --no-progress src tests
 
     - stage: infection
       php: 7.1

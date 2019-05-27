@@ -47,7 +47,7 @@ final class EncryptionRemoverTest extends TestCase
     public function testShouldNormalizeTheEncryptionToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertSame($expected, $found);
+        static::assertSame($expected, $found);
     }
 
     /**

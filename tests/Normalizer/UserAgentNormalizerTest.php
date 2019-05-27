@@ -33,8 +33,8 @@ final class UserAgentNormalizerTest extends TestCase
     {
         $normalizer = new NormalizerChain([new Mozilla()]);
 
-        self::assertSame(1, $normalizer->count());
-        self::assertSame($expected, $normalizer->normalize($userAgent));
+        static::assertSame(1, $normalizer->count());
+        static::assertSame($expected, $normalizer->normalize($userAgent));
     }
 
     /**
@@ -54,9 +54,9 @@ final class UserAgentNormalizerTest extends TestCase
         $normalizer = new NormalizerChain();
         $normalizer->add(new Mozilla());
 
-        self::assertSame(1, $normalizer->count());
+        static::assertSame(1, $normalizer->count());
 
-        self::assertSame($expected, $normalizer->normalize($userAgent));
+        static::assertSame($expected, $normalizer->normalize($userAgent));
     }
 
     /**

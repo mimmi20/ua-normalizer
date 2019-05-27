@@ -47,7 +47,7 @@ final class WindowsNtTest extends TestCase
     public function testShouldNormalizeTheWindowsNtToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertSame($expected, $found);
+        static::assertSame($expected, $found);
     }
 
     /**

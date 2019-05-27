@@ -46,7 +46,7 @@ final class IISLoggingTest extends TestCase
     public function testNormalize(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertSame($expected, $found);
+        static::assertSame($expected, $found);
     }
 
     /**

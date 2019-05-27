@@ -47,7 +47,7 @@ final class LinuxTest extends TestCase
     public function testShouldNormalizeTheLinuxToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertSame($expected, $found);
+        static::assertSame($expected, $found);
     }
 
     /**
