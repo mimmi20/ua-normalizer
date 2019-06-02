@@ -19,3 +19,5 @@ tests/temp/*.ini
 tests/cache/
 tests/resources/cache
 .php_cs.cache
+infection-*.log
+rewrite*.php

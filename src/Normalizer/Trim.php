@@ -11,28 +11,20 @@
 declare(strict_types = 1);
 namespace UaNormalizer\Normalizer;
 
-use function preg_replace;
+use function trim;
 
 /**
- * User Agent Normalizer - normalizes/fixes "Mozilla" token in user agent
+ * User Agent Normalizer - removes leading and trailing spaces
  */
-final class Mozilla implements NormalizerInterface
+final class Trim implements NormalizerInterface
 {
     /**
      * @param string $userAgent
-     *
-     * @throws Exception
      *
      * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string
     {
-        $normalized = preg_replace('/Moz(il|zi)la[\/ ]([\d.]+) */', 'Mozilla/$2 ', $userAgent);
-
-        if (null === $normalized) {
-            throw Exception::throw($userAgent);
-        }
-
-        return $normalized;
+        return trim($userAgent);
     }
 }

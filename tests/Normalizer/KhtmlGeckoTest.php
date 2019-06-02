@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2018, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2019, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,12 +14,7 @@ namespace UaNormalizerTest\Normalizer;
 use PHPUnit\Framework\TestCase;
 use UaNormalizer\Normalizer\KhtmlGecko;
 
-/**
- * Class LocaleRemoverTest
- *
- * @group Handlers
- */
-class KhtmlGeckoTest extends TestCase
+final class KhtmlGeckoTest extends TestCase
 {
     /**
      * @var \UaNormalizer\Normalizer\KhtmlGecko
@@ -43,12 +38,16 @@ class KhtmlGeckoTest extends TestCase
      * @param string $userAgent
      * @param string $expected
      *
+     * @throws \PHPUnit\Framework\ExpectationFailedException
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws \UaNormalizer\Normalizer\Exception
+     *
      * @return void
      */
     public function testShouldNormalizeTheKhtmlGeckoToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        self::assertSame($expected, $found);
+        static::assertSame($expected, $found);
     }
 
     /**
@@ -87,7 +86,7 @@ class KhtmlGeckoTest extends TestCase
             ],
             [
                 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.1.25 (KHTML, like Gecko)',
-                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.1.25 (KHTML, like Gecko)',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.1.25 (KHTML, like Gecko) ',
             ],
         ];
     }

@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2018, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2019, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,10 +11,12 @@
 declare(strict_types = 1);
 namespace UaNormalizer\Normalizer;
 
+use function count;
+
 /**
  * User Agent Normalizer
  */
-class UserAgentNormalizer implements NormalizerInterface
+final class NormalizerChain implements NormalizerInterface
 {
     /**
      * UserAgentNormalizer chain - array of \UaNormalizer\UserAgentNormalizer objects
@@ -60,6 +62,8 @@ class UserAgentNormalizer implements NormalizerInterface
      * of normalizers
      *
      * @param string $userAgent
+     *
+     * @throws Exception
      *
      * @return string Normalized user agent
      */
