@@ -47,7 +47,7 @@ final class KhtmlGeckoTest extends TestCase
     public function testShouldNormalizeTheKhtmlGeckoToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        static::assertSame($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     /**

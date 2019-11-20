@@ -46,7 +46,7 @@ final class TrimTest extends TestCase
     public function testShouldNormalize(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        static::assertSame($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     /**
