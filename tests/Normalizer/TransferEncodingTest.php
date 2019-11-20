@@ -46,7 +46,7 @@ final class TransferEncodingTest extends TestCase
     public function testNormalize(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
-        static::assertSame($expected, $found);
+        self::assertSame($expected, $found);
     }
 
     /**

@@ -46,6 +46,6 @@ final class NormalizerFactoryTest extends TestCase
      */
     public function testNormalize(): void
     {
-        static::assertInstanceOf(NormalizerChain::class, $this->normalizer->build());
+        self::assertInstanceOf(NormalizerChain::class, $this->normalizer->build());
     }
 }
