@@ -27,16 +27,16 @@
     "php": "^7.1"
   },
   "require-dev": {
+    "ergebnis/composer-normalize": "^2.2.0",
+    "ergebnis/phpstan-rules": "^0.14.2",
     "friendsofphp/php-cs-fixer": "^2.16.1",
     "infection/infection": "^0.13.6",
-    "localheinz/composer-normalize": "^2.2.0",
-    "localheinz/phpstan-rules": "^0.13.0",
-    "pepakriz/phpstan-exception-rules": "^0.9.0",
-    "phpstan/phpstan": "^0.11.19",
-    "phpstan/phpstan-deprecation-rules": "^0.11.2",
-    "phpstan/phpstan-phpunit": "^0.11.2",
-    "phpstan/phpstan-strict-rules": "^0.11.1",
-    "phpunit/phpunit": "^7.5.17 || ^8.4.0",
+    "pepakriz/phpstan-exception-rules": "^0.10.1",
+    "phpstan/phpstan": "^0.12.4",
+    "phpstan/phpstan-deprecation-rules": "^0.12.1",
+    "phpstan/phpstan-phpunit": "^0.12.5",
+    "phpstan/phpstan-strict-rules": "^0.12.1",
+    "phpunit/phpunit": "^7.5.19 || ^8.5.0",
     "squizlabs/php_codesniffer": "^3.5.3"
   },
   "config": {
