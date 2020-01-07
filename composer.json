@@ -30,7 +30,7 @@
     "friendsofphp/php-cs-fixer": "^2.16.1",
     "infection/infection": "^0.13.6",
     "localheinz/composer-normalize": "^2.2.0",
-    "localheinz/phpstan-rules": "^0.13.0",
+    "localheinz/phpstan-rules": "^0.14.2",
     "pepakriz/phpstan-exception-rules": "^0.9.0",
     "phpstan/phpstan": "^0.11.19",
     "phpstan/phpstan-deprecation-rules": "^0.11.2",
