@@ -8,10 +8,8 @@
 
 [![Build Status](https://travis-ci.org/mimmi20/ua-normalizer.svg?branch=master)](https://travis-ci.org/mimmi20/ua-normalizer)
 [![codecov](https://codecov.io/gh/mimmi20/ua-normalizer/branch/master/graph/badge.svg)](https://codecov.io/gh/mimmi20/ua-normalizer)
-[![Maintainability](https://api.codeclimate.com/v1/badges/de9aa508d86f2bf4f5a6/maintainability)](https://codeclimate.com/github/mimmi20/ua-normalizer/maintainability)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mimmi20/ua-normalizer.svg)](http://isitmaintained.com/project/mimmi20/ua-normalizer "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mimmi20/ua-normalizer.svg)](http://isitmaintained.com/project/mimmi20/ua-normalizer "Percentage of issues still open")
-[![Dependency Status](https://gemnasium.com/badges/github.com/mimmi20/ua-normalizer.svg)](https://gemnasium.com/github.com/mimmi20/ua-normalizer)
 
 
 ## Requirements
