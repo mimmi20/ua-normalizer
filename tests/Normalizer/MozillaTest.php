@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\Mozilla;
 
 final class MozillaTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\Mozilla
-     */
+    /** @var \UaNormalizer\Normalizer\Mozilla */
     private $normalizer;
 
     /**

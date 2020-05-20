@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\Linux;
 
 final class LinuxTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\Linux
-     */
+    /** @var \UaNormalizer\Normalizer\Linux */
     private $normalizer;
 
     /**

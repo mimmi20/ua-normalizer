@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\BabelFish;
 
 final class BabelFishTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\BabelFish
-     */
+    /** @var \UaNormalizer\Normalizer\BabelFish */
     private $normalizer;
 
     /**

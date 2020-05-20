@@ -27,7 +27,7 @@ final class Linux implements NormalizerInterface
      */
     public function normalize(string $userAgent): string
     {
-        $normalized = preg_replace('/\(Linu(s|x); */', '(Linux; ', $userAgent);
+        $normalized = preg_replace('/\(Linu[sx]; */', '(Linux; ', $userAgent);
 
         if (null === $normalized) {
             throw Exception::throw($userAgent);

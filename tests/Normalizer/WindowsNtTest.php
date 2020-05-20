@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\WindowsNt;
 
 final class WindowsNtTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\WindowsNt
-     */
+    /** @var \UaNormalizer\Normalizer\WindowsNt */
     private $normalizer;
 
     /**

@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\TransferEncoding;
 
 final class TransferEncodingTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\TransferEncoding
-     */
+    /** @var \UaNormalizer\Normalizer\TransferEncoding */
     private $normalizer;
 
     /**

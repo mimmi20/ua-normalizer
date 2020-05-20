@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\IISLogging;
 
 final class IISLoggingTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\IISLogging
-     */
+    /** @var \UaNormalizer\Normalizer\IISLogging */
     private $normalizer;
 
     /**

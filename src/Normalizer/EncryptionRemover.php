@@ -29,7 +29,7 @@ final class EncryptionRemover implements NormalizerInterface
     public function normalize(string $userAgent): string
     {
         $userAgent  = str_replace('; UEAINT', '', $userAgent);
-        $normalized = preg_replace('/; ?(I|U);/', ';', $userAgent);
+        $normalized = preg_replace('/; ?[IU];/', ';', $userAgent);
 
         if (null === $normalized) {
             throw Exception::throw($userAgent);

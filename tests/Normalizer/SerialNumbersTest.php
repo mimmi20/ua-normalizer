@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\SerialNumbers;
 
 final class SerialNumbersTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\SerialNumbers
-     */
+    /** @var \UaNormalizer\Normalizer\SerialNumbers */
     private $normalizer;
 
     /**

@@ -16,15 +16,11 @@ use UaNormalizer\Normalizer\NormalizerChain;
 use UaNormalizer\NormalizerFactory;
 
 /**
- * Class LocaleRemoverTest
- *
  * @group Handlers
  */
 final class NormalizerFactoryTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\NormalizerFactory
-     */
+    /** @var \UaNormalizer\NormalizerFactory */
     private $normalizer;
 
     /**
