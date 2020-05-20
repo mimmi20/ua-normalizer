@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\EncryptionRemover;
 
 final class EncryptionRemoverTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\EncryptionRemover
-     */
+    /** @var \UaNormalizer\Normalizer\EncryptionRemover */
     private $normalizer;
 
     /**

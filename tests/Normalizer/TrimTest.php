@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\Trim;
 
 final class TrimTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\Trim
-     */
+    /** @var \UaNormalizer\Normalizer\Trim */
     private $normalizer;
 
     /**

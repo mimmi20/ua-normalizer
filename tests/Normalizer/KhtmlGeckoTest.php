@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\KhtmlGecko;
 
 final class KhtmlGeckoTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\KhtmlGecko
-     */
+    /** @var \UaNormalizer\Normalizer\KhtmlGecko */
     private $normalizer;
 
     /**

@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\LocaleRemover;
 
 final class LocaleRemoverTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\LocaleRemover
-     */
+    /** @var \UaNormalizer\Normalizer\LocaleRemover */
     private $normalizer;
 
     /**

@@ -16,9 +16,7 @@ use UaNormalizer\Normalizer\HexCode;
 
 final class HexCodeTest extends TestCase
 {
-    /**
-     * @var \UaNormalizer\Normalizer\HexCode
-     */
+    /** @var \UaNormalizer\Normalizer\HexCode */
     private $normalizer;
 
     /**
