@@ -7,13 +7,13 @@
   },
   "phpUnit": {
     "configDir": ".",
-    "customPath": "vendor/phpunit/phpunit/phpunit"
-  },
-  "mutators": {
-    "@default": true
+    "customPath": "vendor/bin/phpunit"
   },
   "logs": {
     "text": "infection-log.log",
     "debug": "infection-debug.log"
+  },
+  "mutators": {
+    "@default": true
   }
 }
