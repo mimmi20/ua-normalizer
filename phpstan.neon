@@ -6,19 +6,14 @@ parameters:
   paths:
     - src
     - tests
-  autoload_files:
+  scanFiles:
     - %currentWorkingDirectory%/vendor/autoload.php
     - %currentWorkingDirectory%/vendor/squizlabs/php_codesniffer/autoload.php
     - %currentWorkingDirectory%/vendor/squizlabs/php_codesniffer/src/Util/Tokens.php
   excludes_analyse:
     - */tests/*/data/*
   ignoreErrors:
-    - '~Call to static method PHPUnit~'
-    - '~has parameter \$normalizers with default value~'
     - '~Strict comparison using === between false and string will always evaluate to false~'
   exceptionRules:
     reportUnusedCatchesOfUncheckedExceptions: false
     uncheckedExceptions: []
-  ergebnis:
-    classesAllowedToBeExtended:
-      - UnexpectedValueException
