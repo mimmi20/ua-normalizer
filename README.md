@@ -6,7 +6,6 @@
 
 ## Code Status
 
-[![Build Status](https://travis-ci.org/mimmi20/ua-normalizer.svg?branch=master)](https://travis-ci.org/mimmi20/ua-normalizer)
 [![codecov](https://codecov.io/gh/mimmi20/ua-normalizer/branch/master/graph/badge.svg)](https://codecov.io/gh/mimmi20/ua-normalizer)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mimmi20/ua-normalizer.svg)](http://isitmaintained.com/project/mimmi20/ua-normalizer "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mimmi20/ua-normalizer.svg)](http://isitmaintained.com/project/mimmi20/ua-normalizer "Percentage of issues still open")
