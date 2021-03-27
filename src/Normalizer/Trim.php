@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizer\Normalizer;
 
 use function trim;
@@ -19,8 +20,6 @@ use function trim;
 final class Trim implements NormalizerInterface
 {
     /**
-     * @param string $userAgent
-     *
      * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string

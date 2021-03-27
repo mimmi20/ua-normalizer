@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizer;
 
 use UaNormalizer\Normalizer\NormalizerChain;
@@ -20,8 +21,6 @@ final class NormalizerFactory
 {
     /**
      * builds a useragent normalizer chain
-     *
-     * @return \UaNormalizer\Normalizer\NormalizerChain
      */
     public function build(): NormalizerChain
     {

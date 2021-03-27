@@ -9,25 +9,24 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizerTest\Normalizer;
 
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
+use UaNormalizer\Normalizer\Exception;
 use UaNormalizer\Normalizer\Mozilla;
 use UaNormalizer\Normalizer\NormalizerChain;
 
 final class UserAgentNormalizerTest extends TestCase
 {
     /**
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
+     * @throws Exception
+     *
      * @dataProvider userAgentsDataProvider
-     *
-     * @param string $userAgent
-     * @param string $expected
-     *
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     * @throws \UaNormalizer\Normalizer\Exception
-     *
-     * @return void
      */
     public function testNormalizeConstruct(string $userAgent, string $expected): void
     {
@@ -38,16 +37,11 @@ final class UserAgentNormalizerTest extends TestCase
     }
 
     /**
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
+     * @throws Exception
+     *
      * @dataProvider userAgentsDataProvider
-     *
-     * @param string $userAgent
-     * @param string $expected
-     *
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     * @throws \UaNormalizer\Normalizer\Exception
-     *
-     * @return void
      */
     public function testNormalizeAdd(string $userAgent, string $expected): void
     {
@@ -60,9 +54,9 @@ final class UserAgentNormalizerTest extends TestCase
     }
 
     /**
-     * @return array[]
+     * @return array<int, array<int, string>>
      */
-    public function userAgentsDataProvider()
+    public function userAgentsDataProvider(): array
     {
         return [
             [

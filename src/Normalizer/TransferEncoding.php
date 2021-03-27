@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizer\Normalizer;
 
 use function str_replace;
@@ -18,11 +19,6 @@ use function str_replace;
  */
 final class TransferEncoding implements NormalizerInterface
 {
-    /**
-     * @param string $userAgent
-     *
-     * @return string
-     */
     public function normalize(string $userAgent): string
     {
         return str_replace(',gzip(gfe)', '', $userAgent);

@@ -9,21 +9,22 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizerTest\Normalizer;
 
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
+use UaNormalizer\Normalizer\Exception;
 use UaNormalizer\Normalizer\HexCode;
 
 final class HexCodeTest extends TestCase
 {
-    /** @var \UaNormalizer\Normalizer\HexCode */
-    private $normalizer;
+    private HexCode $normalizer;
 
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -31,16 +32,11 @@ final class HexCodeTest extends TestCase
     }
 
     /**
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
+     * @throws Exception
+     *
      * @dataProvider userAgentsDataProvider
-     *
-     * @param string $userAgent
-     * @param string $expected
-     *
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     * @throws \UaNormalizer\Normalizer\Exception
-     *
-     * @return void
      */
     public function testShouldNormalizeTheHexCodeToken(string $userAgent, string $expected): void
     {
@@ -49,9 +45,9 @@ final class HexCodeTest extends TestCase
     }
 
     /**
-     * @return array[]
+     * @return array<int, array<int, string>>
      */
-    public function userAgentsDataProvider()
+    public function userAgentsDataProvider(): array
     {
         return [
             [

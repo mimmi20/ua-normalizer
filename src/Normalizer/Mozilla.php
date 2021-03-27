@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizer\Normalizer;
 
 use function preg_replace;
@@ -19,11 +20,9 @@ use function preg_replace;
 final class Mozilla implements NormalizerInterface
 {
     /**
-     * @param string $userAgent
+     * @return string Normalized user agent
      *
      * @throws Exception
-     *
-     * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string
     {

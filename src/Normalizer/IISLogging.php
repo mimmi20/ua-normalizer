@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizer\Normalizer;
 
 use function mb_substr_count;
@@ -20,8 +21,6 @@ use function str_replace;
 final class IISLogging implements NormalizerInterface
 {
     /**
-     * @param string $userAgent
-     *
      * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string

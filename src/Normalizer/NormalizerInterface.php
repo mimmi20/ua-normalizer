@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizer\Normalizer;
 
 /**
@@ -19,11 +20,9 @@ interface NormalizerInterface
     /**
      * Return the normalized user agent
      *
-     * @param string $userAgent
+     * @return string Normalized user agent
      *
      * @throws Exception
-     *
-     * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string;
 }

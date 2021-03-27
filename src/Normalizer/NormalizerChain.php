@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizer\Normalizer;
 
 use function count;
@@ -21,14 +22,14 @@ final class NormalizerChain implements NormalizerInterface
     /**
      * UserAgentNormalizer chain - array of \UaNormalizer\UserAgentNormalizer objects
      *
-     * @var \UaNormalizer\Normalizer\NormalizerInterface[]
+     * @var NormalizerInterface[]
      */
-    private $normalizers = [];
+    private array $normalizers = [];
 
     /**
      * Set the User Agent Normalizers
      *
-     * @param \UaNormalizer\Normalizer\NormalizerInterface[] $normalizers
+     * @param NormalizerInterface[] $normalizers
      */
     public function __construct(array $normalizers = [])
     {
@@ -37,10 +38,6 @@ final class NormalizerChain implements NormalizerInterface
 
     /**
      * Adds a new UserAgent Normalizer to the chain
-     *
-     * @param \UaNormalizer\Normalizer\NormalizerInterface $normalizer
-     *
-     * @return void
      */
     public function add(NormalizerInterface $normalizer): void
     {
@@ -61,11 +58,9 @@ final class NormalizerChain implements NormalizerInterface
      * Normalize the given $userAgent by passing down the chain
      * of normalizers
      *
-     * @param string $userAgent
+     * @return string Normalized user agent
      *
      * @throws Exception
-     *
-     * @return string Normalized user agent
      */
     public function normalize(string $userAgent): string
     {

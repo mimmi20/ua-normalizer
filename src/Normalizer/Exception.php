@@ -9,17 +9,15 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizer\Normalizer;
+
+use UnexpectedValueException;
 
 use function sprintf;
 
-final class Exception extends \UnexpectedValueException
+final class Exception extends UnexpectedValueException
 {
-    /**
-     * @param string $userAgent
-     *
-     * @return self
-     */
     public static function throw(string $userAgent): self
     {
         $message = sprintf('an error occurecd while normalizing useragent "%s"', $userAgent);

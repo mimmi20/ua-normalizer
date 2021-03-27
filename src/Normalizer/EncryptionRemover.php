@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizer\Normalizer;
 
 use function preg_replace;
@@ -20,11 +21,7 @@ use function str_replace;
 final class EncryptionRemover implements NormalizerInterface
 {
     /**
-     * @param string $userAgent
-     *
      * @throws Exception
-     *
-     * @return string
      */
     public function normalize(string $userAgent): string
     {
