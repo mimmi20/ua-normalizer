@@ -9,21 +9,22 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizerTest\Normalizer;
 
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
+use UaNormalizer\Normalizer\Exception;
 use UaNormalizer\Normalizer\WindowsNt;
 
 final class WindowsNtTest extends TestCase
 {
-    /** @var \UaNormalizer\Normalizer\WindowsNt */
-    private $normalizer;
+    private WindowsNt $normalizer;
 
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -31,16 +32,11 @@ final class WindowsNtTest extends TestCase
     }
 
     /**
+     * @throws Exception
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
+     *
      * @dataProvider userAgentsDataProvider
-     *
-     * @param string $userAgent
-     * @param string $expected
-     *
-     * @throws \UaNormalizer\Normalizer\Exception
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
      */
     public function testShouldNormalizeTheWindowsNtToken(string $userAgent, string $expected): void
     {
@@ -49,9 +45,9 @@ final class WindowsNtTest extends TestCase
     }
 
     /**
-     * @return array[]
+     * @return array<int, array<int, string>>
      */
-    public function userAgentsDataProvider()
+    public function userAgentsDataProvider(): array
     {
         return [
             [

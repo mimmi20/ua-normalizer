@@ -9,21 +9,22 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizerTest\Normalizer;
 
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
+use UaNormalizer\Normalizer\Exception;
 use UaNormalizer\Normalizer\SerialNumbers;
 
 final class SerialNumbersTest extends TestCase
 {
-    /** @var \UaNormalizer\Normalizer\SerialNumbers */
-    private $normalizer;
+    private SerialNumbers $normalizer;
 
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -31,16 +32,11 @@ final class SerialNumbersTest extends TestCase
     }
 
     /**
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
+     * @throws Exception
+     *
      * @dataProvider serialNumbersDataProvider
-     *
-     * @param string $userAgent
-     * @param string $expected
-     *
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     * @throws \UaNormalizer\Normalizer\Exception
-     *
-     * @return void
      */
     public function testRemoveSerialNumber(string $userAgent, string $expected): void
     {
@@ -49,9 +45,9 @@ final class SerialNumbersTest extends TestCase
     }
 
     /**
-     * @return array[]
+     * @return array<int, array<int, string>>
      */
-    public function serialNumbersDataProvider()
+    public function serialNumbersDataProvider(): array
     {
         return [
             [

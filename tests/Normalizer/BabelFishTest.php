@@ -9,21 +9,22 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizerTest\Normalizer;
 
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaNormalizer\Normalizer\BabelFish;
+use UaNormalizer\Normalizer\Exception;
 
 final class BabelFishTest extends TestCase
 {
-    /** @var \UaNormalizer\Normalizer\BabelFish */
-    private $normalizer;
+    private BabelFish $normalizer;
 
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -31,16 +32,11 @@ final class BabelFishTest extends TestCase
     }
 
     /**
+     * @throws ExpectationFailedException
+     * @throws InvalidArgumentException
+     * @throws Exception
+     *
      * @dataProvider userAgentsDataProvider
-     *
-     * @param string $userAgent
-     * @param string $expected
-     *
-     * @throws \PHPUnit\Framework\ExpectationFailedException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     * @throws \UaNormalizer\Normalizer\Exception
-     *
-     * @return void
      */
     public function testNormalize(string $userAgent, string $expected): void
     {
@@ -49,9 +45,9 @@ final class BabelFishTest extends TestCase
     }
 
     /**
-     * @return array[]
+     * @return array<int, array<int, string>>
      */
-    public function userAgentsDataProvider()
+    public function userAgentsDataProvider(): array
     {
         return [
             [

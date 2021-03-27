@@ -9,6 +9,7 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizer\Normalizer;
 
 use function preg_replace;
@@ -19,11 +20,7 @@ use function preg_replace;
 final class BabelFish implements NormalizerInterface
 {
     /**
-     * @param string $userAgent
-     *
      * @throws Exception
-     *
-     * @return string
      */
     public function normalize(string $userAgent): string
     {

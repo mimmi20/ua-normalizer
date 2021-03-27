@@ -9,9 +9,12 @@
  */
 
 declare(strict_types = 1);
+
 namespace UaNormalizerTest;
 
+use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
+use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaNormalizer\Normalizer\NormalizerChain;
 use UaNormalizer\NormalizerFactory;
 
@@ -20,14 +23,11 @@ use UaNormalizer\NormalizerFactory;
  */
 final class NormalizerFactoryTest extends TestCase
 {
-    /** @var \UaNormalizer\NormalizerFactory */
-    private $normalizer;
+    private NormalizerFactory $normalizer;
 
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -35,10 +35,8 @@ final class NormalizerFactoryTest extends TestCase
     }
 
     /**
-     * @throws \PHPUnit\Framework\Exception
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @return void
+     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public function testNormalize(): void
     {
