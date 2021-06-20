@@ -24,7 +24,7 @@ final class LocaleRemover implements NormalizerInterface
 {
     public function normalize(string $userAgent): ?string
     {
-        if (preg_match('/(ca|fr)-crawler/i', $userAgent)) {
+        if (preg_match('/(ca|fr)-crawler/', $userAgent)) {
             return $userAgent;
         }
 
