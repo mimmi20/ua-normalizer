@@ -74,6 +74,10 @@ final class EncryptionRemoverTest extends TestCase
                 'Firefox',
                 'Firefox',
             ],
+            [
+                'Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; UEAINT; rv:11.0) like Gecko',
+                'Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko',
+            ],
         ];
     }
 }

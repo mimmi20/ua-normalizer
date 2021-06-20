@@ -15,12 +15,12 @@ namespace UaNormalizerTest\Normalizer;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
+use UaNormalizer\Normalizer\Comdirect;
 use UaNormalizer\Normalizer\Exception;
-use UaNormalizer\Normalizer\IISLogging;
 
-final class IISLoggingTest extends TestCase
+final class ComdirectTest extends TestCase
 {
-    private IISLogging $normalizer;
+    private Comdirect $normalizer;
 
     /**
      * Sets up the fixture, for example, open a network connection.
@@ -28,7 +28,7 @@ final class IISLoggingTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->normalizer = new IISLogging();
+        $this->normalizer = new Comdirect();
     }
 
     /**
@@ -38,7 +38,7 @@ final class IISLoggingTest extends TestCase
      *
      * @dataProvider userAgentsDataProvider
      */
-    public function testNormalize(string $userAgent, string $expected): void
+    public function testShouldNormalizeTheLinuxToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
         self::assertSame($expected, $found);
@@ -51,24 +51,20 @@ final class IISLoggingTest extends TestCase
     {
         return [
             [
-                'Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+5.1)',
-                'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
+                'Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) comdirect/1.0 (appVersion:19.11.0;deviceType:mobile)',
+                'Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html)',
             ],
             [
-                'Mozilla/5.0 (compatible;WI Job Roboter Spider Version 3;+http://www.webintegration.at)',
-                'Mozilla/5.0 (compatible;WI Job Roboter Spider Version 3;+http://www.webintegration.at)',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36 comdirect/1.0 (appVersion:19.6-FW-SNAPSHOT;deviceType:desktop)',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
+            ],
+            [
+                'Mozilla/5.0 (Linux; Android 9; Nokia 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.162 Mobile Safari/537.36 comdirect/1.0 (appVersion:20.3.0;deviceName:nokia 2;deviceType:mobile)',
+                'Mozilla/5.0 (Linux; Android 9; Nokia 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.162 Mobile Safari/537.36',
             ],
             [
                 'Firefox',
                 'Firefox',
-            ],
-            [
-                'Mozilla/4.0+(compatible;+Robot/1.0;zurukko640320919;)',
-                'Mozilla/4.0+(compatible;+Robot/1.0;zurukko640320919;)',
-            ],
-            [
-                'Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) comdirect/1.0 (appVersion:19.11.0;deviceType:mobile)',
-                'Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) comdirect/1.0 (appVersion:19.11.0;deviceType:mobile)',
             ],
         ];
     }

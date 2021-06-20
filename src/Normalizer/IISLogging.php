@@ -20,10 +20,7 @@ use function str_replace;
  */
 final class IISLogging implements NormalizerInterface
 {
-    /**
-     * @return string Normalized user agent
-     */
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): ?string
     {
         // If there are no spaces in a UA and more than 2 plus symbols, the UA is likely affected by IIS style logging issues
         if (0 === mb_substr_count($userAgent, ' ') && 2 < mb_substr_count($userAgent, '+')) {

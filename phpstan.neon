@@ -12,8 +12,8 @@ parameters:
     - %currentWorkingDirectory%/vendor/squizlabs/php_codesniffer/src/Util/Tokens.php
   excludes_analyse:
     - */tests/*/data/*
-  ignoreErrors:
-    - '~Strict comparison using === between false and string will always evaluate to false~'
+#  ignoreErrors:
+#    - '~Strict comparison using === between false and string will always evaluate to false~'
   exceptionRules:
     reportUnusedCatchesOfUncheckedExceptions: false
     uncheckedExceptions: []

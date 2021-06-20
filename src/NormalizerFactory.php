@@ -27,6 +27,7 @@ final class NormalizerFactory
         return new NormalizerChain(
             [
                 new Normalizer\BabelFish(),
+                new Normalizer\Comdirect(),
                 new Normalizer\IISLogging(),
                 new Normalizer\LocaleRemover(),
                 new Normalizer\EncryptionRemover(),

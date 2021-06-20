@@ -12,15 +12,22 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
-use function preg_replace;
+use function mb_stripos;
+use function mb_substr;
 
 /**
- * User Agent Normalizer - normalizes the KHTML, like Gecko Token from user agent
+ * User Agent Normalizer - removes "comdirect/1.0 (appVersion:" token from user agent
  */
-final class KhtmlGecko implements NormalizerInterface
+final class Comdirect implements NormalizerInterface
 {
     public function normalize(string $userAgent): ?string
     {
-        return preg_replace('/ *\(K?(HT|TH)ML,? *like ?Gecko\) */', ' (KHTML, like Gecko) ', $userAgent);
+        $pos = mb_stripos($userAgent, 'comdirect/');
+
+        if (false === $pos) {
+            return $userAgent;
+        }
+
+        return mb_substr($userAgent, 0, $pos - 1);
     }
 }

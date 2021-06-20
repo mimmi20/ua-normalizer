@@ -19,5 +19,6 @@ tests/temp/*.ini
 tests/cache/
 tests/resources/cache
 .php-cs-fixer.cache
+.phpunit.result.cache
 infection-*.log
 rewrite*.php

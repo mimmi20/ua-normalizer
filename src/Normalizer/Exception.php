@@ -20,12 +20,8 @@ final class Exception extends UnexpectedValueException
 {
     public static function throw(string $userAgent): self
     {
-        $message = sprintf('an error occurecd while normalizing useragent "%s"', $userAgent);
-
-        if (false === $message) {
-            $message = 'an error occurecd while normalizing an useragent followed by an error while generating the exception message';
-        }
-
-        return new self($message);
+        return new self(
+            sprintf('an error occurecd while normalizing useragent "%s"', $userAgent)
+        );
     }
 }
