@@ -24,11 +24,11 @@ final class LocaleRemover implements NormalizerInterface
 {
     public function normalize(string $userAgent): ?string
     {
-        if (preg_match('/(ca|fr)-crawler/', $userAgent)) {
+        if (preg_match('/(ca|fr)-crawler/i', $userAgent)) {
             return $userAgent;
         }
 
-        $regex = '/(; ?)(a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|c[acdfghiklmnoruvwxyz]|d[ejkmoz]|e[ceghnrst]|f[ijkmor]|g[abdefghilmnpqrstuwy]|h[kmnrtu]|i[delmnoqrst]|j[emop]|k[eghimnprwyz]|l[abcikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[acefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnorstvxyz]|t[cdfghjklmnortvwz]|u[agmsyz]|v[aceginu]|w[fs]|y[et]|z[ahmw])([-_]r?[a-zA-Z]{2})?(\.utf8|\.big5)?(\b-?)(?!:)([;)])/';
+        $regex = '/(?P<prefix>; ?)(?P<lang>a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|c[acdfghiklmnoruvwxyz]|d[ejkmoz]|e[ceghnrst]|f[ijkmor]|g[abdefghilmnpqrstuwy]|h[kmnrtu]|i[delmnoqrst]|j[emop]|k[eghimnprwyz]|l[abcikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[acefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnorstvxyz]|t[cdfghjklmnortvwz]|u[agmsyz]|v[aceginu]|w[fs]|y[et]|z[ahmw])(?P<state>[-_]r?[a-zA-Z]{2})?(?P<utf>\.utf8|\.big5)?(?P<b>\b-?)(?!:)(?P<end>[;)])/';
 
         if (!preg_match($regex, $userAgent, $matches)) {
             return $userAgent;
@@ -37,7 +37,7 @@ final class LocaleRemover implements NormalizerInterface
         $replacement = str_replace(
             ['; )', '; -;', '; ;', ';;'],
             [')', ';', ';', ';'],
-            sprintf('%s%s%s%s', $matches[1], $matches[4], $matches[5], $matches[6])
+            sprintf('%s%s%s%s', $matches['prefix'], $matches['utf'], $matches['b'], $matches['end'])
         );
 
         return preg_replace($regex, $replacement, $userAgent);

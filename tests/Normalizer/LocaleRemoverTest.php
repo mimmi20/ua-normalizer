@@ -158,6 +158,10 @@ final class LocaleRemoverTest extends TestCase
                 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; bq Maxwell Plus Build/1.0.3 20121201-14:07) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
                 'Mozilla/5.0 (Linux; U; Android 4.0.4; bq Maxwell Plus Build/1.0.3 20121201-14:07) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
             ],
+            [
+                'Mozilla/5.0 (compatible; CA-crawler/1.0)',
+                'Mozilla/5.0 (compatible; CA-crawler/1.0)',
+            ],
         ];
     }
 }
