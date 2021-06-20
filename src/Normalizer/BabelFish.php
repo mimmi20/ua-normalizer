@@ -19,17 +19,8 @@ use function preg_replace;
  */
 final class BabelFish implements NormalizerInterface
 {
-    /**
-     * @throws Exception
-     */
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): ?string
     {
-        $normalized = preg_replace('/\s*\(via babelfish.yahoo.com\)\s*/', '', $userAgent);
-
-        if (null === $normalized) {
-            throw Exception::throw($userAgent);
-        }
-
-        return $normalized;
+        return preg_replace('/\s*\(via babelfish.yahoo.com\)\s*/', '', $userAgent);
     }
 }

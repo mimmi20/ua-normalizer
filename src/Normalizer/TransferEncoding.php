@@ -19,7 +19,7 @@ use function str_replace;
  */
 final class TransferEncoding implements NormalizerInterface
 {
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): ?string
     {
         return str_replace(',gzip(gfe)', '', $userAgent);
     }

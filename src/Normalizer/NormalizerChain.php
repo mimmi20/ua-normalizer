@@ -58,16 +58,20 @@ final class NormalizerChain implements NormalizerInterface
      * Normalize the given $userAgent by passing down the chain
      * of normalizers
      *
-     * @return string Normalized user agent
+     * @return string|null Normalized user agent
      *
      * @throws Exception
      */
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): ?string
     {
         $normalizedUserAgent = $userAgent;
 
         foreach ($this->normalizers as $normalizer) {
             $normalizedUserAgent = $normalizer->normalize($normalizedUserAgent);
+
+            if (null === $normalizedUserAgent) {
+                throw Exception::throw($userAgent);
+            }
         }
 
         return $normalizedUserAgent;

@@ -18,8 +18,11 @@ use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaNormalizer\Normalizer\Exception;
 use UaNormalizer\Normalizer\Mozilla;
 use UaNormalizer\Normalizer\NormalizerChain;
+use UaNormalizer\Normalizer\NormalizerInterface;
 
-final class UserAgentNormalizerTest extends TestCase
+use function sprintf;
+
+final class NormalizerChainTest extends TestCase
 {
     /**
      * @throws ExpectationFailedException
@@ -30,10 +33,10 @@ final class UserAgentNormalizerTest extends TestCase
      */
     public function testNormalizeConstruct(string $userAgent, string $expected): void
     {
-        $normalizer = new NormalizerChain([new Mozilla()]);
+        $chain = new NormalizerChain([new Mozilla()]);
 
-        self::assertSame(1, $normalizer->count());
-        self::assertSame($expected, $normalizer->normalize($userAgent));
+        self::assertSame(1, $chain->count());
+        self::assertSame($expected, $chain->normalize($userAgent));
     }
 
     /**
@@ -45,12 +48,42 @@ final class UserAgentNormalizerTest extends TestCase
      */
     public function testNormalizeAdd(string $userAgent, string $expected): void
     {
-        $normalizer = new NormalizerChain();
-        $normalizer->add(new Mozilla());
+        $chain = new NormalizerChain();
+        $chain->add(new Mozilla());
 
-        self::assertSame(1, $normalizer->count());
+        self::assertSame(1, $chain->count());
 
-        self::assertSame($expected, $normalizer->normalize($userAgent));
+        self::assertSame($expected, $chain->normalize($userAgent));
+    }
+
+    /**
+     * @throws InvalidArgumentException
+     * @throws Exception
+     * @throws \PHPUnit\Framework\Exception
+     *
+     * @dataProvider userAgentsDataProvider
+     * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
+     */
+    public function testNormalizeException(string $userAgent, string $expected): void
+    {
+        $normalizer = $this->getMockBuilder(NormalizerInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $normalizer->expects(self::once())
+            ->method('normalize')
+            ->with($userAgent)
+            ->willReturn(null);
+
+        $chain = new NormalizerChain();
+        $chain->add($normalizer);
+
+        self::assertSame(1, $chain->count());
+
+        $this->expectException(Exception::class);
+        $this->expectExceptionCode(0);
+        $this->expectExceptionMessage(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+
+        $chain->normalize($userAgent);
     }
 
     /**

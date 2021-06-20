@@ -20,9 +20,9 @@ interface NormalizerInterface
     /**
      * Return the normalized user agent
      *
-     * @return string Normalized user agent
+     * @return string|null Normalized user agent
      *
      * @throws Exception
      */
-    public function normalize(string $userAgent): string;
+    public function normalize(string $userAgent): ?string;
 }

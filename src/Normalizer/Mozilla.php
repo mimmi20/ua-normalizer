@@ -19,19 +19,8 @@ use function preg_replace;
  */
 final class Mozilla implements NormalizerInterface
 {
-    /**
-     * @return string Normalized user agent
-     *
-     * @throws Exception
-     */
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): ?string
     {
-        $normalized = preg_replace('/Moz(il|zi)la[\/ ]([\d.]+) */', 'Mozilla/$2 ', $userAgent);
-
-        if (null === $normalized) {
-            throw Exception::throw($userAgent);
-        }
-
-        return $normalized;
+        return preg_replace('/Moz(il|zi)la[\/ ]([\d.]+) */', 'Mozilla/$2 ', $userAgent);
     }
 }

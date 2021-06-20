@@ -19,10 +19,7 @@ use function trim;
  */
 final class Trim implements NormalizerInterface
 {
-    /**
-     * @return string Normalized user agent
-     */
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): ?string
     {
         return trim($userAgent);
     }

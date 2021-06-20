@@ -19,19 +19,8 @@ use function preg_replace;
  */
 final class HexCode implements NormalizerInterface
 {
-    /**
-     * @return string Normalized user agent
-     *
-     * @throws Exception
-     */
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): ?string
     {
-        $normalized = preg_replace('/([\\\\]+)(x)([0-9a-f]{2})/i', '', $userAgent);
-
-        if (null === $normalized) {
-            throw Exception::throw($userAgent);
-        }
-
-        return $normalized;
+        return preg_replace('/([\\\\]+)(x)([0-9a-f]{2})/i', '', $userAgent);
     }
 }

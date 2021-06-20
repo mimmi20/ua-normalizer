@@ -22,18 +22,15 @@ use function str_replace;
  */
 final class LocaleRemover implements NormalizerInterface
 {
-    /**
-     * @throws Exception
-     */
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): ?string
     {
-        if ((bool) preg_match('/(ca|fr)\-crawler/', $userAgent)) {
+        if (preg_match('/(ca|fr)-crawler/', $userAgent)) {
             return $userAgent;
         }
 
         $regex = '/(; ?)(a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|c[acdfghiklmnoruvwxyz]|d[ejkmoz]|e[ceghnrst]|f[ijkmor]|g[abdefghilmnpqrstuwy]|h[kmnrtu]|i[delmnoqrst]|j[emop]|k[eghimnprwyz]|l[abcikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[acefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnorstvxyz]|t[cdfghjklmnortvwz]|u[agmsyz]|v[aceginu]|w[fs]|y[et]|z[ahmw])([-_]r?[a-zA-Z]{2})?(\.utf8|\.big5)?(\b-?)(?!:)([;)])/';
 
-        if (!(bool) preg_match($regex, $userAgent, $matches)) {
+        if (!preg_match($regex, $userAgent, $matches)) {
             return $userAgent;
         }
 
@@ -43,12 +40,6 @@ final class LocaleRemover implements NormalizerInterface
             sprintf('%s%s%s%s', $matches[1], $matches[4], $matches[5], $matches[6])
         );
 
-        $normalized = preg_replace($regex, $replacement, $userAgent);
-
-        if (null === $normalized) {
-            throw Exception::throw($userAgent);
-        }
-
-        return $normalized;
+        return preg_replace($regex, $replacement, $userAgent);
     }
 }

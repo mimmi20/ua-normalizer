@@ -13,25 +13,17 @@ declare(strict_types = 1);
 namespace UaNormalizer\Normalizer;
 
 use function preg_replace;
-use function str_replace;
+use function str_ireplace;
 
 /**
  * User Agent Normalizer - removes encryption information from user agent
  */
 final class EncryptionRemover implements NormalizerInterface
 {
-    /**
-     * @throws Exception
-     */
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): ?string
     {
-        $userAgent  = str_replace('; UEAINT', '', $userAgent);
-        $normalized = preg_replace('/; ?[IU];/', ';', $userAgent);
+        $userAgent = str_ireplace('; UEAINT', '', $userAgent);
 
-        if (null === $normalized) {
-            throw Exception::throw($userAgent);
-        }
-
-        return $normalized;
+        return preg_replace('/; ?[IU];/', ';', $userAgent);
     }
 }
