@@ -16,8 +16,6 @@ use UaNormalizer\Normalizer\NormalizerChain;
 
 /**
  * factory to create a useragent normalizer
- *
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 final class NormalizerFactory
 {
