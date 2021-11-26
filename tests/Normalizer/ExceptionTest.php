@@ -20,17 +20,17 @@ use function sprintf;
 
 final class ExceptionTest extends TestCase
 {
+    private const USER_AGENT = 'abc';
+
     /**
      * @throws \PHPUnit\Framework\Exception
      * @throws InvalidArgumentException
      */
     public function testThrow(): void
     {
-        $userAgent = 'abc';
-
-        $e = Exception::throw($userAgent);
+        $e = Exception::throw(self::USER_AGENT);
 
         self::assertInstanceOf(Exception::class, $e);
-        self::assertSame(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent), $e->getMessage());
+        self::assertSame(sprintf('an error occurecd while normalizing useragent "%s"', self::USER_AGENT), $e->getMessage());
     }
 }
