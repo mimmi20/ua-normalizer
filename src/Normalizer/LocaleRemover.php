@@ -22,15 +22,15 @@ use function str_replace;
  */
 final class LocaleRemover implements NormalizerInterface
 {
+    private const REGEX = '/(?P<prefix>; ?)(?P<lang>a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|c[acdfghiklmnoruvwxyz]|d[ejkmoz]|e[ceghnrst]|f[ijkmor]|g[abdefghilmnpqrstuwy]|h[kmnrtu]|i[delmnoqrst]|j[emop]|k[eghimnprwyz]|l[abcikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[acefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnorstvxyz]|t[cdfghjklmnortvwz]|u[agmsyz]|v[aceginu]|w[fs]|y[et]|z[ahmw])(?P<state>[-_]r?[a-zA-Z]{2})?(?P<utf>\.utf8|\.big5)?(?P<b>\b-?)(?!:)(?P<end>[;)])/';
+
     public function normalize(string $userAgent): ?string
     {
         if (preg_match('/(ca|fr)-crawler/', $userAgent)) {
             return $userAgent;
         }
 
-        $regex = '/(?P<prefix>; ?)(?P<lang>a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|c[acdfghiklmnoruvwxyz]|d[ejkmoz]|e[ceghnrst]|f[ijkmor]|g[abdefghilmnpqrstuwy]|h[kmnrtu]|i[delmnoqrst]|j[emop]|k[eghimnprwyz]|l[abcikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[acefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnorstvxyz]|t[cdfghjklmnortvwz]|u[agmsyz]|v[aceginu]|w[fs]|y[et]|z[ahmw])(?P<state>[-_]r?[a-zA-Z]{2})?(?P<utf>\.utf8|\.big5)?(?P<b>\b-?)(?!:)(?P<end>[;)])/';
-
-        if (!preg_match($regex, $userAgent, $matches)) {
+        if (!preg_match(self::REGEX, $userAgent, $matches)) {
             return $userAgent;
         }
 
@@ -40,6 +40,6 @@ final class LocaleRemover implements NormalizerInterface
             sprintf('%s%s%s%s', $matches['prefix'], $matches['utf'], $matches['b'], $matches['end'])
         );
 
-        return preg_replace($regex, $replacement, $userAgent);
+        return preg_replace(self::REGEX, $replacement, $userAgent);
     }
 }
