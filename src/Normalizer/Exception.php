@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -18,10 +18,11 @@ use function sprintf;
 
 final class Exception extends UnexpectedValueException
 {
+    /** @throws void */
     public static function throw(string $userAgent): self
     {
         return new self(
-            sprintf('an error occurecd while normalizing useragent "%s"', $userAgent)
+            sprintf('an error occurecd while normalizing useragent "%s"', $userAgent),
         );
     }
 }

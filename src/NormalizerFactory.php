@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -20,7 +20,9 @@ use UaNormalizer\Normalizer\NormalizerChain;
 final class NormalizerFactory
 {
     /**
-     * builds a useragent normalizer chain
+     * builds an useragent normalizer chain
+     *
+     * @throws void
      */
     public function build(): NormalizerChain
     {
@@ -39,7 +41,7 @@ final class NormalizerFactory
                 new Normalizer\SerialNumbers(),
                 new Normalizer\TransferEncoding(),
                 new Normalizer\Trim(),
-            ]
+            ],
         );
     }
 }
