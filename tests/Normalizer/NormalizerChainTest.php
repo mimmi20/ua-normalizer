@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,9 +12,9 @@ declare(strict_types = 1);
 
 namespace UaNormalizerTest\Normalizer;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaNormalizer\Normalizer\Exception;
 use UaNormalizer\Normalizer\Mozilla;
 use UaNormalizer\Normalizer\NormalizerChain;
@@ -26,11 +26,9 @@ final class NormalizerChainTest extends TestCase
 {
     /**
      * @throws ExpectationFailedException
-     * @throws InvalidArgumentException
      * @throws Exception
-     *
-     * @dataProvider userAgentsDataProvider
      */
+    #[DataProvider('userAgentsDataProvider')]
     public function testNormalizeConstruct(string $userAgent, string $expected): void
     {
         $chain = new NormalizerChain([new Mozilla()]);
@@ -41,11 +39,9 @@ final class NormalizerChainTest extends TestCase
 
     /**
      * @throws ExpectationFailedException
-     * @throws InvalidArgumentException
      * @throws Exception
-     *
-     * @dataProvider userAgentsDataProvider
      */
+    #[DataProvider('userAgentsDataProvider')]
     public function testNormalizeAdd(string $userAgent, string $expected): void
     {
         $chain = new NormalizerChain();
@@ -57,13 +53,12 @@ final class NormalizerChainTest extends TestCase
     }
 
     /**
-     * @throws InvalidArgumentException
      * @throws Exception
      * @throws \PHPUnit\Framework\Exception
      *
-     * @dataProvider userAgentsDataProvider
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
+    #[DataProvider('userAgentsDataProvider')]
     public function testNormalizeException(string $userAgent, string $expected): void
     {
         $normalizer = $this->getMockBuilder(NormalizerInterface::class)
@@ -81,15 +76,19 @@ final class NormalizerChainTest extends TestCase
 
         $this->expectException(Exception::class);
         $this->expectExceptionCode(0);
-        $this->expectExceptionMessage(sprintf('an error occurecd while normalizing useragent "%s"', $userAgent));
+        $this->expectExceptionMessage(
+            sprintf('an error occurecd while normalizing useragent "%s"', $userAgent),
+        );
 
         $chain->normalize($userAgent);
     }
 
     /**
      * @return array<int, array<int, string>>
+     *
+     * @throws void
      */
-    public function userAgentsDataProvider(): array
+    public static function userAgentsDataProvider(): array
     {
         return [
             [

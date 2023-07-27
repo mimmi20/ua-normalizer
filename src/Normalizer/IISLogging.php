@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -20,10 +20,11 @@ use function str_replace;
  */
 final class IISLogging implements NormalizerInterface
 {
-    public function normalize(string $userAgent): ?string
+    /** @throws void */
+    public function normalize(string $userAgent): string
     {
         // If there are no spaces in a UA and more than 2 plus symbols, the UA is likely affected by IIS style logging issues
-        if (0 === mb_substr_count($userAgent, ' ') && 2 < mb_substr_count($userAgent, '+')) {
+        if (mb_substr_count($userAgent, ' ') === 0 && 2 < mb_substr_count($userAgent, '+')) {
             $userAgent = str_replace('+', ' ', $userAgent);
         }
 

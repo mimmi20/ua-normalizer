@@ -1,7 +1,7 @@
-| Q                     | A
-| ----------------------| ---------------
-| ua-normalizer version | x.y.z
-| PHP version           | x.y.z
+| Q                     | A      |
+| ----------------------|--------|
+| ua-normalizer version | x.y.z  |
+| PHP version           | x.y.z  |
 
 
 <!--

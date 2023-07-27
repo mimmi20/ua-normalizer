@@ -2,7 +2,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2023, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,11 +12,10 @@ declare(strict_types = 1);
 
 namespace UaNormalizerTest\Normalizer;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use UaNormalizer\Normalizer\EncryptionRemover;
-use UaNormalizer\Normalizer\Exception;
 
 final class EncryptionRemoverTest extends TestCase
 {
@@ -25,19 +24,16 @@ final class EncryptionRemoverTest extends TestCase
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
+     *
+     * @throws void
      */
     protected function setUp(): void
     {
         $this->normalizer = new EncryptionRemover();
     }
 
-    /**
-     * @throws ExpectationFailedException
-     * @throws InvalidArgumentException
-     * @throws Exception
-     *
-     * @dataProvider userAgentsDataProvider
-     */
+    /** @throws ExpectationFailedException */
+    #[DataProvider('userAgentsDataProvider')]
     public function testShouldNormalizeTheEncryptionToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
@@ -46,8 +42,10 @@ final class EncryptionRemoverTest extends TestCase
 
     /**
      * @return array<int, array<int, string>>
+     *
+     * @throws void
      */
-    public function userAgentsDataProvider(): array
+    public static function userAgentsDataProvider(): array
     {
         return [
             [
