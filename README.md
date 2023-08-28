@@ -7,8 +7,8 @@
 ## Code Status
 
 [![codecov](https://codecov.io/gh/mimmi20/ua-normalizer/branch/master/graph/badge.svg)](https://codecov.io/gh/mimmi20/ua-normalizer)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mimmi20/ua-normalizer.svg)](http://isitmaintained.com/project/mimmi20/ua-normalizer "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/mimmi20/ua-normalizer.svg)](http://isitmaintained.com/project/mimmi20/ua-normalizer "Percentage of issues still open")
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/mimmi20/ua-normalizer.svg)](https://isitmaintained.com/project/mimmi20/ua-normalizer "Average time to resolve an issue")
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/mimmi20/ua-normalizer.svg)](https://isitmaintained.com/project/mimmi20/ua-normalizer "Percentage of issues still open")
 
 
 ## Requirements
