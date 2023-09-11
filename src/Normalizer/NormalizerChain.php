@@ -34,6 +34,7 @@ final class NormalizerChain implements NormalizerInterface
          */
         private array $normalizers = [],
     ) {
+        // nothing to do
     }
 
     /**

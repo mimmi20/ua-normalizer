@@ -18,14 +18,18 @@ use function str_replace;
 /**
  * User Agent Normalizer - clean IIS Logging from user agent
  */
-final class IISLogging implements NormalizerInterface
+final class Encode implements NormalizerInterface
 {
     /** @throws void */
     public function normalize(string $userAgent): string
     {
         // If there are no spaces in a UA and more than 2 plus symbols, the UA is likely affected by IIS style logging issues
-        if (mb_substr_count($userAgent, ' ') === 0 && mb_substr_count($userAgent, '+') > 1) {
-            $userAgent = str_replace('+', ' ', $userAgent);
+        if (mb_substr_count($userAgent, ' 2F') > 0 && mb_substr_count($userAgent, ' 28') > 0) {
+            $userAgent = str_replace(
+                [' 2F', ' 28', ' 3B', ' 29', ' 2C'],
+                ['/', '(', ';', ')', ','],
+                $userAgent,
+            );
         }
 
         return $userAgent;

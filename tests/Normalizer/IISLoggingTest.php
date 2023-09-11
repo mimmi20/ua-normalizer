@@ -62,7 +62,11 @@ final class IISLoggingTest extends TestCase
             ],
             [
                 'Mozilla/4.0+(compatible;+Robot/1.0;zurukko640320919;)',
-                'Mozilla/4.0+(compatible;+Robot/1.0;zurukko640320919;)',
+                'Mozilla/4.0 (compatible; Robot/1.0;zurukko640320919;)',
+            ],
+            [
+                'Mozilla/4.0 (compatible;+Robot/1.0;zurukko640320919;)',
+                'Mozilla/4.0 (compatible;+Robot/1.0;zurukko640320919;)',
             ],
             [
                 'Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) comdirect/1.0 (appVersion:19.11.0;deviceType:mobile)',

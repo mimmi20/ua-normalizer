@@ -23,7 +23,7 @@ final class KhtmlGecko implements NormalizerInterface
     public function normalize(string $userAgent): string | null
     {
         return preg_replace(
-            '/ *\(K?(HT|TH)ML,? *like ?Gecko\) */',
+            '/ ?\(K?(HT|TH)ML,? ?like ?Gecko\) ?/',
             ' (KHTML, like Gecko) ',
             $userAgent,
         );
