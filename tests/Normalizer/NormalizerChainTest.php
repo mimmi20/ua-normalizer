@@ -364,6 +364,10 @@ final class NormalizerChainTest extends TestCase
                 'Mozilla 2F5.0+ 28Linux 3B+U 3B+Android+12 3B+it-it 3B+Mi+10T+Lite+Build 2FSKQ1.211006.001 29+AppleWebKit 2F537.36+ 28KHTML 2C+like+Gecko 29+Version 2F4.0+Chrome 2F112.0.5615.136+Mobile+Safari 2F537.36+XiaoMi 2FMiuiBrowser 2F13.33.0-gn',
                 'Mozilla/5.0 (Linux; Android 12; Mi 10T Lite Build/SKQ1.211006.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/112.0.5615.136 Mobile Safari/537.36 XiaoMi/MiuiBrowser/13.33.0-gn',
             ],
+            [
+                'Mozilla/4.0 (compatible;+Robot/1.0;zurukko640320919;)',
+                'Mozilla/4.0 (compatible;+Robot/1.0;zurukko640320919;)',
+            ],
         ];
     }
 }
