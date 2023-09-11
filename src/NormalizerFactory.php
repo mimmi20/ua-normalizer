@@ -30,9 +30,11 @@ final class NormalizerFactory
             [
                 new Normalizer\BabelFish(),
                 new Normalizer\Comdirect(),
+                new Normalizer\Encode(),
                 new Normalizer\IISLogging(),
-                new Normalizer\LocaleRemover(),
+                new Normalizer\Spaces(),
                 new Normalizer\EncryptionRemover(),
+                new Normalizer\LocaleRemover(),
                 new Normalizer\Mozilla(),
                 new Normalizer\Linux(),
                 new Normalizer\KhtmlGecko(),

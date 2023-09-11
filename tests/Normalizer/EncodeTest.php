@@ -15,11 +15,11 @@ namespace UaNormalizerTest\Normalizer;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use UaNormalizer\Normalizer\IISLogging;
+use UaNormalizer\Normalizer\Encode;
 
-final class IISLoggingTest extends TestCase
+final class EncodeTest extends TestCase
 {
-    private IISLogging $normalizer;
+    private Encode $normalizer;
 
     /**
      * Sets up the fixture, for example, open a network connection.
@@ -29,7 +29,7 @@ final class IISLoggingTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->normalizer = new IISLogging();
+        $this->normalizer = new Encode();
     }
 
     /** @throws ExpectationFailedException */
@@ -49,24 +49,12 @@ final class IISLoggingTest extends TestCase
     {
         return [
             [
-                'Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+5.1)',
-                'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
-            ],
-            [
-                'Mozilla/5.0 (compatible;WI Job Roboter Spider Version 3;+http://www.webintegration.at)',
-                'Mozilla/5.0 (compatible;WI Job Roboter Spider Version 3;+http://www.webintegration.at)',
+                'Mozilla 2F5.0+ 28Linux 3B+U 3B+Android+12 3B+it-it 3B+Mi+10T+Lite+Build 2FSKQ1.211006.001 29+AppleWebKit 2F537.36+ 28KHTML 2C+like+Gecko 29+Version 2F4.0+Chrome 2F112.0.5615.136+Mobile+Safari 2F537.36+XiaoMi 2FMiuiBrowser 2F13.33.0-gn',
+                'Mozilla/5.0+(Linux;+U;+Android+12;+it-it;+Mi+10T+Lite+Build/SKQ1.211006.001)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Version/4.0+Chrome/112.0.5615.136+Mobile+Safari/537.36+XiaoMi/MiuiBrowser/13.33.0-gn',
             ],
             [
                 'Firefox',
                 'Firefox',
-            ],
-            [
-                'Mozilla/4.0+(compatible;+Robot/1.0;zurukko640320919;)',
-                'Mozilla/4.0 (compatible; Robot/1.0;zurukko640320919;)',
-            ],
-            [
-                'Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) comdirect/1.0 (appVersion:19.11.0;deviceType:mobile)',
-                'Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) comdirect/1.0 (appVersion:19.11.0;deviceType:mobile)',
             ],
         ];
     }

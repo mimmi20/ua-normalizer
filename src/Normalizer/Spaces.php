@@ -15,13 +15,13 @@ namespace UaNormalizer\Normalizer;
 use function preg_replace;
 
 /**
- * User Agent Normalizer - normalizes/fixes "Mozilla" token in user agent
+ * User Agent Normalizer - removes leading and trailing spaces
  */
-final class Mozilla implements NormalizerInterface
+final class Spaces implements NormalizerInterface
 {
     /** @throws void */
     public function normalize(string $userAgent): string | null
     {
-        return preg_replace('/Moz(il|zi)la[\/ ]([\d.]+) ?/', 'Mozilla/$2 ', $userAgent);
+        return preg_replace('/\s+/', ' ', $userAgent);
     }
 }
