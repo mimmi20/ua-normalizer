@@ -27,8 +27,3 @@ composer require mimmi20/ua-normalizer
 
 Please report your issues and ask for new features on the GitHub Issue Tracker
 at https://github.com/mimmi20/ua-normalizer/issues
-
-
-
-
-
