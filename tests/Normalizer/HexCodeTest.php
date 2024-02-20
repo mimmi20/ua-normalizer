@@ -49,11 +49,11 @@ final class HexCodeTest extends TestCase
     {
         return [
             [
-                'QuickTime\\\\xaa.7.0.4 (qtver=7.0.4;cpu=PPC;os=Mac 10.3.9)',
+                'QuickTime\\\xaa.7.0.4 (qtver=7.0.4;cpu=PPC;os=Mac 10.3.9)',
                 'QuickTime.7.0.4 (qtver=7.0.4;cpu=PPC;os=Mac 10.3.9)',
             ],
             [
-                'QuickTime\\xaa.7.0.4 (qtver=7.0.4;cpu=PPC=Mac 10.3.9)',
+                'QuickTime\xaa.7.0.4 (qtver=7.0.4;cpu=PPC=Mac 10.3.9)',
                 'QuickTime.7.0.4 (qtver=7.0.4;cpu=PPC=Mac 10.3.9)',
             ],
             [

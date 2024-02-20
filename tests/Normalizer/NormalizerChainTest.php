@@ -185,11 +185,11 @@ final class NormalizerChainTest extends TestCase
                 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko',
             ],
             [
-                'QuickTime\\\\xaa.7.0.4 (qtver=7.0.4;cpu=PPC;os=Mac 10.3.9)',
+                'QuickTime\\\xaa.7.0.4 (qtver=7.0.4;cpu=PPC;os=Mac 10.3.9)',
                 'QuickTime.7.0.4 (qtver=7.0.4;cpu=PPC;os=Mac 10.3.9)',
             ],
             [
-                'QuickTime\\xaa.7.0.4 (qtver=7.0.4;cpu=PPC=Mac 10.3.9)',
+                'QuickTime\xaa.7.0.4 (qtver=7.0.4;cpu=PPC=Mac 10.3.9)',
                 'QuickTime.7.0.4 (qtver=7.0.4;cpu=PPC=Mac 10.3.9)',
             ],
             [
