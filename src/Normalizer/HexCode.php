@@ -22,6 +22,6 @@ final class HexCode implements NormalizerInterface
     /** @throws void */
     public function normalize(string $userAgent): string | null
     {
-        return preg_replace('/([\\\\]+)(x)([0-9a-f]{2})/i', '', $userAgent);
+        return preg_replace('/([\\\]+)(x)([0-9a-f]{2})/i', '', $userAgent);
     }
 }
