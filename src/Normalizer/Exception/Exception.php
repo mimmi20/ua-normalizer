@@ -10,7 +10,7 @@
 
 declare(strict_types = 1);
 
-namespace UaNormalizer\Normalizer;
+namespace UaNormalizer\Normalizer\Exception;
 
 use UnexpectedValueException;
 

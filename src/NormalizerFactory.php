@@ -23,6 +23,8 @@ final class NormalizerFactory
      * builds an useragent normalizer chain
      *
      * @throws void
+     *
+     * @api
      */
     public function build(): NormalizerChain
     {

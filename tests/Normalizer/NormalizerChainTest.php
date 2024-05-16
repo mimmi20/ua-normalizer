@@ -15,7 +15,7 @@ namespace UaNormalizerTest\Normalizer;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
-use UaNormalizer\Normalizer\Exception;
+use UaNormalizer\Normalizer\Exception\Exception;
 use UaNormalizer\Normalizer\Mozilla;
 use UaNormalizer\Normalizer\NormalizerChain;
 use UaNormalizer\Normalizer\NormalizerInterface;
