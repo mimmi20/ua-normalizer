@@ -12,6 +12,8 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
+use UaNormalizer\Normalizer\Exception\Exception;
+
 use function count;
 
 /**
@@ -41,6 +43,8 @@ final class NormalizerChain implements NormalizerInterface
      * Adds a new UserAgent Normalizer to the chain
      *
      * @throws void
+     *
+     * @api
      */
     public function add(NormalizerInterface $normalizer): void
     {
@@ -53,6 +57,8 @@ final class NormalizerChain implements NormalizerInterface
      * @return int count
      *
      * @throws void
+     *
+     * @api
      */
     public function count(): int
     {

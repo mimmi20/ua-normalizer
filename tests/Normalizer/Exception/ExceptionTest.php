@@ -10,10 +10,10 @@
 
 declare(strict_types = 1);
 
-namespace UaNormalizerTest\Normalizer;
+namespace UaNormalizerTest\Normalizer\Exception;
 
 use PHPUnit\Framework\TestCase;
-use UaNormalizer\Normalizer\Exception;
+use UaNormalizer\Normalizer\Exception\Exception;
 
 use function sprintf;
 

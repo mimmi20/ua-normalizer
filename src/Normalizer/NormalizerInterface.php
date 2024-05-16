@@ -12,6 +12,8 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
+use UaNormalizer\Normalizer\Exception\Exception;
+
 /**
  * User Agent Normalizer - generic interface for all normalizers
  */
