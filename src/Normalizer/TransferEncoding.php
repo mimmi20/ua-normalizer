@@ -12,6 +12,8 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
+use Override;
+
 use function str_replace;
 
 /**
@@ -20,6 +22,7 @@ use function str_replace;
 final class TransferEncoding implements NormalizerInterface
 {
     /** @throws void */
+    #[Override]
     public function normalize(string $userAgent): string
     {
         return str_replace(',gzip(gfe)', '', $userAgent);

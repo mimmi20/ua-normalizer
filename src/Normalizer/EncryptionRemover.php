@@ -12,6 +12,8 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
+use Override;
+
 use function preg_replace;
 use function str_ireplace;
 
@@ -21,6 +23,7 @@ use function str_ireplace;
 final class EncryptionRemover implements NormalizerInterface
 {
     /** @throws void */
+    #[Override]
     public function normalize(string $userAgent): string | null
     {
         $userAgent = str_ireplace('; UEAINT', '', $userAgent);

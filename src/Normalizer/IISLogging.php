@@ -12,6 +12,8 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
+use Override;
+
 use function mb_substr_count;
 use function str_replace;
 
@@ -21,6 +23,7 @@ use function str_replace;
 final class IISLogging implements NormalizerInterface
 {
     /** @throws void */
+    #[Override]
     public function normalize(string $userAgent): string
     {
         // If there are no spaces in a UA and more than 2 plus symbols, the UA is likely affected by IIS style logging issues

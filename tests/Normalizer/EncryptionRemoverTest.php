@@ -12,6 +12,7 @@ declare(strict_types = 1);
 
 namespace UaNormalizerTest\Normalizer;
 
+use Override;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
@@ -27,6 +28,7 @@ final class EncryptionRemoverTest extends TestCase
      *
      * @throws void
      */
+    #[Override]
     protected function setUp(): void
     {
         $this->normalizer = new EncryptionRemover();
