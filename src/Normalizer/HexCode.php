@@ -12,6 +12,8 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
+use Override;
+
 use function preg_replace;
 
 /**
@@ -20,6 +22,7 @@ use function preg_replace;
 final class HexCode implements NormalizerInterface
 {
     /** @throws void */
+    #[Override]
     public function normalize(string $userAgent): string | null
     {
         return preg_replace('/([\\\]+)(x)([0-9a-f]{2})/i', '', $userAgent);

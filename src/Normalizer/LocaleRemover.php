@@ -12,6 +12,8 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
+use Override;
+
 use function preg_match;
 use function preg_replace;
 use function sprintf;
@@ -22,9 +24,10 @@ use function str_replace;
  */
 final class LocaleRemover implements NormalizerInterface
 {
-    private const REGEX = '/(?P<prefix>; ?)(?P<lang>a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|c[acdfghiklmnoruvwxyz]|d[ejkmoz]|e[ceghnrst]|f[ijkmor]|g[abdefghilmnpqrstuwy]|h[kmnrtu]|i[delmnoqrst]|j[emop]|k[eghimnprwyz]|l[abcikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[acefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnorstvxyz]|t[cdfghjklmnortvwz]|u[agmsyz]|v[aceginu]|w[fs]|y[et]|z[ahmw])(?P<state>[-_]r?[a-zA-Z]{2})?(?P<utf>\.utf8|\.big5)?(?P<b>\b-?)(?!:)(?P<end>[;)])/';
+    private const string REGEX = '/(?P<prefix>; ?)(?P<lang>a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|c[acdfghiklmnoruvwxyz]|d[ejkmoz]|e[ceghnrst]|f[ijkmor]|g[abdefghilmnpqrstuwy]|h[kmnrtu]|i[delmnoqrst]|j[emop]|k[eghimnprwyz]|l[abcikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[acefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnorstvxyz]|t[cdfghjklmnortvwz]|u[agmsyz]|v[aceginu]|w[fs]|y[et]|z[ahmw])(?P<state>[-_]r?[a-zA-Z]{2})?(?P<utf>\.utf8|\.big5)?(?P<b>\b-?)(?!:)(?P<end>[;)])/';
 
     /** @throws void */
+    #[Override]
     public function normalize(string $userAgent): string | null
     {
         if (preg_match('/(ca|fr)-crawler/', $userAgent)) {

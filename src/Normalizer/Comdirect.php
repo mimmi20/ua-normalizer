@@ -12,6 +12,8 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
+use Override;
+
 use function mb_stripos;
 use function mb_substr;
 use function str_contains;
@@ -22,6 +24,7 @@ use function str_contains;
 final class Comdirect implements NormalizerInterface
 {
     /** @throws void */
+    #[Override]
     public function normalize(string $userAgent): string
     {
         if (!str_contains($userAgent, 'comdirect/')) {

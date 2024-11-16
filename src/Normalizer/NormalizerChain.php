@@ -12,6 +12,7 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
+use Override;
 use UaNormalizer\Normalizer\Exception\Exception;
 
 use function count;
@@ -73,6 +74,7 @@ final class NormalizerChain implements NormalizerInterface
      *
      * @throws Exception
      */
+    #[Override]
     public function normalize(string $userAgent): string
     {
         $normalizedUserAgent = $userAgent;

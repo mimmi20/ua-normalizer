@@ -12,6 +12,8 @@ declare(strict_types = 1);
 
 namespace UaNormalizer\Normalizer;
 
+use Override;
+
 use function trim;
 
 /**
@@ -20,6 +22,7 @@ use function trim;
 final class Trim implements NormalizerInterface
 {
     /** @throws void */
+    #[Override]
     public function normalize(string $userAgent): string
     {
         return trim($userAgent);
