@@ -10,10 +10,13 @@
  */
 
 declare(strict_types = 1);
-$header = <<<'EOF'
+
+$year = date('Y');
+
+$header = <<<EOF
     This file is part of the ua-normalizer package.
 
-    Copyright (c) 2015-2024, Thomas Mueller <mimmi20@live.de>
+    Copyright (c) 2015-{$year}, Thomas Mueller <mimmi20@live.de>
 
     For the full copyright and license information, please view the LICENSE
     file that was distributed with this source code.
@@ -25,6 +28,7 @@ $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__ . '/src')
     ->in(__DIR__ . '/tests')
     ->append([__DIR__ . '/rector.php'])
+    ->append([__DIR__ . '/composer-dependency-analyser.php'])
     ->append([__FILE__]);
 
 $rules = require 'vendor/mimmi20/coding-standard/src/php-cs-fixer.config.php';
