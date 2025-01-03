@@ -3,7 +3,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2024, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -21,7 +21,8 @@ $config
     ->addPathToScan(__DIR__ . '/src', isDev: false)
     ->addPathToScan(__DIR__ . '/tests', isDev: true)
     ->addPathToScan(__DIR__ . '/vendor', isDev: false)
-    ->addPathToExclude(__DIR__ . '/vendor/rector/rector/vendor')
+    ->addPathToExclude(__DIR__ . '/vendor/rector/rector')
+    ->addPathToExclude(__DIR__ . '/vendor/phpstan/phpstan')
     // applies only to directory scanning, not directly listed files
     ->setFileExtensions(['php'])
 
@@ -35,6 +36,7 @@ $config
     ->ignoreErrorsOnPackage('mimmi20/coding-standard', [ErrorType::UNUSED_DEPENDENCY])
     ->ignoreErrorsOnPackage('phpstan/extension-installer', [ErrorType::UNUSED_DEPENDENCY])
     ->ignoreErrorsOnPackage('phpstan/phpstan-phpunit', [ErrorType::UNUSED_DEPENDENCY])
+    ->ignoreErrorsOnPackage('phpstan/phpstan-deprecation-rules', [ErrorType::UNUSED_DEPENDENCY])
 
     // Adjust analysis
     // dev packages are often used only in CI, so this is not enabled by default
