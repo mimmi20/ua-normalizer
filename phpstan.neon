@@ -108,7 +108,12 @@ parameters:
     narrow_param: true
 
   ignoreErrors:
-    - '~will always evaluate to true~'
+    #- '~will always evaluate to true~'
+    -
+      identifier: property.uninitialized
+      paths:
+        - tests/*/*Test.php
+        - tests/*Test.php
 
 rules:
   # code complexity
