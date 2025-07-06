@@ -36,6 +36,7 @@ final class NormalizerFactory
                 new Normalizer\Encode(),
                 new Normalizer\IISLogging(),
                 new Normalizer\Spaces(),
+                new Normalizer\DoubleHash(),
                 new Normalizer\EncryptionRemover(),
                 new Normalizer\LocaleRemover(),
                 new Normalizer\Mozilla(),

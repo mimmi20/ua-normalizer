@@ -121,7 +121,7 @@ final class NormalizerChainTest extends TestCase
     {
         $chain = (new NormalizerFactory())->build();
 
-        self::assertSame(15, $chain->count());
+        self::assertSame(16, $chain->count());
         self::assertSame($expected, $chain->normalize($userAgent));
     }
 
@@ -372,6 +372,10 @@ final class NormalizerChainTest extends TestCase
             [
                 'Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE ComcastAppPlatform AX061AEI Firebolt/0.8.1,gzip(gfe),gzip(gfe) 1.0.0.0 Xfinity',
                 'Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE ComcastAppPlatform AX061AEI Firebolt/0.8.1 1.0.0.0 Xfinity',
+            ],
+            [
+                'Dalvik/1.6.0 (Linux## U## Android 4.2.2## Gigaset QV1030 Build/JDQ39)',
+                'Dalvik/1.6.0 (Linux; Android 4.2.2; Gigaset QV1030 Build/JDQ39)',
             ],
         ];
     }
