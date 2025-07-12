@@ -35,7 +35,9 @@ final class LocaleRemover implements NormalizerInterface
             return $userAgent;
         }
 
-        if (!preg_match(self::REGEX, $userAgent, $matches)) {
+        $userAgent = preg_replace('/ +zh-hans-cn;/i', '', $userAgent);
+
+        if ($userAgent === null || !preg_match(self::REGEX, $userAgent, $matches)) {
             return $userAgent;
         }
 

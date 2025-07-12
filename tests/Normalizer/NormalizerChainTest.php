@@ -377,6 +377,10 @@ final class NormalizerChainTest extends TestCase
                 'Dalvik/1.6.0 (Linux## U## Android 4.2.2## Gigaset QV1030 Build/JDQ39)',
                 'Dalvik/1.6.0 (Linux; Android 4.2.2; Gigaset QV1030 Build/JDQ39)',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 14; zh-Hans-CN; SM-F7410 Build/UP1A.231005.007) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.58 Quark/7.11.0.810 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 14; SM-F7410 Build/UP1A.231005.007) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.58 Quark/7.11.0.810 Mobile Safari/537.36',
+            ],
         ];
     }
 }
