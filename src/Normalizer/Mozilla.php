@@ -16,6 +16,7 @@ namespace UaNormalizer\Normalizer;
 use Override;
 
 use function preg_replace;
+use function str_starts_with;
 
 /**
  * User Agent Normalizer - normalizes/fixes "Mozilla" token in user agent
@@ -26,6 +27,10 @@ final class Mozilla implements NormalizerInterface
     #[Override]
     public function normalize(string $userAgent): string | null
     {
+        if (str_starts_with($userAgent, 'ozilla')) {
+            $userAgent = 'M' . $userAgent;
+        }
+
         return preg_replace('/Moz(il|zi)la[\/ ]([\d.]+) ?/', 'Mozilla/$2 ', $userAgent);
     }
 }

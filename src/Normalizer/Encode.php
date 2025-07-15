@@ -16,6 +16,7 @@ namespace UaNormalizer\Normalizer;
 use Override;
 
 use function mb_substr_count;
+use function preg_replace;
 use function str_replace;
 
 /**
@@ -25,15 +26,24 @@ final class Encode implements NormalizerInterface
 {
     /** @throws void */
     #[Override]
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): string | null
     {
-        // If there are no spaces in a UA and more than 2 plus symbols, the UA is likely affected by IIS style logging issues
         if (mb_substr_count($userAgent, ' 2F') > 0 && mb_substr_count($userAgent, ' 28') > 0) {
             $userAgent = str_replace(
-                [' 2F', ' 28', ' 3B', ' 29', ' 2C'],
-                ['/', '(', ';', ')', ','],
+                [' 2F', ' 28', ' 3B', ' 29', ' 2C', ' 2B'],
+                ['/', '(', ';', ')', ',', '+'],
                 $userAgent,
             );
+        }
+
+        if (mb_substr_count($userAgent, '%2F') > 0 && mb_substr_count($userAgent, '%28') > 0) {
+            $userAgent = str_replace(
+                ['%2F', '%28', '%3B', '%29', '%2C', '%2B'],
+                ['/', '(', ';', ')', ',', '+'],
+                $userAgent,
+            );
+
+            $userAgent = preg_replace('/\+(?!\+)/', ' ', $userAgent);
         }
 
         return $userAgent;
