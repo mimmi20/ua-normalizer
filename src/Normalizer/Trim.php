@@ -15,7 +15,7 @@ namespace UaNormalizer\Normalizer;
 
 use Override;
 
-use function trim;
+use function mb_trim;
 
 /**
  * User Agent Normalizer - removes leading and trailing spaces
@@ -26,6 +26,6 @@ final class Trim implements NormalizerInterface
     #[Override]
     public function normalize(string $userAgent): string
     {
-        return trim($userAgent);
+        return mb_trim($userAgent);
     }
 }
