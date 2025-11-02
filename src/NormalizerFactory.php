@@ -39,6 +39,7 @@ final class NormalizerFactory
                 new Normalizer\DoubleHash(),
                 new Normalizer\EncryptionRemover(),
                 new Normalizer\LocaleRemover(),
+                new Normalizer\RemoveTabid(),
                 new Normalizer\Mozilla(),
                 new Normalizer\Linux(),
                 new Normalizer\KhtmlGecko(),
