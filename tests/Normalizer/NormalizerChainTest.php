@@ -121,7 +121,7 @@ final class NormalizerChainTest extends TestCase
     {
         $chain = (new NormalizerFactory())->build();
 
-        self::assertSame(16, $chain->count());
+        self::assertSame(17, $chain->count());
         self::assertSame($expected, $chain->normalize($userAgent));
     }
 
@@ -408,6 +408,10 @@ final class NormalizerChainTest extends TestCase
             [
                 'Mozilla/5.0 (Linux; U; Android 4.0.3; -; PP4MT-7 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
                 'Mozilla/5.0 (Linux; Android 4.0.3; PP4MT-7 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (iPad; CPU OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 WorxWeb/19.1.5(build 19.1.5.23)  Mobile/16D57 Safari/605.1<tabid-26FE0814-D13D-4710-A6EA-38E7A9B7866D>',
+                'Mozilla/5.0 (iPad; CPU OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 WorxWeb/19.1.5(build 19.1.5.23) Mobile/16D57 Safari/605.1',
             ],
         ];
     }
