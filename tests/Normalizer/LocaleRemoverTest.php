@@ -195,6 +195,10 @@ final class LocaleRemoverTest extends TestCase
                 'Mozilla/5.0 (Linux; U; Android 4.0.3; -; PP4MT-7 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
                 'Mozilla/5.0 (Linux; U; Android 4.0.3; PP4MT-7 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
             ],
+            [
+                'Opera/9.46.(Windows 95; lg-UG) Presto/2.9.172 Version/11.00',
+                'Opera/9.46.(Windows 95) Presto/2.9.172 Version/11.00',
+            ],
         ];
     }
 }
