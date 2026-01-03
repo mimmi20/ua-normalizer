@@ -3,7 +3,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2026, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -82,6 +82,10 @@ final class EncodeTest extends TestCase
             [
                 'Mozilla/5.0 %28Linux; U; Android 13; de-de; Redmi Note 12 Pro+ 5G Build/TP1A.220624.014) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/112.0.5615.136 Mobile Safari/537.36 XiaoMi/MiuiBrowser/13.35.0-gn',
                 'Mozilla/5.0 %28Linux; U; Android 13; de-de; Redmi Note 12 Pro+ 5G Build/TP1A.220624.014) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/112.0.5615.136 Mobile Safari/537.36 XiaoMi/MiuiBrowser/13.35.0-gn',
+            ],
+            [
+                'Opera%20Touch/11 CFNetwork/1125.2 Darwin/19.4.0',
+                'Opera Touch/11 CFNetwork/1125.2 Darwin/19.4.0',
             ],
         ];
     }
