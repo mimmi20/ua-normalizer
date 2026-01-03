@@ -3,7 +3,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2026, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -26,7 +26,7 @@ final class Encode implements NormalizerInterface
 {
     /** @throws void */
     #[Override]
-    public function normalize(string $userAgent): string | null
+    public function normalize(string $userAgent): string
     {
         if (mb_substr_count($userAgent, ' 2F') > 0 && mb_substr_count($userAgent, ' 28') > 0) {
             $userAgent = str_replace(
@@ -46,6 +46,6 @@ final class Encode implements NormalizerInterface
             $userAgent = preg_replace('/\+(?!\+)/', ' ', $userAgent);
         }
 
-        return $userAgent;
+        return str_replace('%20', ' ', (string) $userAgent);
     }
 }

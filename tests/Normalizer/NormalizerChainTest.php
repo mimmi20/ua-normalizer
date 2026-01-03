@@ -3,7 +3,7 @@
 /**
  * This file is part of the ua-normalizer package.
  *
- * Copyright (c) 2015-2025, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2015-2026, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -412,6 +412,10 @@ final class NormalizerChainTest extends TestCase
             [
                 'Mozilla/5.0 (iPad; CPU OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 WorxWeb/19.1.5(build 19.1.5.23)  Mobile/16D57 Safari/605.1<tabid-26FE0814-D13D-4710-A6EA-38E7A9B7866D>',
                 'Mozilla/5.0 (iPad; CPU OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 WorxWeb/19.1.5(build 19.1.5.23) Mobile/16D57 Safari/605.1',
+            ],
+            [
+                'Opera%20Touch/11 CFNetwork/1125.2 Darwin/19.4.0',
+                'Opera Touch/11 CFNetwork/1125.2 Darwin/19.4.0',
             ],
         ];
     }
