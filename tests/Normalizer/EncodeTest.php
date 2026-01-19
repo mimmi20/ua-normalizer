@@ -87,6 +87,10 @@ final class EncodeTest extends TestCase
                 'Opera%20Touch/11 CFNetwork/1125.2 Darwin/19.4.0',
                 'Opera Touch/11 CFNetwork/1125.2 Darwin/19.4.0',
             ],
+            [
+                'Incoming!/1.4.3 CFNetwork/454.11.5 Darwin/10.6.0 (i386) (MacBookAir2%2C1)',
+                'Incoming!/1.4.3 CFNetwork/454.11.5 Darwin/10.6.0 (i386) (MacBookAir2,1)',
+            ],
         ];
     }
 }
