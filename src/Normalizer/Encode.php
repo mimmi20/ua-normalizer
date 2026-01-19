@@ -46,6 +46,6 @@ final class Encode implements NormalizerInterface
             $userAgent = preg_replace('/\+(?!\+)/', ' ', $userAgent);
         }
 
-        return str_replace('%20', ' ', (string) $userAgent);
+        return str_replace(['%20', '%2C'], [' ', ','], (string) $userAgent);
     }
 }
