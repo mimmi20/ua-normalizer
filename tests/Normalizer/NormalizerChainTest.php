@@ -417,6 +417,10 @@ final class NormalizerChainTest extends TestCase
                 'Opera%20Touch/11 CFNetwork/1125.2 Darwin/19.4.0',
                 'Opera Touch/11 CFNetwork/1125.2 Darwin/19.4.0',
             ],
+            [
+                'com.google.android.apps.searchlite/961535 (Linux; U; Android 13; de­_DE; 23028RN4DG; Build/TP1A.220624.014; Cronet/126.0.6423.0)',
+                'com.google.android.apps.searchlite/961535 (Linux; Android 13; 23028RN4DG; Build/TP1A.220624.014; Cronet/126.0.6423.0)',
+            ],
         ];
     }
 }
