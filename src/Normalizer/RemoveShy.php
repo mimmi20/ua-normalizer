@@ -21,7 +21,7 @@ final class RemoveShy implements NormalizerInterface
 {
     /** @throws void */
     #[Override]
-    public function normalize(string $userAgent): string | null
+    public function normalize(string $userAgent): string
     {
         return str_replace('­', '', $userAgent);
     }
