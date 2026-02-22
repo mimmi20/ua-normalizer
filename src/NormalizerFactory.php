@@ -38,6 +38,7 @@ final class NormalizerFactory
                 new Normalizer\Spaces(),
                 new Normalizer\DoubleHash(),
                 new Normalizer\EncryptionRemover(),
+                new Normalizer\RemoveShy(),
                 new Normalizer\LocaleRemover(),
                 new Normalizer\RemoveTabid(),
                 new Normalizer\Mozilla(),
