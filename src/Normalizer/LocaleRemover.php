@@ -45,8 +45,6 @@ final class LocaleRemover implements NormalizerInterface
             $userAgent = (string) preg_replace($removal, '', $userAgent);
         }
 
-        $userAgent = str_replace('­_', '-', $userAgent);
-
         if ($userAgent === '' || !preg_match(self::REGEX, $userAgent, $matches)) {
             return $userAgent;
         }

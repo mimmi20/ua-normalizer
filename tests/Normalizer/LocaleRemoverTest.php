@@ -199,10 +199,6 @@ final class LocaleRemoverTest extends TestCase
                 'Opera/9.46.(Windows 95; lg-UG) Presto/2.9.172 Version/11.00',
                 'Opera/9.46.(Windows 95) Presto/2.9.172 Version/11.00',
             ],
-            [
-                'com.google.android.apps.searchlite/961535 (Linux; U; Android 13; de­_DE; 23028RN4DG; Build/TP1A.220624.014; Cronet/126.0.6423.0)',
-                'com.google.android.apps.searchlite/961535 (Linux; U; Android 13; 23028RN4DG; Build/TP1A.220624.014; Cronet/126.0.6423.0)',
-            ],
         ];
     }
 }

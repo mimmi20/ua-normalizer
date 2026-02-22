@@ -43,6 +43,6 @@ final class NormalizerFactoryTest extends TestCase
         $chain = $this->normalizer->build();
 
         self::assertInstanceOf(NormalizerChain::class, $chain);
-        self::assertSame(17, $chain->count());
+        self::assertSame(18, $chain->count());
     }
 }

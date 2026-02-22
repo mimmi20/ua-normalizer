@@ -121,7 +121,7 @@ final class NormalizerChainTest extends TestCase
     {
         $chain = (new NormalizerFactory())->build();
 
-        self::assertSame(17, $chain->count());
+        self::assertSame(18, $chain->count());
         self::assertSame($expected, $chain->normalize($userAgent));
     }
 
@@ -420,6 +420,10 @@ final class NormalizerChainTest extends TestCase
             [
                 'com.google.android.apps.searchlite/961535 (Linux; U; Android 13; de­_DE; 23028RN4DG; Build/TP1A.220624.014; Cronet/126.0.6423.0)',
                 'com.google.android.apps.searchlite/961535 (Linux; Android 13; 23028RN4DG; Build/TP1A.220624.014; Cronet/126.0.6423.0)',
+            ],
+            [
+                'UCWEB/2.0 (Java; U; MIDP-2.0; Nokia203/20.37) U2/1.0.0 UCMini/10.9.8.1006 (SpeedMode; Proxy; Android 4.4.2; HTC­_Desire­_601­_dual­_sim ) U2/1.0.0 Mobile',
+                'UCWEB/2.0 (Java; MIDP-2.0; Nokia203/20.37) U2/1.0.0 UCMini/10.9.8.1006 (SpeedMode; Proxy; Android 4.4.2; HTC_Desire_601_dual_sim ) U2/1.0.0 Mobile',
             ],
         ];
     }
