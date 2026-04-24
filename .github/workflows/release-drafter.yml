@@ -31,4 +31,4 @@ jobs:
       # otherwise, read permission is required at least
       pull-requests: write
 
-    uses: "mimmi20/ci/.github/workflows/draft-release.yml@8.4"
+    uses: "mimmi20/ci/.github/workflows/draft-release.yml@8.5"
