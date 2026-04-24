@@ -425,6 +425,10 @@ final class NormalizerChainTest extends TestCase
                 'UCWEB/2.0 (Java; U; MIDP-2.0; Nokia203/20.37) U2/1.0.0 UCMini/10.9.8.1006 (SpeedMode; Proxy; Android 4.4.2; HTC­_Desire­_601­_dual­_sim ) U2/1.0.0 Mobile',
                 'UCWEB/2.0 (Java; MIDP-2.0; Nokia203/20.37) U2/1.0.0 UCMini/10.9.8.1006 (SpeedMode; Proxy; Android 4.4.2; HTC_Desire_601_dual_sim ) U2/1.0.0 Mobile',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 11; uk-ua; Redmi Note 10 Pro Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.116 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.13.0-gn',
+                'Mozilla/5.0 (Linux; Android 11; Redmi Note 10 Pro Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.116 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.13.0-gn',
+            ],
         ];
     }
 }
