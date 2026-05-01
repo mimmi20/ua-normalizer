@@ -91,6 +91,10 @@ final class EncodeTest extends TestCase
                 'Incoming!/1.4.3 CFNetwork/454.11.5 Darwin/10.6.0 (i386) (MacBookAir2%2C1)',
                 'Incoming!/1.4.3 CFNetwork/454.11.5 Darwin/10.6.0 (i386) (MacBookAir2,1)',
             ],
+            [
+                'AI%C2%A0Chat/1742 CFNetwork/1496.0.7 Darwin/23.5.0',
+                'AI Chat/1742 CFNetwork/1496.0.7 Darwin/23.5.0',
+            ],
         ];
     }
 }
