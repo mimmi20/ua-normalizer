@@ -437,6 +437,10 @@ final class NormalizerChainTest extends TestCase
                 'Mozilla/5.0 (Linux; U; Android 9; ko-kr; Redmi Note 8 Build/PKQ1.190616.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.6.2-gn comdirect/1.0 (appVersion:20.9.4;deviceName:nokia 8;deviceType:mobile)',
                 'Mozilla/5.0 (Linux; Android 9; Redmi Note 8 Build/PKQ1.190616.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.6.2-gn',
             ],
+            [
+                'AI%C2%A0Chat/1742 CFNetwork/1496.0.7 Darwin/23.5.0',
+                'AI Chat/1742 CFNetwork/1496.0.7 Darwin/23.5.0',
+            ],
         ];
     }
 }
