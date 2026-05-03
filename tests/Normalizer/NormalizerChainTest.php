@@ -441,6 +441,10 @@ final class NormalizerChainTest extends TestCase
                 'AI%C2%A0Chat/1742 CFNetwork/1496.0.7 Darwin/23.5.0',
                 'AI Chat/1742 CFNetwork/1496.0.7 Darwin/23.5.0',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.2.2; es-41; KFSOWI Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.2.2; KFSOWI Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+            ],
         ];
     }
 }
