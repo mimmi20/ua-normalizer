@@ -67,10 +67,6 @@ final class AndroidTest extends TestCase
                 'Firefox',
                 'Firefox',
             ],
-            [
-                'Mozilla/5.0 (Linux; Andr0id 11; Regal G00gle TV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.120 Safari/537.36 OMI/4.25.1.92.StableAVB.5',
-                'Mozilla/5.0 (Linux; Android 11; Regal G00gle TV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.120 Safari/537.36 OMI/4.25.1.92.StableAVB.5',
-            ],
         ];
     }
 }

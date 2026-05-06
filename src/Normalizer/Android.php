@@ -27,7 +27,7 @@ final class Android implements NormalizerInterface
     public function normalize(string $userAgent): string | null
     {
         return preg_replace(
-            ['/linux; anroid/i', '/linux; andriod/i', '/linux; andr0id/i'],
+            ['/linux; anroid/i', '/linux; andriod/i'],
             'Linux; Android',
             $userAgent,
         );
