@@ -43,6 +43,7 @@ final class NormalizerFactory
                 new Normalizer\RemoveTabid(),
                 new Normalizer\Mozilla(),
                 new Normalizer\Linux(),
+                new Normalizer\Android(),
                 new Normalizer\KhtmlGecko(),
                 new Normalizer\HexCode(),
                 new Normalizer\WindowsNt(),
