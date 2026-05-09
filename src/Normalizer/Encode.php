@@ -17,6 +17,7 @@ use Override;
 
 use function mb_substr_count;
 use function preg_replace;
+use function rawurldecode;
 use function str_replace;
 
 /**
@@ -46,6 +47,12 @@ final class Encode implements NormalizerInterface
             $userAgent = preg_replace('/\+(?!\+)/', ' ', $userAgent);
         }
 
-        return str_replace(['%20', '%2C', '%C2%A0'], [' ', ',', ' '], (string) $userAgent);
+        return rawurldecode(
+            str_replace(
+                ['%20', '%2C', '%C2%A0'],
+                [' ', ',', ' '],
+                (string) $userAgent,
+            ),
+        );
     }
 }
