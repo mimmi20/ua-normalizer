@@ -15,10 +15,12 @@ namespace UaNormalizer\Normalizer;
 
 use Override;
 
+use function mb_strtolower;
 use function mb_substr_count;
 use function preg_match;
 use function preg_replace;
 use function rawurldecode;
+use function str_ireplace;
 use function str_replace;
 
 /**
@@ -38,13 +40,15 @@ final class Encode implements NormalizerInterface
             );
         }
 
-        if (preg_match('/%[\dA-F]{2}/', $userAgent)) {
-            if (mb_substr_count($userAgent, '%2F') > 0 && mb_substr_count($userAgent, '%28') > 0) {
+        if (preg_match('/%[\da-f]{2}/i', $userAgent)) {
+            $lower = mb_strtolower($userAgent);
+
+            if (mb_substr_count($lower, '%2f') > 0 && mb_substr_count($lower, '%28') > 0) {
                 return preg_replace('/\+(?!\+)/', ' ', rawurldecode($userAgent));
             }
 
             return rawurldecode(
-                str_replace('%C2%A0', ' ', (string) $userAgent),
+                str_ireplace('%C2%A0', ' ', $userAgent),
             );
         }
 
