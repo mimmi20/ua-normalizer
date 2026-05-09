@@ -453,6 +453,10 @@ final class NormalizerChainTest extends TestCase
                 'Mozilla/5.0 (Linux; Andriod 4.4.4 SM-G990V Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.95 Mobile Safari/537.36',
                 'Mozilla/5.0 (Linux; Android 4.4.4 SM-G990V Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.95 Mobile Safari/537.36',
             ],
+            [
+                'Mozilla/5.0 (Linux; diordnA 9; HiSmartTV A4 Build/PTMR.190127.037; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/99.100.4844.73 eliboM Safari/537.36 Quick Search TV/22.03.14',
+                'Mozilla/5.0 (Linux; Android 9; HiSmartTV A4 Build/PTMR.190127.037; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/99.100.4844.73 eliboM Safari/537.36 Quick Search TV/22.03.14',
+            ],
         ];
     }
 }

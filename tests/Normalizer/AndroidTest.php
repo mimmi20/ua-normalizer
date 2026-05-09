@@ -67,6 +67,10 @@ final class AndroidTest extends TestCase
                 'Firefox',
                 'Firefox',
             ],
+            [
+                'Mozilla/5.0 (Linux; diordnA 9; HiSmartTV A4 Build/PTMR.190127.037; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/99.100.4844.73 eliboM Safari/537.36 Quick Search TV/22.03.14',
+                'Mozilla/5.0 (Linux; Android 9; HiSmartTV A4 Build/PTMR.190127.037; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/99.100.4844.73 eliboM Safari/537.36 Quick Search TV/22.03.14',
+            ],
         ];
     }
 }
