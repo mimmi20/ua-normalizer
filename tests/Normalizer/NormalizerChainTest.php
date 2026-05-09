@@ -121,7 +121,7 @@ final class NormalizerChainTest extends TestCase
     {
         $chain = (new NormalizerFactory())->build();
 
-        self::assertSame(19, $chain->count());
+        self::assertSame(20, $chain->count());
         self::assertSame($expected, $chain->normalize($userAgent));
     }
 
@@ -456,6 +456,14 @@ final class NormalizerChainTest extends TestCase
             [
                 'Mozilla/5.0 (Linux; diordnA 9; HiSmartTV A4 Build/PTMR.190127.037; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/99.100.4844.73 eliboM Safari/537.36 Quick Search TV/22.03.14',
                 'Mozilla/5.0 (Linux; Android 9; HiSmartTV A4 Build/PTMR.190127.037; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/99.100.4844.73 eliboM Safari/537.36 Quick Search TV/22.03.14',
+            ],
+            [
+                'Mozilla/5.0/**/(Windows/**/NT/**/10.0;/**/Win64;/**/x64)/**/AppleWebKit/537.36/**/(KHTML,/**/like/**/Gecko)/**/Chrome/146.0.0.0/**/Safari/537.36";WAITFOR DELAY \'0:0:5\'--',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36";WAITFOR DELAY \'0:0:5\'--',
+            ],
+            [
+                '%4D%6F%7A%69%6C%6C%61%2F%35%2E%30%2F%2A%2A%2F%28%57%69%6E%64%6F%77%73%2F%2A%2A%2F%4E%54%2F%2A%2A%2F%31%30%2E%30%3B%2F%2A%2A%2F%57%69%6E%36%34%3B%2F%2A%2A%2F%78%36%34%29%2F%2A%2A%2F%41%70%70%6C%65%57%65%62%4B%69%74%2F%35%33%37%2E%33%36%2F%2A%2A%2F%28%4B%48%54%4D%4C%2C%2F%2A%2A%2F%4C%69%6B%45%2F%2A%2A%2F%47%65%63%6B%6F%29%2F%2A%2A%2F%43%68%72%6F%6D%65%2F%31%34%36%2E%30%2E%30%2E%30%2F%2A%2A%2F%53%61%66%61%72%69%2F%35%33%37%2E%33%36%22%3B%57%41%49%54%46%4F%52%20%44%45%4C%41%59%20%27%30%3A%30%3A%35%27%2D%2D',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, LikE Gecko) Chrome/146.0.0.0 Safari/537.36";WAITFOR DELAY \'0:0:5\'--',
             ],
         ];
     }
