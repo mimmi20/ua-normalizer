@@ -16,6 +16,7 @@ namespace UaNormalizer\Normalizer;
 use Override;
 
 use function mb_substr_count;
+use function preg_match;
 use function preg_replace;
 use function rawurldecode;
 use function str_replace;
@@ -27,7 +28,7 @@ final class Encode implements NormalizerInterface
 {
     /** @throws void */
     #[Override]
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): string | null
     {
         if (mb_substr_count($userAgent, ' 2F') > 0 && mb_substr_count($userAgent, ' 28') > 0) {
             $userAgent = str_replace(
@@ -37,22 +38,16 @@ final class Encode implements NormalizerInterface
             );
         }
 
-        if (mb_substr_count($userAgent, '%2F') > 0 && mb_substr_count($userAgent, '%28') > 0) {
-            $userAgent = str_replace(
-                ['%2F', '%28', '%3B', '%29', '%2C', '%2B'],
-                ['/', '(', ';', ')', ',', '+'],
-                $userAgent,
-            );
+        if (preg_match('/%[\dA-F]{2}/', $userAgent)) {
+            if (mb_substr_count($userAgent, '%2F') > 0 && mb_substr_count($userAgent, '%28') > 0) {
+                return preg_replace('/\+(?!\+)/', ' ', rawurldecode($userAgent));
+            }
 
-            $userAgent = preg_replace('/\+(?!\+)/', ' ', $userAgent);
+            return rawurldecode(
+                str_replace('%C2%A0', ' ', (string) $userAgent),
+            );
         }
 
-        return rawurldecode(
-            str_replace(
-                ['%20', '%2C', '%C2%A0'],
-                [' ', ',', ' '],
-                (string) $userAgent,
-            ),
-        );
+        return $userAgent;
     }
 }

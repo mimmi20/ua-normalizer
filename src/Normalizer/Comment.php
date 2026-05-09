@@ -18,18 +18,14 @@ use Override;
 use function str_replace;
 
 /**
- * User Agent Normalizer - normalizes/fixes "Linux" token in user agent
+ * User Agent Normalizer - normalizes/fixes comment token in user agent
  */
 final class Comment implements NormalizerInterface
 {
     /** @throws void */
     #[Override]
-    public function normalize(string $userAgent): string | null
+    public function normalize(string $userAgent): string
     {
-        return str_replace(
-            ['/**/'],
-            ' ',
-            $userAgent,
-        );
+        return str_replace('/**/', ' ', $userAgent);
     }
 }
