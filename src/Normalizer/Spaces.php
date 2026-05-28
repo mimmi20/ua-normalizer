@@ -19,7 +19,7 @@ use function preg_replace;
 use function str_replace;
 
 /**
- * User Agent Normalizer - removes leading and trailing spaces
+ * User Agent Normalizer - removes leading and trailing spaces and removes spaces around slashes in version patterns
  */
 final class Spaces implements NormalizerInterface
 {
