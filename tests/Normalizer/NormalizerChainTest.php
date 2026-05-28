@@ -477,6 +477,10 @@ final class NormalizerChainTest extends TestCase
                 'Mozilla/5.0\\xa0(iPhone\\xa0U\\xa0CPU like\\xa0Mac\\xa0OS X\\xa0en)\\xa0AppleWebKit/420+\\xa0(KHTML,\\xa0like\\xa0Gecko)Version/3.0\\xa0Mobile/1A543\\xa0Safari/419.3',
                 'Mozilla/5.0 (iPhone U CPU like Mac OS X en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543 Safari/419.3',
             ],
+            [
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit / 537.36(KHTML, like Gecko) Chrome / 64.0.3282.189 Safari / 537.36 Vivaldi / 1.95.1077.55',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.189 Safari/537.36 Vivaldi/1.95.1077.55',
+            ],
         ];
     }
 }
