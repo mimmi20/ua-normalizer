@@ -19,7 +19,7 @@ use function preg_replace;
 use function str_replace;
 
 /**
- * User Agent Normalizer - removes leading and trailing spaces
+ * User Agent Normalizer - removes leading and trailing spaces and removes spaces around slashes in version patterns
  */
 final class Spaces implements NormalizerInterface
 {
@@ -27,7 +27,7 @@ final class Spaces implements NormalizerInterface
     #[Override]
     public function normalize(string $userAgent): string
     {
-        $userAgent = preg_replace('/\s+/', ' ', $userAgent);
+        $userAgent = preg_replace(['/\s+/', '/([a-z]) \/ ([0-9])/i'], [' ', '$1/$2'], $userAgent);
 
         return str_replace('\xa0', ' ', (string) $userAgent);
     }
