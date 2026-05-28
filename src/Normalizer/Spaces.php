@@ -16,6 +16,7 @@ namespace UaNormalizer\Normalizer;
 use Override;
 
 use function preg_replace;
+use function str_replace;
 
 /**
  * User Agent Normalizer - removes leading and trailing spaces
@@ -24,8 +25,10 @@ final class Spaces implements NormalizerInterface
 {
     /** @throws void */
     #[Override]
-    public function normalize(string $userAgent): string | null
+    public function normalize(string $userAgent): string
     {
-        return preg_replace('/\s+/', ' ', $userAgent);
+        $userAgent = preg_replace('/\s+/', ' ', $userAgent);
+
+        return str_replace('\xa0', ' ', (string) $userAgent);
     }
 }

@@ -50,6 +50,7 @@ return $config
                     'location' => 'after_open',
                     'separate' => 'bottom',
                 ],
+                'string_implicit_backslashes' => false,
             ],
         ),
     )

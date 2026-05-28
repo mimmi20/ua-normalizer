@@ -465,6 +465,18 @@ final class NormalizerChainTest extends TestCase
                 '%4D%6F%7A%69%6C%6C%61%2F%35%2E%30%2F%2A%2A%2F%28%57%69%6E%64%6F%77%73%2F%2A%2A%2F%4E%54%2F%2A%2A%2F%31%30%2E%30%3B%2F%2A%2A%2F%57%69%6E%36%34%3B%2F%2A%2A%2F%78%36%34%29%2F%2A%2A%2F%41%70%70%6C%65%57%65%62%4B%69%74%2F%35%33%37%2E%33%36%2F%2A%2A%2F%28%4B%48%54%4D%4C%2C%2F%2A%2A%2F%4C%69%6B%45%2F%2A%2A%2F%47%65%63%6B%6F%29%2F%2A%2A%2F%43%68%72%6F%6D%65%2F%31%34%36%2E%30%2E%30%2E%30%2F%2A%2A%2F%53%61%66%61%72%69%2F%35%33%37%2E%33%36%22%3B%57%41%49%54%46%4F%52%20%44%45%4C%41%59%20%27%30%3A%30%3A%35%27%2D%2D',
                 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, LikE Gecko) Chrome/146.0.0.0 Safari/537.36";WAITFOR DELAY \'0:0:5\'--',
             ],
+            [
+                'Mozilla/5.0 (QtEmbedded; U; Linux; C) AppleWebKit/533.3 (KHTML, like Gecko) MAG200 stbapp ver: 4 rev: 1812 Mobile Safari/533.3',
+                'Mozilla/5.0 (QtEmbedded; Linux; C) AppleWebKit/533.3 (KHTML, like Gecko) MAG200 stbapp ver: 4 rev: 1812 Mobile Safari/533.3',
+            ],
+            [
+                'Opera/9.47.(Windows CE; km-KH) Presto/2.9.173 Version/10.00',
+                'Opera/9.47.(Windows CE) Presto/2.9.173 Version/10.00',
+            ],
+            [
+                'Mozilla/5.0\\xa0(iPhone\\xa0U\\xa0CPU like\\xa0Mac\\xa0OS X\\xa0en)\\xa0AppleWebKit/420+\\xa0(KHTML,\\xa0like\\xa0Gecko)Version/3.0\\xa0Mobile/1A543\\xa0Safari/419.3',
+                'Mozilla/5.0 (iPhone U CPU like Mac OS X en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543 Safari/419.3',
+            ],
         ];
     }
 }
