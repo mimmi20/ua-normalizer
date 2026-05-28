@@ -29,6 +29,6 @@ final class Spaces implements NormalizerInterface
     {
         $userAgent = preg_replace('/\s+/', ' ', $userAgent);
 
-        return str_replace('\\\\xa0', ' ', (string) $userAgent);
+        return str_replace('\\xa0', ' ', (string) $userAgent);
     }
 }
