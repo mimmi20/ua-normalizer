@@ -25,10 +25,10 @@ final class Spaces implements NormalizerInterface
 {
     /** @throws void */
     #[Override]
-    public function normalize(string $userAgent): string | null
+    public function normalize(string $userAgent): string
     {
         $userAgent = preg_replace('/\s+/', ' ', $userAgent);
 
-        return str_replace('\\xa0', ' ', $userAgent);
+        return str_replace('\\\\xa0', ' ', (string) $userAgent);
     }
 }
