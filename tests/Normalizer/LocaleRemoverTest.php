@@ -219,6 +219,10 @@ final class LocaleRemoverTest extends TestCase
                 'Opera/9.47.(Windows CE; km-KH) Presto/2.9.173 Version/10.00',
                 'Opera/9.47.(Windows CE) Presto/2.9.173 Version/10.00',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.4.3; es-419; KFASWI Build/KTU84M) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.47 like Chrome/37.0.2026.117 Safari/537.36',
+                'Mozilla/5.0 (Linux; U; Android 4.4.3; KFASWI Build/KTU84M) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.47 like Chrome/37.0.2026.117 Safari/537.36',
+            ],
         ];
     }
 }
