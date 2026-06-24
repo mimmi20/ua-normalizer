@@ -36,6 +36,7 @@ final class LocaleRemover implements NormalizerInterface
         }
 
         $removals = [
+            '/ +zh_CN_#Hans;/i',
             '/ +xx;/i',
             '/ +\-;/i',
         ];
