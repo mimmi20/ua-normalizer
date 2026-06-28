@@ -493,6 +493,10 @@ final class NormalizerChainTest extends TestCase
                 'com.ss.android.article.news/8050 (Linux; U; Android 10; zh_CN_#Hans; OCE-AN10; Build/HUAWEIOCE-AN10; Cronet/TTNetVersion:1c8b77ac 2020-12-16 QuicVersion:47946d2a 2020-10-14)',
                 'com.ss.android.article.news/8050 (Linux; Android 10; OCE-AN10; Build/HUAWEIOCE-AN10; Cronet/TTNetVersion:1c8b77ac 2020-12-16 QuicVersion:47946d2a 2020-10-14)',
             ],
+            [
+                'UCWEB/2.0 (Java; U; MIDP-2.0; Pt-BR; maui e800) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0',
+                'UCWEB/2.0 (Java; MIDP-2.0; maui e800) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0',
+            ],
         ];
     }
 }
