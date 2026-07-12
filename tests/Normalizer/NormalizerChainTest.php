@@ -497,6 +497,10 @@ final class NormalizerChainTest extends TestCase
                 'UCWEB/2.0 (Java; U; MIDP-2.0; Pt-BR; maui e800) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0',
                 'UCWEB/2.0 (Java; MIDP-2.0; maui e800) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 16; hi-in; CPH2751 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5970.168 Mobile Safari/537.36 HeyTapBrowser/45.14.3.1',
+                'Mozilla/5.0 (Linux; Android 16; CPH2751 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5970.168 Mobile Safari/537.36 HeyTapBrowser/45.14.3.1',
+            ],
         ];
     }
 }
