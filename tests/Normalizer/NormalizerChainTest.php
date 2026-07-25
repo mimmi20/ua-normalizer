@@ -121,7 +121,7 @@ final class NormalizerChainTest extends TestCase
     {
         $chain = (new NormalizerFactory())->build();
 
-        self::assertSame(20, $chain->count());
+        self::assertSame(21, $chain->count());
         self::assertSame($expected, $chain->normalize($userAgent));
     }
 
@@ -500,6 +500,22 @@ final class NormalizerChainTest extends TestCase
             [
                 'Mozilla/5.0 (Linux; U; Android 16; hi-in; CPH2751 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5970.168 Mobile Safari/537.36 HeyTapBrowser/45.14.3.1',
                 'Mozilla/5.0 (Linux; Android 16; CPH2751 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5970.168 Mobile Safari/537.36 HeyTapBrowser/45.14.3.1',
+            ],
+            [
+                'Mozilla/5.0 (Linux; Android 13; TECNO TECNO KJ6; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/149.0.7827.91 Mobile Safari/537.36 Sapphire/1.11.1',
+                'Mozilla/5.0 (Linux; Android 13; TECNO KJ6; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/149.0.7827.91 Mobile Safari/537.36 Sapphire/1.11.1',
+            ],
+            [
+                'Mozilla/5.0 (Linux; Android 13; TECNO Mobile KJ6; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/149.0.7827.91 Mobile Safari/537.36 Sapphire/1.11.1',
+                'Mozilla/5.0 (Linux; Android 13; TECNO KJ6; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/149.0.7827.91 Mobile Safari/537.36 Sapphire/1.11.1',
+            ],
+            [
+                'Mozilla/5.0 (Linux; Android 11; TECNO MOBILE LIMITED TECNO KG5n; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/149.0.7827.91 Mobile Safari/537.36 Sapphire/1.11.1',
+                'Mozilla/5.0 (Linux; Android 11; TECNO KG5n; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/149.0.7827.91 Mobile Safari/537.36 Sapphire/1.11.1',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 14; zh-CN; MZ-MEIZU 20 Inf Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.121 MZBrowser/11.0.5 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 14; MEIZU 20 Inf Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.121 MZBrowser/11.0.5 Mobile Safari/537.36',
             ],
         ];
     }
