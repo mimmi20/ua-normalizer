@@ -67,6 +67,10 @@ final class NormalizeBrandNamesTest extends TestCase
                 'Mozilla/5.0 (Linux; U; Android 14; zh-CN; MZ-MEIZU 20 Inf Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.121 MZBrowser/11.0.5 Mobile Safari/537.36',
                 'Mozilla/5.0 (Linux; U; Android 14; zh-CN; MEIZU 20 Inf Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.121 MZBrowser/11.0.5 Mobile Safari/537.36',
             ],
+            [
+                'Mozilla/5.0 (Linux; Android 13; motorola edge 20-109-9-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.93 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 13; motorola edge 20) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.93 Mobile Safari/537.36',
+            ],
         ];
     }
 }
