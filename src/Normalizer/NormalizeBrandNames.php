@@ -15,6 +15,7 @@ namespace UaNormalizer\Normalizer;
 
 use Override;
 
+use function preg_replace;
 use function str_ireplace;
 
 /**
@@ -24,7 +25,7 @@ final class NormalizeBrandNames implements NormalizerInterface
 {
     /** @throws void */
     #[Override]
-    public function normalize(string $userAgent): string
+    public function normalize(string $userAgent): string | null
     {
         $userAgent = str_ireplace(
             ['TECNO TECNO', 'TECNO MOBILE LIMITED TECNO', 'TECNO Mobile'],
@@ -32,9 +33,15 @@ final class NormalizeBrandNames implements NormalizerInterface
             $userAgent,
         );
 
-        return str_ireplace(
+        $userAgent = str_ireplace(
             ['MZ-MEIZU'],
             'MEIZU',
+            $userAgent,
+        );
+
+        return preg_replace(
+            ['/(moto(?:rola)? [eg][^-]*)[^;\/]+(?:(?:\/[^ ]+)? +(?:build|hmscore))[^)]+/i', '/(moto(?:rola)? [eg][^-]*)[^);\/]+[^)]*/i'],
+            '$1',
             $userAgent,
         );
     }
