@@ -26,8 +26,8 @@ final class RemoveBuild implements NormalizerInterface
     #[Override]
     public function normalize(string $userAgent): string | null
     {
-        $userAgent = preg_replace('/;? +build[^)]+(; cronet)/i', '$1', $userAgent);
+        $userAgent = preg_replace('/;? +build\/[^)]+(; cronet)/i', '$1', $userAgent);
 
-        return preg_replace('/;? +build[^)]+/i', '', (string) $userAgent);
+        return preg_replace('/;? +build\/[^)]+/i', '', (string) $userAgent);
     }
 }
