@@ -50,6 +50,7 @@ final class NormalizerFactory
                 new Normalizer\WindowsNt(),
                 new Normalizer\SerialNumbers(),
                 new Normalizer\TransferEncoding(),
+                new Normalizer\RemoveBuild(),
                 new Normalizer\NormalizeBrandNames(),
                 new Normalizer\Trim(),
             ],

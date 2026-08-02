@@ -16,29 +16,26 @@ namespace UaNormalizer\Normalizer;
 use Override;
 
 use function preg_replace;
-use function str_ireplace;
 
 /**
- * User Agent Normalizer - normalize brand names
+ * User Agent Normalizer - removes build version from user agent
  */
-final class NormalizeBrandNames implements NormalizerInterface
+final class RemoveBuild implements NormalizerInterface
 {
     /** @throws void */
     #[Override]
     public function normalize(string $userAgent): string | null
     {
-        $userAgent = str_ireplace(
-            ['TECNO TECNO', 'TECNO MOBILE LIMITED TECNO', 'TECNO Mobile'],
-            'TECNO',
+        $userAgent = preg_replace(
+            ['/;? +build[^)]+(; cronet)/i'],
+            '$1',
             $userAgent,
         );
 
-        $userAgent = str_ireplace(
-            ['MZ-MEIZU'],
-            'MEIZU',
+        return preg_replace(
+            ['/;? +build[^)]+/i'],
+            '',
             $userAgent,
         );
-
-        return preg_replace('/(moto(?:rola)? [eg][^-]+)[^);\/]*/i', '$1', $userAgent);
     }
 }
