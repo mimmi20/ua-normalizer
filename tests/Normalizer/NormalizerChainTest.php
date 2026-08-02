@@ -121,7 +121,7 @@ final class NormalizerChainTest extends TestCase
     {
         $chain = (new NormalizerFactory())->build();
 
-        self::assertSame(21, $chain->count());
+        self::assertSame(22, $chain->count());
         self::assertSame($expected, $chain->normalize($userAgent));
     }
 
@@ -243,7 +243,7 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'HTC_Dream Mozilla/5.0 (Linux; U; Android 1.5; it-; Build/CRB43) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
-                'HTC_Dream Mozilla/5.0 (Linux; Android 1.5; Build/CRB43) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
+                'HTC_Dream Mozilla/5.0 (Linux; Android 1.5) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 0.5; en-us) AppleWebKit/522+ (KHTML, like Gecko) Safari/419.3',
@@ -267,15 +267,15 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 1.5; de-de; HTC Magic Build/CRA86) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
-                'Mozilla/5.0 (Linux; Android 1.5; HTC Magic Build/CRA86) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
+                'Mozilla/5.0 (Linux; Android 1.5; HTC Magic) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 1.5; en-gb; HTC Magic Build/CRA71C) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
-                'Mozilla/5.0 (Linux; Android 1.5; HTC Magic Build/CRA71C) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
+                'Mozilla/5.0 (Linux; Android 1.5; HTC Magic) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 2.1-update1; de-de; HTC Hero Build/ERE27) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17',
-                'Mozilla/5.0 (Linux; Android 2.1-update1; HTC Hero Build/ERE27) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17',
+                'Mozilla/5.0 (Linux; Android 2.1-update1; HTC Hero) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17',
             ],
             [
                 'Mozilla/5.0 (X11; U; Linux armv7l; en-GB; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
@@ -307,23 +307,23 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.1.1; es-es; bq Curie Build/1.1.0 20130322-14:50) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-                'Mozilla/5.0 (Linux; Android 4.1.1; bq Curie Build/1.1.0 20130322-14:50) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.1.1; bq Curie) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.0.4; es-es; bq Edison Build/1.1.7 20121029-11:59) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-                'Mozilla/5.0 (Linux; Android 4.0.4; bq Edison Build/1.1.7 20121029-11:59) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.0.4; bq Edison) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
             ],
             [
                 'Mozilla/5.0 (Linux; Android 4.2.2; bq Edison 2 Quad Core Build/1.2.0_20140106-13:59) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36',
-                'Mozilla/5.0 (Linux; Android 4.2.2; bq Edison 2 Quad Core Build/1.2.0_20140106-13:59) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 4.2.2; bq Edison 2 Quad Core) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.114 Safari/537.36',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.1.2; es-es; bq Elcano Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-                'Mozilla/5.0 (Linux; Android 4.1.2; bq Elcano Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.1.2; bq Elcano) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; bq Maxwell Plus Build/1.0.3 20121201-14:07) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-                'Mozilla/5.0 (Linux; Android 4.0.4; bq Maxwell Plus Build/1.0.3 20121201-14:07) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.0.4; bq Maxwell Plus) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
             ],
             [
                 'Mozilla/5.0 (compatible; CA-crawler/1.0)',
@@ -363,7 +363,7 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Mozilla 2F5.0+ 28Linux 3B+U 3B+Android+12 3B+it-it 3B+Mi+10T+Lite+Build 2FSKQ1.211006.001 29+AppleWebKit 2F537.36+ 28KHTML 2C+like+Gecko 29+Version 2F4.0+Chrome 2F112.0.5615.136+Mobile+Safari 2F537.36+XiaoMi 2FMiuiBrowser 2F13.33.0-gn',
-                'Mozilla/5.0 (Linux; Android 12; Mi 10T Lite Build/SKQ1.211006.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/112.0.5615.136 Mobile Safari/537.36 XiaoMi/MiuiBrowser/13.33.0-gn',
+                'Mozilla/5.0 (Linux; Android 12; Mi 10T Lite) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/112.0.5615.136 Mobile Safari/537.36 XiaoMi/MiuiBrowser/13.33.0-gn',
             ],
             [
                 'Mozilla/4.0 (compatible;+Robot/1.0;zurukko640320919;)',
@@ -375,39 +375,39 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Dalvik/1.6.0 (Linux## U## Android 4.2.2## Gigaset QV1030 Build/JDQ39)',
-                'Dalvik/1.6.0 (Linux; Android 4.2.2; Gigaset QV1030 Build/JDQ39)',
+                'Dalvik/1.6.0 (Linux; Android 4.2.2; Gigaset QV1030)',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 14; zh-Hans-CN; SM-F7410 Build/UP1A.231005.007) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.58 Quark/7.11.0.810 Mobile Safari/537.36',
-                'Mozilla/5.0 (Linux; Android 14; SM-F7410 Build/UP1A.231005.007) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.58 Quark/7.11.0.810 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 14; SM-F7410) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.58 Quark/7.11.0.810 Mobile Safari/537.36',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.1.2; ja-jp; SCL21 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-                'Mozilla/5.0 (Linux; Android 4.1.2; SCL21 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.1.2; SCL21) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
             ],
             [
                 'Mozilla%2F5.0+%28Linux%3B+U%3B+Android+13%3B+de-de%3B+Redmi+Note+12+Pro%2B+5G+Build%2FTP1A.220624.014%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Version%2F4.0+Chrome%2F112.0.5615.136+Mobile+Safari%2F537.36+XiaoMi%2FMiuiBrowser%2F13.35.0-gn',
-                'Mozilla/5.0 (Linux; Android 13; Redmi Note 12 Pro+ 5G Build/TP1A.220624.014) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/112.0.5615.136 Mobile Safari/537.36 XiaoMi/MiuiBrowser/13.35.0-gn',
+                'Mozilla/5.0 (Linux; Android 13; Redmi Note 12 Pro+ 5G) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/112.0.5615.136 Mobile Safari/537.36 XiaoMi/MiuiBrowser/13.35.0-gn',
             ],
             [
                 'ozilla/5.0 (Linux; U; Android 4.1.2; en-us; HUAWEI G610-C00 Build HuaweiG610-C00) UC AppleWebKit 534.31 (KHTML, like Gecko) Mobile Safari 534.31',
-                'Mozilla/5.0 (Linux; Android 4.1.2; HUAWEI G610-C00 Build HuaweiG610-C00) UC AppleWebKit 534.31 (KHTML, like Gecko) Mobile Safari 534.31',
+                'Mozilla/5.0 (Linux; Android 4.1.2; HUAWEI G610-C00) UC AppleWebKit 534.31 (KHTML, like Gecko) Mobile Safari 534.31',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.2.2; es-es; GT-003 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-                'Mozilla/5.0 (Linux; Android 4.2.2; GT-003 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.2.2; GT-003) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.2.2; xx; SM-V700 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
-                'Mozilla/5.0 (Linux; Android 4.2.2; SM-V700 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.2.2; SM-V700) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 13; ar-SA; SM-A536B Build/TP1A.220624.014) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.4.0.1306 Mobile Safari/537.36',
-                'Mozilla/5.0 (Linux; Android 13; SM-A536B Build/TP1A.220624.014) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.4.0.1306 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 13; SM-A536B) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.4.0.1306 Mobile Safari/537.36',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.0.3; -; PP4MT-7 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-                'Mozilla/5.0 (Linux; Android 4.0.3; PP4MT-7 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.0.3; PP4MT-7) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
             ],
             [
                 'Mozilla/5.0 (iPad; CPU OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 WorxWeb/19.1.5(build 19.1.5.23)  Mobile/16D57 Safari/605.1<tabid-26FE0814-D13D-4710-A6EA-38E7A9B7866D>',
@@ -419,7 +419,7 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'com.google.android.apps.searchlite/961535 (Linux; U; Android 13; de­_DE; 23028RN4DG; Build/TP1A.220624.014; Cronet/126.0.6423.0)',
-                'com.google.android.apps.searchlite/961535 (Linux; Android 13; 23028RN4DG; Build/TP1A.220624.014; Cronet/126.0.6423.0)',
+                'com.google.android.apps.searchlite/961535 (Linux; Android 13; 23028RN4DG; Cronet/126.0.6423.0)',
             ],
             [
                 'UCWEB/2.0 (Java; U; MIDP-2.0; Nokia203/20.37) U2/1.0.0 UCMini/10.9.8.1006 (SpeedMode; Proxy; Android 4.4.2; HTC­_Desire­_601­_dual­_sim ) U2/1.0.0 Mobile',
@@ -427,15 +427,15 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 11; uk-ua; Redmi Note 10 Pro Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.116 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.13.0-gn',
-                'Mozilla/5.0 (Linux; Android 11; Redmi Note 10 Pro Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.116 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.13.0-gn',
+                'Mozilla/5.0 (Linux; Android 11; Redmi Note 10 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.116 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.13.0-gn',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 10; fa-ir; Redmi Note 8 Pro Build/QP1A.190711.020) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.4.1-g',
-                'Mozilla/5.0 (Linux; Android 10; Redmi Note 8 Pro Build/QP1A.190711.020) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.4.1-g',
+                'Mozilla/5.0 (Linux; Android 10; Redmi Note 8 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.4.1-g',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 9; ko-kr; Redmi Note 8 Build/PKQ1.190616.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.6.2-gn comdirect/1.0 (appVersion:20.9.4;deviceName:nokia 8;deviceType:mobile)',
-                'Mozilla/5.0 (Linux; Android 9; Redmi Note 8 Build/PKQ1.190616.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.6.2-gn',
+                'Mozilla/5.0 (Linux; Android 9; Redmi Note 8) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.6.2-gn',
             ],
             [
                 'AI%C2%A0Chat/1742 CFNetwork/1496.0.7 Darwin/23.5.0',
@@ -443,19 +443,19 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.2.2; es-41; KFSOWI Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-                'Mozilla/5.0 (Linux; Android 4.2.2; KFSOWI Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.2.2; KFSOWI) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
             ],
             [
                 'Mozilla/5.0 (Linux; Anroid 7.1.2; Redmi 4A Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36',
-                'Mozilla/5.0 (Linux; Android 7.1.2; Redmi 4A Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 7.1.2; Redmi 4A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36',
             ],
             [
                 'Mozilla/5.0 (Linux; Andriod 4.4.4 SM-G990V Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.95 Mobile Safari/537.36',
-                'Mozilla/5.0 (Linux; Android 4.4.4 SM-G990V Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.95 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 4.4.4 SM-G990V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.95 Mobile Safari/537.36',
             ],
             [
                 'Mozilla/5.0 (Linux; diordnA 9; HiSmartTV A4 Build/PTMR.190127.037; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/99.100.4844.73 eliboM Safari/537.36 Quick Search TV/22.03.14',
-                'Mozilla/5.0 (Linux; Android 9; HiSmartTV A4 Build/PTMR.190127.037; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/99.100.4844.73 eliboM Safari/537.36 Quick Search TV/22.03.14',
+                'Mozilla/5.0 (Linux; Android 9; HiSmartTV A4) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/99.100.4844.73 eliboM Safari/537.36 Quick Search TV/22.03.14',
             ],
             [
                 'Mozilla/5.0/**/(Windows/**/NT/**/10.0;/**/Win64;/**/x64)/**/AppleWebKit/537.36/**/(KHTML,/**/like/**/Gecko)/**/Chrome/146.0.0.0/**/Safari/537.36";WAITFOR DELAY \'0:0:5\'--',
@@ -483,15 +483,15 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.4.3; es-419; KFASWI Build/KTU84M) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.47 like Chrome/37.0.2026.117 Safari/537.36',
-                'Mozilla/5.0 (Linux; Android 4.4.3; KFASWI Build/KTU84M) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.47 like Chrome/37.0.2026.117 Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 4.4.3; KFASWI) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.47 like Chrome/37.0.2026.117 Safari/537.36',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 12; zh-Hans-DZ; LIO-AN00m Build/HUAWEILIO-AN00m) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.58 Quark/6.2.8.250 Mobile Safari/537.36',
-                'Mozilla/5.0 (Linux; Android 12; LIO-AN00m Build/HUAWEILIO-AN00m) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.58 Quark/6.2.8.250 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 12; LIO-AN00m) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.58 Quark/6.2.8.250 Mobile Safari/537.36',
             ],
             [
                 'com.ss.android.article.news/8050 (Linux; U; Android 10; zh_CN_#Hans; OCE-AN10; Build/HUAWEIOCE-AN10; Cronet/TTNetVersion:1c8b77ac 2020-12-16 QuicVersion:47946d2a 2020-10-14)',
-                'com.ss.android.article.news/8050 (Linux; Android 10; OCE-AN10; Build/HUAWEIOCE-AN10; Cronet/TTNetVersion:1c8b77ac 2020-12-16 QuicVersion:47946d2a 2020-10-14)',
+                'com.ss.android.article.news/8050 (Linux; Android 10; OCE-AN10; Cronet/TTNetVersion:1c8b77ac 2020-12-16 QuicVersion:47946d2a 2020-10-14)',
             ],
             [
                 'UCWEB/2.0 (Java; U; MIDP-2.0; Pt-BR; maui e800) U2/1.0.0 UCBrowser/9.2.0.311 U2/1.0.0 Mobile UNTRUSTED/1.0',
@@ -499,7 +499,7 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 16; hi-in; CPH2751 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5970.168 Mobile Safari/537.36 HeyTapBrowser/45.14.3.1',
-                'Mozilla/5.0 (Linux; Android 16; CPH2751 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5970.168 Mobile Safari/537.36 HeyTapBrowser/45.14.3.1',
+                'Mozilla/5.0 (Linux; Android 16; CPH2751) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5970.168 Mobile Safari/537.36 HeyTapBrowser/45.14.3.1',
             ],
             [
                 'Mozilla/5.0 (Linux; Android 13; TECNO TECNO KJ6; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/149.0.7827.91 Mobile Safari/537.36 Sapphire/1.11.1',
@@ -515,7 +515,7 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 14; zh-CN; MZ-MEIZU 20 Inf Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.121 MZBrowser/11.0.5 Mobile Safari/537.36',
-                'Mozilla/5.0 (Linux; Android 14; MEIZU 20 Inf Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.121 MZBrowser/11.0.5 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 14; MEIZU 20 Inf) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.121 MZBrowser/11.0.5 Mobile Safari/537.36',
             ],
             [
                 'Mozilla/5.0 (Linux; Android 13; motorola edge 20-109-9-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.93 Mobile Safari/537.36',
@@ -524,6 +524,10 @@ final class NormalizerChainTest extends TestCase
             [
                 'Mozilla/5.0 (Linux; Android 13; moto g72-21-10-21) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.91 Mobile Safari/537.36',
                 'Mozilla/5.0 (Linux; Android 13; moto g72) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.91 Mobile Safari/537.36',
+            ],
+            [
+                'Mozilla/5.0 (Linux; Android 14; moto e15 Build/UUTB34.40-36; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/141.0.7390.97 Mobile Safari/537.36 NSTNWV/3.129.815524762.31release.go',
+                'Mozilla/5.0 (Linux; Android 14; moto e15) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/141.0.7390.97 Mobile Safari/537.36 NSTNWV/3.129.815524762.31release.go',
             ],
         ];
     }
