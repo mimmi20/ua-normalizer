@@ -39,6 +39,6 @@ final class NormalizeBrandNames implements NormalizerInterface
             $userAgent,
         );
 
-        return preg_replace('/(moto(?:rola)? [eg][^-]+)[^);\/]*/i', '$1', $userAgent);
+        return preg_replace('/(moto(?:rola)? [eg][^-]+)[^)\/]*\)/i', '$1)', $userAgent);
     }
 }
