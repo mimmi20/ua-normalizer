@@ -573,6 +573,10 @@ final class NormalizerChainTest extends TestCase
                 'Mozilla/5.0 (Linux; U; Android 2.3.4; %lang2%; Kindle Fire Build/GINGERBREAD) adbeat.com/policy AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
                 'Mozilla/5.0 (Linux; Android 2.3.4; Kindle Fire) adbeat.com/policy AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 13; octopus Build/R148-16640.61.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/148.0.7778.225 Safari/537.36 OPR/99.3.2254.1107',
+                'Mozilla/5.0 (Linux; Android 13; octopus Build/R148-16640.61.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/148.0.7778.225 Safari/537.36 OPR/99.3.2254.1107',
+            ],
         ];
     }
 }
