@@ -79,6 +79,34 @@ final class NormalizeBrandNamesTest extends TestCase
                 'Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36 Chrome-Lighthouse',
                 'Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36 Chrome-Lighthouse',
             ],
+            [
+                'Mozilla/5.0 (Windows NT 10.0.16299.98; osmeta 10.3.3308) AppleWebKit/602.1.1 (KHTML, like Gecko) Version/9.0 Safari/602.1.1 osmeta/10.3.3308 Build/3308 [FBAN/FBW;FBAV/140.0.0.232.179;FBBV/83145113;FBDV/WindowsDevice;FBMD/Predator G9-793;FBSN/Windows;FBSV/10.0.16299.125;FBSS/1;FBCR/;FBID/desktop;FBLC/de_DE;FBOP/45;FBRV/0]',
+                'Mozilla/5.0 (Windows NT 10.0.16299.98; osmeta 10.3.3308) AppleWebKit/602.1.1 (KHTML, like Gecko) Version/9.0 Safari/602.1.1 osmeta/10.3.3308 Build/3308 [FBAN/FBW;FBAV/140.0.0.232.179;FBBV/83145113;FBDV/WindowsDevice;FBMD/Predator G9-793;FBSN/Windows;FBSV/10.0.16299.125;FBSS/1;FBCR/;FBID/desktop;FBLC/de_DE;FBOP/45;FBRV/0]',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.0.4; de-de; novo7 Build/IML74K; CyanogenMod-9) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.0.4; de-de; novo7 Build/IML74K; CyanogenMod-9) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; Android 14; A10 Build/UP1A.231105.001.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/139.0.7258.94 Safari/537.36 GoogleApp/16.31.78.ve.arm64',
+                'Mozilla/5.0 (Linux; Android 14; A10 Build/UP1A.231105.001.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/139.0.7258.94 Safari/537.36 GoogleApp/16.31.78.ve.arm64',
+            ],
+            [
+                'Kodi/14.2-RC1 (Linux; Android 4.4.3; KFTHWI Build/KTU84M) Android/4.4.3 Sys_CPU/armv7l App_Bitness/32 Version/14.2-RC1-Git:2015-03-11-e7ba06f-dirty',
+                'Kodi/14.2-RC1 (Linux; Android 4.4.3; KFTHWI Build/KTU84M) Android/4.4.3 Sys_CPU/armv7l App_Bitness/32 Version/14.2-RC1-Git:2015-03-11-e7ba06f-dirty',
+            ],
+            [
+                'Mozilla/5.0 (Linux; Android 4.2.1; AMOI N850 Build/JOP40D YunOS/2.1.0-E-20130906.0730) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/19.77.34.5 Mobile Safari/537.36 Tanggula/0.1.0',
+                'Mozilla/5.0 (Linux; Android 4.2.1; AMOI N850 Build/JOP40D YunOS/2.1.0-E-20130906.0730) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/19.77.34.5 Mobile Safari/537.36 Tanggula/0.1.0',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; BIRD T900 Build/MocorDroid2.3.5) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 baiduboxapp/061_2.7.3_diordna_084_023/drps_01_5.3.2_009T DRIB/7300043a/0B83D996383DD1C9ED5A6BC9BC4B0B7C|0',
+                'Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; BIRD T900 Build/MocorDroid2.3.5) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 baiduboxapp/061_2.7.3_diordna_084_023/drps_01_5.3.2_009T DRIB/7300043a/0B83D996383DD1C9ED5A6BC9BC4B0B7C|0',
+            ],
+            [
+                'Mozilla/5.0 (Linux; Android 9; meizu M10 Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36 YandexSearch/7.40 YandexSearchBrowser/7.40',
+                'Mozilla/5.0 (Linux; Android 9; meizu M10 Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36 YandexSearch/7.40 YandexSearchBrowser/7.40',
+            ],
         ];
     }
 }
