@@ -15,6 +15,7 @@ namespace UaNormalizer\Normalizer;
 
 use Override;
 
+use function preg_match;
 use function preg_replace;
 use function str_ireplace;
 
@@ -38,6 +39,13 @@ final class NormalizeBrandNames implements NormalizerInterface
             'MEIZU',
             $userAgent,
         );
+
+        if (
+            preg_match('/(moto(?:rola)? [eg][^-]+)[^)\/]*\)/i', $userAgent)
+            && preg_match('/(moto(?:rola)? [eg].+ -)[^)\/]*\)/i', $userAgent)
+        ) {
+            return $userAgent;
+        }
 
         return preg_replace('/(moto(?:rola)? [eg][^-]+)[^)\/]*\)/i', '$1)', $userAgent);
     }
