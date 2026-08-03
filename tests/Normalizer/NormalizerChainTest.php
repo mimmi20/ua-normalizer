@@ -565,6 +565,14 @@ final class NormalizerChainTest extends TestCase
                 'Mozilla/5.0 (Linux; Android 9; meizu M10 Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36 YandexSearch/7.40 YandexSearchBrowser/7.40',
                 'Mozilla/5.0 (Linux; Android 9; meizu M10) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36 YandexSearch/7.40 YandexSearchBrowser/7.40',
             ],
+            [
+                'Mozilla/5.0 (Linux; Android 13; moto g stylus 5G - 2023 Build/T1TGN33.60-55; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/132.0.6834.163 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 13; moto g stylus 5G - 2023) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/132.0.6834.163 Mobile Safari/537.36',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 2.3.4; %lang2%; Kindle Fire Build/GINGERBREAD) adbeat.com/policy AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+                'Mozilla/5.0 (Linux; Android 2.3.4; Kindle Fire) adbeat.com/policy AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+            ],
         ];
     }
 }
