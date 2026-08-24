@@ -20,6 +20,7 @@ use Rector\DeadCode\Rector\StmtsAwareInterface\RemoveDeadInstanceOfAssertRector;
 use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
 use Rector\Php80\Rector\Class_\AnnotationToAttributeRector;
+use Rector\Php84\Rector\MethodCall\NewMethodCallWithoutParenthesesRector;
 use Rector\PHPUnit\CodeQuality\Rector\Class_\PreferPHPUnitThisCallRector;
 use Rector\PHPUnit\CodeQuality\Rector\Class_\YieldDataProviderRector;
 use Rector\PHPUnit\CodeQuality\Rector\ClassMethod\NoSetupWithParentCallOverrideRector;
@@ -62,6 +63,7 @@ return RectorConfig::configure()
         RenameParamToMatchTypeRector::class,
         ExplicitBoolCompareRector::class,
         NoSetupWithParentCallOverrideRector::class,
+        NewMethodCallWithoutParenthesesRector::class,
     ])
     ->withoutParallel()
     ->withMemoryLimit('2048M');
