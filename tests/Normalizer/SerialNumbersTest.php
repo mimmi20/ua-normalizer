@@ -36,7 +36,7 @@ final class SerialNumbersTest extends TestCase
     }
 
     /** @throws ExpectationFailedException */
-    #[DataProvider('serialNumbersDataProvider')]
+    #[DataProvider(methodName: 'serialNumbersDataProvider')]
     public function testRemoveSerialNumber(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);

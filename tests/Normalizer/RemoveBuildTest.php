@@ -36,7 +36,7 @@ final class RemoveBuildTest extends TestCase
     }
 
     /** @throws ExpectationFailedException */
-    #[DataProvider('userAgentsDataProvider')]
+    #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testShouldNormalize(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);
@@ -110,6 +110,10 @@ final class RemoveBuildTest extends TestCase
             [
                 'Mozilla/5.0 (Linux; U; Android 13; octopus Build/R148-16640.61.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/148.0.7778.225 Safari/537.36 OPR/99.3.2254.1107',
                 'Mozilla/5.0 (Linux; U; Android 13; octopus Build/R148-16640.61.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/148.0.7778.225 Safari/537.36 OPR/99.3.2254.1107',
+            ],
+            [
+                'Dalvik/2.1.0 (Linux; U; Android 14; Z2450 Build/MyOS14.0.17_Z2450_EEA)',
+                'Dalvik/2.1.0 (Linux; U; Android 14; Z2450 Build/MyOS14.0.17_Z2450_EEA)',
             ],
         ];
     }

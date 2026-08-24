@@ -29,7 +29,7 @@ final class IISLogging implements NormalizerInterface
     {
         // If there are no spaces in a UA and more than 2 plus symbols, the UA is likely affected by IIS style logging issues
         if (mb_substr_count($userAgent, ' ') === 0 && mb_substr_count($userAgent, '+') > 1) {
-            $userAgent = str_replace('+', ' ', $userAgent);
+            return str_replace('+', ' ', $userAgent);
         }
 
         return $userAgent;

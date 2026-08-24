@@ -25,12 +25,12 @@ final class ExceptionTest extends TestCase
     {
         $userAgent = 'abc';
 
-        $e = Exception::throw($userAgent);
+        $exception = Exception::throw($userAgent);
 
-        self::assertInstanceOf(Exception::class, $e);
+        self::assertInstanceOf(Exception::class, $exception);
         self::assertSame(
             sprintf('an error occurecd while normalizing useragent "%s"', $userAgent),
-            $e->getMessage(),
+            $exception->getMessage(),
         );
     }
 }
