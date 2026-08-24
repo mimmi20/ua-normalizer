@@ -120,6 +120,8 @@ parameters:
       paths:
         - tests/*/*Test.php
         - tests/*Test.php
+    -
+      identifier: argument.named
 
 services:
   errorFormatter.sarif:

@@ -36,7 +36,7 @@ final class WindowsNtTest extends TestCase
     }
 
     /** @throws ExpectationFailedException */
-    #[DataProvider('userAgentsDataProvider')]
+    #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testShouldNormalizeTheWindowsNtToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);

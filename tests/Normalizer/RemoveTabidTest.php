@@ -36,7 +36,7 @@ final class RemoveTabidTest extends TestCase
     }
 
     /** @throws ExpectationFailedException */
-    #[DataProvider('userAgentsDataProvider')]
+    #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testShouldNormalizeTheLocale(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);

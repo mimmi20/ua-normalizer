@@ -36,7 +36,7 @@ final class MozillaTest extends TestCase
     }
 
     /** @throws ExpectationFailedException */
-    #[DataProvider('userAgentsDataProvider')]
+    #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testShouldNormalizeTheMozillaToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);

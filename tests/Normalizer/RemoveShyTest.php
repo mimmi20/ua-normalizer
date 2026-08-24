@@ -36,7 +36,7 @@ final class RemoveShyTest extends TestCase
     }
 
     /** @throws ExpectationFailedException */
-    #[DataProvider('userAgentsDataProvider')]
+    #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testShouldRemoveShy(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);

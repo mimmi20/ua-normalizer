@@ -36,7 +36,7 @@ final class TransferEncodingTest extends TestCase
     }
 
     /** @throws ExpectationFailedException */
-    #[DataProvider('userAgentsDataProvider')]
+    #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testNormalize(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);

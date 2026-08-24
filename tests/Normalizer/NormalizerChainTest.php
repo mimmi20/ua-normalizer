@@ -30,28 +30,28 @@ final class NormalizerChainTest extends TestCase
      * @throws ExpectationFailedException
      * @throws Exception
      */
-    #[DataProvider('userAgentsDataProvider')]
+    #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testNormalizeConstruct(string $userAgent, string $expected): void
     {
-        $chain = new NormalizerChain([new Mozilla()]);
+        $normalizerChain = new NormalizerChain([new Mozilla()]);
 
-        self::assertSame(1, $chain->count());
-        self::assertSame($expected, $chain->normalize($userAgent));
+        self::assertSame(1, $normalizerChain->count());
+        self::assertSame($expected, $normalizerChain->normalize($userAgent));
     }
 
     /**
      * @throws ExpectationFailedException
      * @throws Exception
      */
-    #[DataProvider('userAgentsDataProvider')]
+    #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testNormalizeAdd(string $userAgent, string $expected): void
     {
-        $chain = new NormalizerChain();
-        $chain->add(new Mozilla());
+        $normalizerChain = new NormalizerChain();
+        $normalizerChain->add(new Mozilla());
 
-        self::assertSame(1, $chain->count());
+        self::assertSame(1, $normalizerChain->count());
 
-        self::assertSame($expected, $chain->normalize($userAgent));
+        self::assertSame($expected, $normalizerChain->normalize($userAgent));
     }
 
     /**
@@ -60,29 +60,27 @@ final class NormalizerChainTest extends TestCase
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
-    #[DataProvider('userAgentsDataProvider')]
+    #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testNormalizeException(string $userAgent, string $expected): void
     {
-        $normalizer = $this->getMockBuilder(NormalizerInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $normalizer = $this->createMock(NormalizerInterface::class);
         $normalizer->expects(self::once())
             ->method('normalize')
             ->with($userAgent)
-            ->willReturn(null);
+            ->willReturn(value: null);
 
-        $chain = new NormalizerChain();
-        $chain->add($normalizer);
+        $normalizerChain = new NormalizerChain();
+        $normalizerChain->add($normalizer);
 
-        self::assertSame(1, $chain->count());
+        self::assertSame(1, $normalizerChain->count());
 
         $this->expectException(Exception::class);
         $this->expectExceptionCode(0);
-        $this->expectExceptionMessage(
+        $this->expectExceptionMessageIsOrContains(
             sprintf('an error occurecd while normalizing useragent "%s"', $userAgent),
         );
 
-        $chain->normalize($userAgent);
+        $normalizerChain->normalize($userAgent);
     }
 
     /**
@@ -116,13 +114,13 @@ final class NormalizerChainTest extends TestCase
      * @throws ExpectationFailedException
      * @throws Exception
      */
-    #[DataProvider('userAgentsDataProviderComplete')]
+    #[DataProvider(methodName: 'userAgentsDataProviderComplete')]
     public function testNormalizeFromFactory(string $userAgent, string $expected): void
     {
-        $chain = (new NormalizerFactory())->build();
+        $normalizerChain = (new NormalizerFactory())->build();
 
-        self::assertSame(22, $chain->count());
-        self::assertSame($expected, $chain->normalize($userAgent));
+        self::assertSame(22, $normalizerChain->count());
+        self::assertSame($expected, $normalizerChain->normalize($userAgent));
     }
 
     /**
@@ -576,6 +574,10 @@ final class NormalizerChainTest extends TestCase
             [
                 'Mozilla/5.0 (Linux; U; Android 13; octopus Build/R148-16640.61.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/148.0.7778.225 Safari/537.36 OPR/99.3.2254.1107',
                 'Mozilla/5.0 (Linux; Android 13; octopus Build/R148-16640.61.0; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/148.0.7778.225 Safari/537.36 OPR/99.3.2254.1107',
+            ],
+            [
+                'Dalvik/2.1.0 (Linux; U; Android 14; Z2450 Build/MyOS14.0.17_Z2450_EEA)',
+                'Dalvik/2.1.0 (Linux; Android 14; Z2450 Build/MyOS14.0.17_Z2450_EEA)',
             ],
         ];
     }

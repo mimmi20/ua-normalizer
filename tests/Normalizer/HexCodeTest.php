@@ -36,7 +36,7 @@ final class HexCodeTest extends TestCase
     }
 
     /** @throws ExpectationFailedException */
-    #[DataProvider('userAgentsDataProvider')]
+    #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testShouldNormalizeTheHexCodeToken(string $userAgent, string $expected): void
     {
         $found = $this->normalizer->normalize($userAgent);

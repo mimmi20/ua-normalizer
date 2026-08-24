@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
 use UaNormalizer\Normalizer\NormalizerChain;
 use UaNormalizer\NormalizerFactory;
 
-#[Group('Handlers')]
+#[Group(name: 'Handlers')]
 final class NormalizerFactoryTest extends TestCase
 {
     private NormalizerFactory $normalizer;
@@ -40,9 +40,9 @@ final class NormalizerFactoryTest extends TestCase
     /** @throws Exception */
     public function testBuild(): void
     {
-        $chain = $this->normalizer->build();
+        $normalizerChain = $this->normalizer->build();
 
-        self::assertInstanceOf(NormalizerChain::class, $chain);
-        self::assertSame(22, $chain->count());
+        self::assertInstanceOf(NormalizerChain::class, $normalizerChain);
+        self::assertSame(22, $normalizerChain->count());
     }
 }
