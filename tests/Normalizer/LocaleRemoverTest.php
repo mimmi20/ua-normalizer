@@ -255,6 +255,10 @@ final class LocaleRemoverTest extends TestCase
                 'Mozilla/5.0 (Linux; U; Android 4.0.4; da-dk; DEOX Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
                 'Mozilla/5.0 (Linux; U; Android 4.0.4; DEOX Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
             ],
+            [
+                'UCWEB/2.0 (Linux; U; Opera Mini/7.1.32052/30.3697; ru; ASUS_T00J) U2/1.0.0 UCBrowser/8.9.2.373 Mobile',
+                'UCWEB/2.0 (Linux; U; Opera Mini/7.1.32052/30.3697; ASUS_T00J) U2/1.0.0 UCBrowser/8.9.2.373 Mobile',
+            ],
         ];
     }
 }
