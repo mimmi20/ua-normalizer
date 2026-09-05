@@ -579,6 +579,10 @@ final class NormalizerChainTest extends TestCase
                 'Dalvik/2.1.0 (Linux; U; Android 14; Z2450 Build/MyOS14.0.17_Z2450_EEA)',
                 'Dalvik/2.1.0 (Linux; Android 14; Z2450 Build/MyOS14.0.17_Z2450_EEA)',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.4.2; he-il; GT-P5210 Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; Android 4.4.2; GT-P5210) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+            ],
         ];
     }
 }
