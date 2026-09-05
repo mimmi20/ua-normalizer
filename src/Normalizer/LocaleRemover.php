@@ -25,7 +25,7 @@ use function str_replace;
  */
 final class LocaleRemover implements NormalizerInterface
 {
-    private const string REGEX = '/(?P<prefix>; ?)(?P<lang>a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|c[acdfghiklmnorsuvwxyz]|d[ejkmoz]|e[ceghlnrst]|f[aijkmor]|g[abdefghilmnpqrstuwy]|h[ikmnrtu]|i[delmnoqrst]|j[aemop]|k[eghimnoprwyz]|l[abcgikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[acefgilopruz]|om|[pP][aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnorstvxyz]|t[cdfghjklmnortvwz]|u[agkmsyz]|v[aceginu]|w[fs]|y[et]|zh-[hH]ans|z[ahmw])(?P<state>[-_]r?[a-zA-Z0-9]{2,3})?(?P<utf>\.utf8|\.big5)?(?P<b>\b-?)(?!:)(?P<end>[;)])/';
+    private const string REGEX = '/(?P<prefix>; ?)(?P<lang>a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|c[acdfghiklmnorsuvwxyz]|d[aejkmoz]|e[ceghlnrst]|f[aijkmor]|g[abdefghilmnpqrstuwy]|h[eikmnrtu]|i[delmnoqrstw]|j[aemop]|k[aeghimnoprwyz]|l[abcgikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[a-cefgilopruz]|om|[pP][aefghklmnrstwy]|qa|r[eosuw]|s[abcdeghijklmnoqrstvxyz]|t[cdfghjklmnortvwz]|u[agkmsyz]|v[aceginu]|w[fs]|xx|y[et]|zh-[hH]ans|z[ahmw])(?P<state>[-_](?:r?[a-zA-Z0-9]{2,3}|1))?(?P<utf>\.utf8|\.big5)?(?P<b>\b-?)(?!:)(?P<end>[,;)])/';
 
     /** @throws void */
     #[Override]
@@ -51,8 +51,8 @@ final class LocaleRemover implements NormalizerInterface
         }
 
         $replacement = str_replace(
-            ['; )', '; -;', '; ;', ';;'],
-            [')', ';', ';', ';'],
+            ['; )', '; -;', '; ;', ';;', '; ,'],
+            [')', ';', ';', ';', ';'],
             sprintf('%s%s%s%s', $matches['prefix'], $matches['utf'], $matches['b'], $matches['end']),
         );
 
