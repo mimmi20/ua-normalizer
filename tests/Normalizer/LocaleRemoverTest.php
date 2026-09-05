@@ -279,6 +279,10 @@ final class LocaleRemoverTest extends TestCase
                 'Mozilla/5.0 (Linux; U; Android 4.4.2; sq-al; SM-G355HN Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
                 'Mozilla/5.0 (Linux; U; Android 4.4.2; SM-G355HN Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 2.3.6_mobile-star; iw-il; GT-S7500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+                'Mozilla/5.0 (Linux; U; Android 2.3.6_mobile-star; GT-S7500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+            ],
         ];
     }
 }
