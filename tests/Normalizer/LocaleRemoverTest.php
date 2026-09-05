@@ -283,6 +283,42 @@ final class LocaleRemoverTest extends TestCase
                 'Mozilla/5.0 (Linux; U; Android 2.3.6_mobile-star; iw-il; GT-S7500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
                 'Mozilla/5.0 (Linux; U; Android 2.3.6_mobile-star; GT-S7500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.3; de-.; SAMSUNG GT-I9300/I9300XXUGNA5 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.3; SAMSUNG GT-I9300/I9300XXUGNA5 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.3; de--1; GT-I9300 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 [FB_IAB/FB4A;FBAV/24.0.0.30.15;]',
+                'Mozilla/5.0 (Linux; U; Android 4.3; GT-I9300 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 [FB_IAB/FB4A;FBAV/24.0.0.30.15;]',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 2.3.5; -ru; GT-S5360 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+                'Mozilla/5.0 (Linux; U; Android 2.3.5; GT-S5360 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.3; de-0; GT-I9300 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.3; GT-I9300 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.3; de-a; GT-I9300 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.3; GT-I9300 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.1.2; hy-am; GT-S7710 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.1.2; GT-S7710 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.4.2; zz-zz; GT-N8000 Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.4.2; GT-N8000 Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 16; de-de; SM-A346B Build/BP4A.251205.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5970.168 Mobile Safari/537.36 HeyTapBrowser/45.14.4.2',
+                'Mozilla/5.0 (Linux; U; Android 16; SM-A346B Build/BP4A.251205.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5970.168 Mobile Safari/537.36 HeyTapBrowser/45.14.4.2',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.4; DE-de; GT-P6000 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1',
+                'Mozilla/5.0 (Linux; U; Android 4.4; GT-P6000 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1',
+            ],
         ];
     }
 }
