@@ -71,6 +71,10 @@ final class HexCodeTest extends TestCase
                 'Firefox',
                 'Firefox',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.3; de-\x18\xe2\x80\xa1.; SAMSUNG GT-I9300/I9300XXUGNA5 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.3; de-.; SAMSUNG GT-I9300/I9300XXUGNA5 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
         ];
     }
 }
