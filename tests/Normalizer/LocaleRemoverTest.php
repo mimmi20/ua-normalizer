@@ -319,6 +319,30 @@ final class LocaleRemoverTest extends TestCase
                 'Mozilla/5.0 (Linux; U; Android 4.4; DE-de; GT-P6000 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1',
                 'Mozilla/5.0 (Linux; U; Android 4.4; GT-P6000 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 2.3; Pt-br ; MID7026 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1/UCBrowser/8.3.0.143/145/352',
+                'Mozilla/5.0 (Linux; U; Android 2.3; MID7026 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1/UCBrowser/8.3.0.143/145/352',
+            ],
+            [
+                'iBrowser/3.0/Mozilla/5.0 (Linux; U; Android 2.3.6; yy-yy; Karbonn A2 Build/GRK39F) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+                'iBrowser/3.0/Mozilla/5.0 (Linux; U; Android 2.3.6; Karbonn A2 Build/GRK39F) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.3; haw-us; GT-I9500 Build/JSS15J) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; U; Android 4.3; GT-I9500 Build/JSS15J) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.2.2; ta-in; GT-S7582 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.2.2; GT-S7582 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.1.2; deu-; GT-I8190 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.1.2; GT-I8190 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 2.3.7; hd-us; Dell Venue Build/GWK74; CyanogenMod-7.2.0) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+                'Mozilla/5.0 (Linux; U; Android 2.3.7; Dell Venue Build/GWK74; CyanogenMod-7.2.0) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+            ],
         ];
     }
 }
