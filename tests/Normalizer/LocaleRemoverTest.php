@@ -343,6 +343,30 @@ final class LocaleRemoverTest extends TestCase
                 'Mozilla/5.0 (Linux; U; Android 2.3.7; hd-us; Dell Venue Build/GWK74; CyanogenMod-7.2.0) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
                 'Mozilla/5.0 (Linux; U; Android 2.3.7; Dell Venue Build/GWK74; CyanogenMod-7.2.0) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
             ],
+            [
+                'UCWEB/2.0 (Java; U; MIDP-2.0; 11; GT-S5230) U2/1.0.0 UCBrowser UCVN.MOBI/9.4.1.377 U2/1.0.0 Mobile UNTRUSTED/1.0',
+                'UCWEB/2.0 (Java; U; MIDP-2.0; GT-S5230) U2/1.0.0 UCBrowser UCVN.MOBI/9.4.1.377 U2/1.0.0 Mobile UNTRUSTED/1.0',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.1.2; chr-us; GT-S5280 Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; U; Android 4.1.2; GT-S5280 Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.1.1; zh-hant; GT-I9300 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.1.1; GT-I9300 Build/JRO03C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.1.2; eu-es; SAMSUNG GT-I8190/I8190XXAMB3 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.1.2; SAMSUNG GT-I8190/I8190XXAMB3 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.0.4; eng-; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.0.4; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; Android 4.4.2; kk-kz; SAMSUNG SM-T530 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 4.4.2; SAMSUNG SM-T530 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36',
+            ],
         ];
     }
 }
