@@ -345,7 +345,7 @@ final class LocaleRemoverTest extends TestCase
             ],
             [
                 'UCWEB/2.0 (Java; U; MIDP-2.0; 11; GT-S5230) U2/1.0.0 UCBrowser UCVN.MOBI/9.4.1.377 U2/1.0.0 Mobile UNTRUSTED/1.0',
-                'UCWEB/2.0 (Java; U; MIDP-2.0; GT-S5230) U2/1.0.0 UCBrowser UCVN.MOBI/9.4.1.377 U2/1.0.0 Mobile UNTRUSTED/1.0',
+                'UCWEB/2.0 (Java; U; MIDP-2.0; 11; GT-S5230) U2/1.0.0 UCBrowser UCVN.MOBI/9.4.1.377 U2/1.0.0 Mobile UNTRUSTED/1.0',
             ],
             [
                 'Mozilla/5.0 (Linux; U; Android 4.1.2; chr-us; GT-S5280 Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
@@ -366,6 +366,10 @@ final class LocaleRemoverTest extends TestCase
             [
                 'Mozilla/5.0 (Linux; Android 4.4.2; kk-kz; SAMSUNG SM-T530 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36',
                 'Mozilla/5.0 (Linux; Android 4.4.2; SAMSUNG SM-T530 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Safari/537.36',
+            ],
+            [
+                'imoAndroid/2020.03.2011; 10; REL; SM-G973F; samsung; play; phone; arm64-v8a',
+                'imoAndroid/2020.03.2011; 10; REL; SM-G973F; samsung; play; phone; arm64-v8a',
             ],
         ];
     }
