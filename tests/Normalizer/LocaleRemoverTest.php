@@ -371,6 +371,18 @@ final class LocaleRemoverTest extends TestCase
                 'imoAndroid/2020.03.2011; 10; REL; SM-G973F; samsung; play; phone; arm64-v8a',
                 'imoAndroid/2020.03.2011; 10; REL; SM-G973F; samsung; play; phone; arm64-v8a',
             ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; DESAY TS808 Build/MocorDroid2.3.5) AppleWebKit/537.36 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.1 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; U; Android 2.3.5; DESAY TS808 Build/MocorDroid2.3.5) AppleWebKit/537.36 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.1 Mobile Safari/537.36',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 4.1.2;; xx-xx; Fly IQ436 Build/JZO57K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 4.1.2; Fly IQ436 Build/JZO57K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; Android 1.5.1.16-RT-20120808.143842; xx; K-Touch W619 Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Dolphin/CN-1.0.8 Mobile Safari/534.30',
+                'Mozilla/5.0 (Linux; U; Android 1.5.1.16-RT-20120808.143842; K-Touch W619 Build/AliyunOs-2012) AppleWebKit/534.30 (KHTML, like Gecko) Dolphin/CN-1.0.8 Mobile Safari/534.30',
+            ],
         ];
     }
 }
