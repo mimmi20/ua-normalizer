@@ -387,6 +387,10 @@ final class LocaleRemoverTest extends TestCase
                 'Mozilla/5.0 (Linux; arm_64; Android 16; SC-55F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.7680.51 YaSearchBrowser/26.47.1 BroPP/1.0 YaSearchApp/26.47.1 webOmni Mobile Safari/537.36',
                 'Mozilla/5.0 (Linux; arm_64; Android 16; SC-55F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.7680.51 YaSearchBrowser/26.47.1 BroPP/1.0 YaSearchApp/26.47.1 webOmni Mobile Safari/537.36',
             ],
+            [
+                'Mozilla/5.0 (Linux; arm_64; Android 15; SO-53D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.7680.55 YaBrowser/26.4.7.55.00 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; arm_64; Android 15; SO-53D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.7680.55 YaBrowser/26.4.7.55.00 Mobile Safari/537.36',
+            ],
         ];
     }
 }

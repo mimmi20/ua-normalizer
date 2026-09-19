@@ -25,7 +25,7 @@ use function str_replace;
  */
 final class LocaleRemover implements NormalizerInterface
 {
-    private const string REGEX = '/(?P<prefix>; ?)(?P<lang>a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|chr|c[acdfghiklmnorsuvwxyz]|deu|d[aejkmoz]|eng|e[ceghlnrstu]|f[aijkmor]|g[abdefghilmnpqrstuwy]|haw|h[deikmnrtuy]|i[delmnoqrstw]|j[aemop]|k[aeghikmnoprwyz]|l[abcgikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[a-cefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|sc(?!-[0-9]{2}[a-z])|s[abdeghijklmnoqrstvxyz]|t[acdfghjklmnortvwz]|u[agkmsyz]|v[aceginu]|w[fs]|xx|y[ety]|zh-han[st]|z[ahmwz])?(?P<state>[-_]r?-?[a-z0-9.]{1,3})?(?P<utf>\.utf8|\.big5)?(?:(?P<b>\b-?)(?!:))?(?P<end> ?[,;)])/i';
+    private const string REGEX = '/(?P<prefix>; ?)(?P<lang>a[defgilmoqrstuwxz]|b[abdefghijlmnoqrstvwyz]|chr|c[acdfghiklmnorsuvwxyz]|deu|d[aejkmoz]|eng|e[ceghlnrstu]|f[aijkmor]|g[abdefghilmnpqrstuwy]|haw|h[deikmnrtuy]|i[delmnoqrstw]|j[aemop]|k[aeghikmnoprwyz]|l[abcgikrstuvy]|m[acdefghklmnopqrstuvwxyz]|n[a-cefgilopruz]|om|p[aefghklmnrstwy]|qa|r[eosuw]|s[co](?!-[0-9]{2}[a-z])|s[abdeghijklmnqrstvxyz]|t[acdfghjklmnortvwz]|u[agkmsyz]|v[aceginu]|w[fs]|xx|y[ety]|zh-han[st]|z[ahmwz])?(?P<state>[-_]r?-?[a-z0-9.]{1,3})?(?P<utf>\.utf8|\.big5)?(?:(?P<b>\b-?)(?!:))?(?P<end> ?[,;)])/i';
 
     /** @throws void */
     #[Override]
