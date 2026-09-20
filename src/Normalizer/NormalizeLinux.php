@@ -26,6 +26,10 @@ final class NormalizeLinux implements NormalizerInterface
     #[Override]
     public function normalize(string $userAgent): string | null
     {
-        return preg_replace('/\((?:x11; |unknown; |wayland; )?linu[sx]/i', '(Linux', $userAgent);
+        return preg_replace(
+            '/\((?:x11; |unknown; |wayland; )?linu[sx](?:; x11)?/i',
+            '(Linux',
+            $userAgent,
+        );
     }
 }
