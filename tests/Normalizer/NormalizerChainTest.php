@@ -17,7 +17,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use UaNormalizer\Normalizer\Exception\Exception;
-use UaNormalizer\Normalizer\Mozilla;
+use UaNormalizer\Normalizer\NormalizeMozilla;
 use UaNormalizer\Normalizer\NormalizerChain;
 use UaNormalizer\Normalizer\NormalizerInterface;
 use UaNormalizer\NormalizerFactory;
@@ -33,7 +33,7 @@ final class NormalizerChainTest extends TestCase
     #[DataProvider(methodName: 'userAgentsDataProvider')]
     public function testNormalizeConstruct(string $userAgent, string $expected): void
     {
-        $normalizerChain = new NormalizerChain([new Mozilla()]);
+        $normalizerChain = new NormalizerChain([new NormalizeMozilla()]);
 
         self::assertSame(1, $normalizerChain->count());
         self::assertSame($expected, $normalizerChain->normalize($userAgent));
@@ -47,7 +47,7 @@ final class NormalizerChainTest extends TestCase
     public function testNormalizeAdd(string $userAgent, string $expected): void
     {
         $normalizerChain = new NormalizerChain();
-        $normalizerChain->add(new Mozilla());
+        $normalizerChain->add(new NormalizeMozilla());
 
         self::assertSame(1, $normalizerChain->count());
 
@@ -225,7 +225,7 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Mozilla/5.0 (X11; U; Linux armv6l; en-US; rv:1.9a6pre) Gecko/20070810 Firefox/3.0a1',
-                'Mozilla/5.0 (X11; Linux armv6l; rv:1.9a6pre) Gecko/20070810 Firefox/3.0a1',
+                'Mozilla/5.0 (Linux armv6l; rv:1.9a6pre) Gecko/20070810 Firefox/3.0a1',
             ],
             [
                 'Mozilla/5.0 (SymbianOS/9.1; U; en-us) AppleWebKit/414 (KHTML, like Gecko) Safari/414 es61',
@@ -277,23 +277,23 @@ final class NormalizerChainTest extends TestCase
             ],
             [
                 'Mozilla/5.0 (X11; U; Linux armv7l; en-GB; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
-                'Mozilla/5.0 (X11; Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+                'Mozilla/5.0 (Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
             ],
             [
                 'Mozilla/5.0 (X11; U; Linux armv7l; en; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
-                'Mozilla/5.0 (X11; Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+                'Mozilla/5.0 (Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
             ],
             [
                 'Mozilla/5.0 (X11; U; Linux armv7l;en; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
-                'Mozilla/5.0 (X11; Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+                'Mozilla/5.0 (Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
             ],
             [
                 'Mozilla/5.0 (X11; U; Linux armv7l;en-us; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
-                'Mozilla/5.0 (X11; Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+                'Mozilla/5.0 (Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
             ],
             [
                 'Mozilla/5.0 (X11; U; Linux armv7l; en_us; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
-                'Mozilla/5.0 (X11; Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
+                'Mozilla/5.0 (Linux armv7l; rv:1.9.2a1pre) Gecko/20090928 Firefox/3.5 Maemo Browser 1.4.1.21 RX-51 N900',
             ],
             [
                 'Mozilla/5.0 (compatible; fr-crawler/1.1)',
@@ -730,6 +730,30 @@ final class NormalizerChainTest extends TestCase
             [
                 'Mozilla/5.0 (Linux; arm_64; Android 15; SO-53D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.7680.55 YaBrowser/26.4.7.55.00 Mobile Safari/537.36',
                 'Mozilla/5.0 (Linux; arm_64; Android 15; SO-53D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.7680.55 YaBrowser/26.4.7.55.00 Mobile Safari/537.36',
+            ],
+            [
+                'Mozilla/5.0 (Linux; U; de-de; KFOT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.10 Safari/535.19 Silk-Accelerated=true',
+                'Mozilla/5.0 (Linux; KFOT) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.10 Safari/535.19 Silk-Accelerated=true',
+            ],
+            [
+                'OV-SteelCore(B) Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.34 Safari/534.24',
+                'OV-SteelCore(B) Mozilla/5.0 (Linux x86_64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.34 Safari/534.24',
+            ],
+            [
+                'Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/602.1 (KHTML, like Gecko) wkhtmltoimage Version/10.0 Safari/602.1',
+                'Mozilla/5.0 (Linux x86_64) AppleWebKit/602.1 (KHTML, like Gecko) wkhtmltoimage Version/10.0 Safari/602.1',
+            ],
+            [
+                'Mozilla/5.0 (X11; U; Linux x86_64; ru-RU) AppleWebKit/533.3 (KHTML, like Gecko) Leechcraft/0.4.55-13-g2230d9f Safari/533.3',
+                'Mozilla/5.0 (Linux x86_64) AppleWebKit/533.3 (KHTML, like Gecko) Leechcraft/0.4.55-13-g2230d9f Safari/533.3',
+            ],
+            [
+                'Mozilla/5.0 (X11; Linux i686; rv:1.9.5.20) Gecko/2832-09-24 00:30:04.349823 Firefox/3.8',
+                'Mozilla/5.0 (Linux i686; rv:1.9.5.20) Gecko/2832-09-24 00:30:04.349823 Firefox/3.8',
+            ],
+            [
+                'Mozilla/5.0 (Wayland; Linux x86_64; Huawei) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.141 Safari/537.36 Ubuntu/22.04 (5.1.2567.73-1) Vivaldi/5.1.2567.73',
+                'Mozilla/5.0 (Linux x86_64; Huawei) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.141 Safari/537.36 Ubuntu/22.04 (5.1.2567.73-1) Vivaldi/5.1.2567.73',
             ],
         ];
     }
