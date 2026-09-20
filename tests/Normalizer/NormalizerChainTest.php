@@ -755,6 +755,10 @@ final class NormalizerChainTest extends TestCase
                 'Mozilla/5.0 (Wayland; Linux x86_64; Huawei) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.141 Safari/537.36 Ubuntu/22.04 (5.1.2567.73-1) Vivaldi/5.1.2567.73',
                 'Mozilla/5.0 (Linux x86_64; Huawei) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.141 Safari/537.36 Ubuntu/22.04 (5.1.2567.73-1) Vivaldi/5.1.2567.73',
             ],
+            [
+                'Mozilla/5.0 (Linux; X11)',
+                'Mozilla/5.0 (Linux)',
+            ],
         ];
     }
 }
