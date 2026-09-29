@@ -31,6 +31,6 @@ final class NormalizeMozilla implements NormalizerInterface
             $userAgent = 'M' . $userAgent;
         }
 
-        return preg_replace('/Moz(il|zi)la[\/ ]([\d.]+) ?/', 'Mozilla/$2 ', $userAgent);
+        return preg_replace('/Moz(il|li|zi)la[\/ ]([\d.]+) ?/', 'Mozilla/$2 ', $userAgent);
     }
 }
