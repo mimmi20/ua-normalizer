@@ -111,6 +111,10 @@ final class NormalizeBrandNamesTest extends TestCase
                 'Mozilla/5.0 (Linux; Android 13; moto g stylus 5G - 2023 Build/T1TGN33.60-55; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/132.0.6834.163 Mobile Safari/537.36',
                 'Mozilla/5.0 (Linux; Android 13; moto g stylus 5G - 2023 Build/T1TGN33.60-55; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/132.0.6834.163 Mobile Safari/537.36',
             ],
+            [
+                'Mozilla/5.0 (Linux; Android 10; moto z4-42-5-17) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.91 Mobile Safari/537.36',
+                'Mozilla/5.0 (Linux; Android 10; moto z4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.91 Mobile Safari/537.36',
+            ],
         ];
     }
 }

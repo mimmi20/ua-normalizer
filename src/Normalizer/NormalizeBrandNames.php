@@ -41,12 +41,12 @@ final class NormalizeBrandNames implements NormalizerInterface
         );
 
         if (
-            preg_match('/(moto(?:rola)? [eg][^-]+)[^)\/]*\)/i', $userAgent)
-            && preg_match('/(moto(?:rola)? [eg].+ -)[^)\/]*\)/i', $userAgent)
+            preg_match('/(moto(?:rola)? [egz][^-]+)[^)\/]*\)/i', $userAgent)
+            && preg_match('/(moto(?:rola)? [egz].+ -)[^)\/]*\)/i', $userAgent)
         ) {
             return $userAgent;
         }
 
-        return preg_replace('/(moto(?:rola)? [eg][^-]+)[^)\/]*\)/i', '$1)', $userAgent);
+        return preg_replace('/(moto(?:rola)? [egz][^-]+)[^)\/]*\)/i', '$1)', $userAgent);
     }
 }
