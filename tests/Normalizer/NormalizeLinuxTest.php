@@ -99,6 +99,10 @@ final class NormalizeLinuxTest extends TestCase
                 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0',
                 'Mozilla/5.0 (Fedora; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0',
             ],
+            [
+                'Mozilla/5.0 (X11; U; x86_64 Linux; en_GB, en_US) AppleWebKit/533.3 (KHTML, like Gecko) Chrome/5.0.358.0 Safari/533.3',
+                'Mozilla/5.0 (X11; U; x86_64 Linux; en_GB, en_US) AppleWebKit/533.3 (KHTML, like Gecko) Chrome/5.0.358.0 Safari/533.3',
+            ],
         ];
     }
 }

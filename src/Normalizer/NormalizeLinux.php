@@ -27,27 +27,11 @@ final class NormalizeLinux implements NormalizerInterface
     public function normalize(string $userAgent): string | null
     {
         $userAgent = preg_replace(
-            '/\((?:x11; |unknown; |wayland; )?(?:x86_64 )?linu[sx](?:; x11)?/i',
-            '(Linux',
+            '/\((?:x11; |unknown; |wayland; )?((?:x86_64 )?linu[sx]|fedora|ubuntu|openbsd)(?:; x11)?/i',
+            '($1',
             $userAgent,
         );
 
-        $userAgent = preg_replace(
-            '/\((?:x11; |unknown; |wayland; )?fedora(?:; x11)?/i',
-            '(Fedora',
-            (string) $userAgent,
-        );
-
-        $userAgent = preg_replace(
-            '/\((?:x11; |unknown; |wayland; )?ubuntu(?:; x11)?/i',
-            '(Ubuntu',
-            (string) $userAgent,
-        );
-
-        return preg_replace(
-            '/\((?:x11; |unknown; |wayland; )?openbsd(?:; x11)?/i',
-            '(OpenBSD',
-            (string) $userAgent,
-        );
+        return preg_replace('/linu[sx]/i', 'Linux', (string) $userAgent);
     }
 }

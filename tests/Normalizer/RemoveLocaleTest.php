@@ -403,6 +403,10 @@ final class RemoveLocaleTest extends TestCase
                 'Mozilla/5.0 (Linux; Tizen 2.2.1.3; SM-R750) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.76 efl-webengine/0.1.1.1 Mobile Safari/537.36',
                 'Mozilla/5.0 (Linux; Tizen 2.2.1.3; SM-R750) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.76 efl-webengine/0.1.1.1 Mobile Safari/537.36',
             ],
+            [
+                'Mozilla/5.0 (X11; U; x86_64 Linux; en_GB, en_US) AppleWebKit/533.3 (KHTML, like Gecko) Chrome/5.0.358.0 Safari/533.3',
+                'Mozilla/5.0 (X11; U; x86_64 Linux) AppleWebKit/533.3 (KHTML, like Gecko) Chrome/5.0.358.0 Safari/533.3',
+            ],
         ];
     }
 }
