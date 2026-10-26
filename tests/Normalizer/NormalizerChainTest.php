@@ -771,6 +771,18 @@ final class NormalizerChainTest extends TestCase
                 'Mozilla/5.0 (Linux; Tizen 2.2.1.3; SM-R750) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.76 efl-webengine/0.1.1.1 Mobile Safari/537.36',
                 'Mozilla/5.0 (Linux; Tizen 2.2.1.3; SM-R750) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.76 efl-webengine/0.1.1.1 Mobile Safari/537.36',
             ],
+            [
+                'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0',
+                'Mozilla/5.0 (Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0',
+            ],
+            [
+                'Mozilla/5.0 (X11; U; OpenBSD i386; en-US; rv:1.7.10) Gecko/20050919 (No IDN) Firefox/1.0.6',
+                'Mozilla/5.0 (OpenBSD i386; rv:1.7.10) Gecko/20050919 (No IDN) Firefox/1.0.6',
+            ],
+            [
+                'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0',
+                'Mozilla/5.0 (Fedora; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0',
+            ],
         ];
     }
 }
