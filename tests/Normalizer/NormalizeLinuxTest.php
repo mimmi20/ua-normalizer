@@ -107,6 +107,10 @@ final class NormalizeLinuxTest extends TestCase
                 'Mozilla/5.0 (X11; CrOS i686 4319.74.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.57 Safari/537.36',
                 'Mozilla/5.0 (CrOS i686 4319.74.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.57 Safari/537.36',
             ],
+            [
+                'Mozilla/5.0 (X11; Debian; Linux; rv:136.0) Gecko/20161509 Firefox/136.0',
+                'Mozilla/5.0 (Debian; Linux; rv:136.0) Gecko/20161509 Firefox/136.0',
+            ],
         ];
     }
 }
