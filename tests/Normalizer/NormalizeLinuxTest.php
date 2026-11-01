@@ -111,6 +111,10 @@ final class NormalizeLinuxTest extends TestCase
                 'Mozilla/5.0 (X11; Debian; Linux; rv:136.0) Gecko/20161509 Firefox/136.0',
                 'Mozilla/5.0 (Debian; Linux; rv:136.0) Gecko/20161509 Firefox/136.0',
             ],
+            [
+                'Mozilla/5.0 (X11; U; SunOS sun4u; en-US; rv:1.7.12) Gecko/20050922 Firefox/1.0.7',
+                'Mozilla/5.0 (X11; U; SunOS sun4u; en-US; rv:1.7.12) Gecko/20050922 Firefox/1.0.7',
+            ],
         ];
     }
 }
