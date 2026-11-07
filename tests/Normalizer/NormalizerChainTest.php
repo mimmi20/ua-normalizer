@@ -807,6 +807,10 @@ final class NormalizerChainTest extends TestCase
                 'Mozilla/5.0 (X11; FreeBSD amd64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36',
                 'Mozilla/5.0 (FreeBSD amd64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36',
             ],
+            [
+                'SonyL36h Build/10.3.1.A.2.67 stagefright/1.2 (Linux;Android 4.2.2)',
+                'SonyL36h stagefright/1.2 (Linux;Android 4.2.2)',
+            ],
         ];
     }
 }

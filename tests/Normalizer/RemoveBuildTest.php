@@ -115,6 +115,10 @@ final class RemoveBuildTest extends TestCase
                 'Dalvik/2.1.0 (Linux; U; Android 14; Z2450 Build/MyOS14.0.17_Z2450_EEA)',
                 'Dalvik/2.1.0 (Linux; U; Android 14; Z2450 Build/MyOS14.0.17_Z2450_EEA)',
             ],
+            [
+                'SonyL36h Build/10.3.1.A.2.67 stagefright/1.2 (Linux;Android 4.2.2)',
+                'SonyL36h stagefright/1.2 (Linux;Android 4.2.2)',
+            ],
         ];
     }
 }

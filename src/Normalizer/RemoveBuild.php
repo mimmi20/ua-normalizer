@@ -27,7 +27,7 @@ final class RemoveBuild implements NormalizerInterface
     public function normalize(string $userAgent): string | null
     {
         $userAgent = preg_replace(
-            '/;? +(?:build|bulid)\/(?!mocordroid|yunos|nook|aliyunos|manufacturer|r\d+|myos)[^)]+(; cronet| \[fban|; cyanogenmod| yunos|; windows)/i',
+            '/;? +(?:build|bulid)\/(?!mocordroid|yunos|nook|aliyunos|manufacturer|r\d+|myos)[^)]+(; cronet| \[fban|; cyanogenmod| yunos|; windows| stagefright)/i',
             '$1',
             $userAgent,
         );
