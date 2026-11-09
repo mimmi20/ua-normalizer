@@ -811,6 +811,14 @@ final class NormalizerChainTest extends TestCase
                 'SonyL36h Build/10.3.1.A.2.67 stagefright/1.2 (Linux;Android 4.2.2)',
                 'SonyL36h stagefright/1.2 (Linux;Android 4.2.2)',
             ],
+            [
+                'mozilla/5.0 (x11; u; linux x86_64; en-us; rv:1.8.0.1) gecko/20060313 fedora/1.5.0.1-9 firefox/1.5.0.1 pango-text',
+                'mozilla/5.0 (Linux x86_64; rv:1.8.0.1) gecko/20060313 fedora/1.5.0.1-9 firefox/1.5.0.1 pango-text',
+            ],
+            [
+                'Mozilla/5.0 (X11 Linux i686) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1150.1  Iron/20.0.1150.1 Safari/536.11',
+                'Mozilla/5.0 (Linux i686) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1150.1 Iron/20.0.1150.1 Safari/536.11',
+            ],
         ];
     }
 }
