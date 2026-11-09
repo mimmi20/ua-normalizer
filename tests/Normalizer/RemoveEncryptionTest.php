@@ -83,6 +83,10 @@ final class RemoveEncryptionTest extends TestCase
                 'Mozilla/5.0 (X11; U; Linux x86_64; ru-RU) AppleWebKit/533.3 (KHTML, like Gecko) Leechcraft/0.4.55-13-g2230d9f Safari/533.3',
                 'Mozilla/5.0 (X11; Linux x86_64; ru-RU) AppleWebKit/533.3 (KHTML, like Gecko) Leechcraft/0.4.55-13-g2230d9f Safari/533.3',
             ],
+            [
+                'mozilla/5.0 (x11; u; linux x86_64; en-us; rv:1.8.0.1) gecko/20060313 fedora/1.5.0.1-9 firefox/1.5.0.1 pango-text',
+                'mozilla/5.0 (x11; linux x86_64; en-us; rv:1.8.0.1) gecko/20060313 fedora/1.5.0.1-9 firefox/1.5.0.1 pango-text',
+            ],
         ];
     }
 }

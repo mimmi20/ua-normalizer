@@ -119,6 +119,14 @@ final class NormalizeLinuxTest extends TestCase
                 'Mozilla/5.0 (X11; FreeBSD amd64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36',
                 'Mozilla/5.0 (FreeBSD amd64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36',
             ],
+            [
+                'mozilla/5.0 (x11; u; linux x86_64; en-us; rv:1.8.0.1) gecko/20060313 fedora/1.5.0.1-9 firefox/1.5.0.1 pango-text',
+                'mozilla/5.0 (x11; u; Linux x86_64; en-us; rv:1.8.0.1) gecko/20060313 fedora/1.5.0.1-9 firefox/1.5.0.1 pango-text',
+            ],
+            [
+                'Mozilla/5.0 (X11 Linux i686) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1150.1  Iron/20.0.1150.1 Safari/536.11',
+                'Mozilla/5.0 (Linux i686) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1150.1  Iron/20.0.1150.1 Safari/536.11',
+            ],
         ];
     }
 }

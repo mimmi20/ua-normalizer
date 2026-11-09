@@ -29,6 +29,6 @@ final class RemoveEncryption implements NormalizerInterface
     {
         $userAgent = str_ireplace('; UEAINT', '', $userAgent);
 
-        return preg_replace('/; ?[IU];/', ';', $userAgent);
+        return preg_replace('/; ?[iIuU];/', ';', $userAgent);
     }
 }
