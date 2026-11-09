@@ -119,7 +119,7 @@ final class NormalizerChainTest extends TestCase
     {
         $normalizerChain = (new NormalizerFactory())->build();
 
-        self::assertSame(22, $normalizerChain->count());
+        self::assertSame(23, $normalizerChain->count());
         self::assertSame($expected, $normalizerChain->normalize($userAgent));
     }
 
@@ -818,6 +818,42 @@ final class NormalizerChainTest extends TestCase
             [
                 'Mozilla/5.0 (X11 Linux i686) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1150.1  Iron/20.0.1150.1 Safari/536.11',
                 'Mozilla/5.0 (Linux i686) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1150.1 Iron/20.0.1150.1 Safari/536.11',
+            ],
+            [
+                'Mozilla/5.0 (X11; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) Safari/538.1 debian/unstable (3.8.2-5) Epiphany/3.8.2',
+                'Mozilla/5.0 (Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) Safari/538.1 debian/unstable (3.8.2-5) Epiphany/3.8.2',
+            ],
+            [
+                'Mozilla/5.0 (X11; U; Gentoo x86_64; de-DE) Firefox/26.0',
+                'Mozilla/5.0 (Gentoo x86_64) Firefox/26.0',
+            ],
+            [
+                'NCSA_Mosaic/2.7b5 (X11;Linux 2.6.7 i686) libwww/2.12 modified',
+                'NCSA_Mosaic/2.7b5 (Linux 2.6.7 i686) libwww/2.12 modified',
+            ],
+            [
+                'Mozilla/5.0 (X11; U; NetBSD amd64; fr-FR; rv:1.8.0.7) Gecko/20061102 Firefox/1.5.0.7',
+                'Mozilla/5.0 (NetBSD amd64; rv:1.8.0.7) Gecko/20061102 Firefox/1.5.0.7',
+            ],
+            [
+                'RSSOwl/2.2.1.201312301316 (X11; U; en)',
+                'RSSOwl/2.2.1.201312301316',
+            ],
+            [
+                'Mozilla/5.0 (X11;) AppleWebKit/534.34 (KHTML, like Gecko) akregator/4.14.1 Safari/534.34',
+                'Mozilla/5.0 AppleWebKit/534.34 (KHTML, like Gecko) akregator/4.14.1 Safari/534.34',
+            ],
+            [
+                'Mozilla/5.0 (X11; ) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.34 Safari/534.24',
+                'Mozilla/5.0 AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.34 Safari/534.24',
+            ],
+            [
+                'Mozilla/5.0 (X11; U; Win95; en-US; rv:1.8.1) Gecko/20061125 BonEcho/2.0',
+                'Mozilla/5.0 (Win95; rv:1.8.1) Gecko/20061125 BonEcho/2.0',
+            ],
+            [
+                'Mozilla/5.0 (X11; U; DragonFly i386; de; rv:1.9.1) Gecko/20090720 Firefox/3.5.1',
+                'Mozilla/5.0 (DragonFly i386; rv:1.9.1) Gecko/20090720 Firefox/3.5.1',
             ],
         ];
     }
