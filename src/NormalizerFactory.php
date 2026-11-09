@@ -49,6 +49,7 @@ final class NormalizerFactory
                 new Normalizer\NormalizeWindowsNt(),
                 new Normalizer\RemoveSerialNumbers(),
                 new Normalizer\RemoveTransferEncoding(),
+                new Normalizer\RemoveX11(),
                 new Normalizer\NormalizeLinux(),
                 new Normalizer\RemoveBuild(),
                 new Normalizer\NormalizeBrandNames(),
